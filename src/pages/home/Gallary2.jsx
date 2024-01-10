@@ -89,11 +89,11 @@ const SwiperNavButtons = () => {
       {/* chevron-right */}
       <button
         onClick={() => swiper.slidePrev()}
-        className="absolute left-1 top-1/2 md:bottom-28 z-50 bg-slate-200 hover:bg-slate-400 rounded-full p-1 "
+        className="absolute left-1 bottom-16 md:bottom-32  z-50 bg-green-500 hover:bg-green-600 rounded-full p-1 "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-chevron-left"
+          class="icon icon-tabler icon-tabler-chevron-left text-white"
           width="20"
           height="20"
           viewBox="0 0 24 24"
@@ -109,11 +109,11 @@ const SwiperNavButtons = () => {
       </button>
       <button
         onClick={() => swiper.slideNext()}
-        className="absolute right-1 top-1/2  md:bottom-28 z-50 bg-slate-200 hover:bg-slate-400 rounded-full p-1 ml-2"
+        className="absolute right-1 bottom-16 md:bottom-32   z-50 bg-green-500 hover:bg-green-600 rounded-full p-1 ml-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-chevron-right"
+          class="icon icon-tabler icon-tabler-chevron-right  text-white"
           width="20"
           height="20"
           viewBox="0 0 24 24"
@@ -142,8 +142,8 @@ const Gallary2 = () => {
         চুইঝাল গ্যালারী
       </h1>
       <div id="gallary">
-        <div className="App relative">
-          <div className="App">
+        <div className="App ">
+          <div className="App relative">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={10}

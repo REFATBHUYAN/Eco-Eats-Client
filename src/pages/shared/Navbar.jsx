@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 
 const navigation = [
   { name: "পরিচিতি", href: "about" },
+  { name: "পার্থক্য", href: "difference" },
   { name: "ফিচারস", href: "features" },
   { name: "রিভিউ", href: "review" },
   { name: "জিজ্ঞাসা", href: "faq" },

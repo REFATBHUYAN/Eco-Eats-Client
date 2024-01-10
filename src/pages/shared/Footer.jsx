@@ -54,7 +54,8 @@ const Footer = () => {
                 </svg>
                 সোনাডাংগা, খুলনা ৯১০০
               </div>
-              <div className="link no-underline hover:text-green-600 flex gap-2 items-center">
+              <a href="mailto:ecoeats.bd@gmail.com"
+                  target="_blank" className="link no-underline hover:text-green-600 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-mail"
@@ -72,8 +73,9 @@ const Footer = () => {
                   <path d="M3 7l9 6l9 -6" />
                 </svg>
                 ecoeats.bd@gmail.com
-              </div>
-              <div className="link no-underline hover:text-green-600 flex gap-2 items-center">
+              </a>
+              <a href="tel:+8801753 492987"
+                  target="_blank" className="link no-underline hover:text-green-600 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-headset"
@@ -93,9 +95,9 @@ const Footer = () => {
                   <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
                 </svg>
                 +8801753 492987
-              </div>
+              </a>
             </nav>
-            <nav className="space-y-5 flex flex-col">
+            <nav className="space-y-5 flex flex-col mt-8 md:mt-0">
               <header className="font-bold text-slate-300">
                 সোশ্যাল মিডিয়া
               </header>
@@ -236,7 +238,7 @@ const Footer = () => {
           </div>
         </footer>
         <div className="divider bg-[#334155] h-[1px] my-0"></div>
-        <footer className="footer w-full flex justify-between  text-slate-400">
+        <footer className="footer w-full md:flex md:justify-between  text-slate-400">
           <aside className="flex gap-1 mt-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -256,7 +258,7 @@ const Footer = () => {
             </svg>
             <p>2017-2023 CyberSpace. All rights reserved.</p>
           </aside>
-          <div className="mt-8">
+          <div className="md:mt-8">
             <h1>Fueled By CyberSpace Digital</h1>
           </div>
         </footer>

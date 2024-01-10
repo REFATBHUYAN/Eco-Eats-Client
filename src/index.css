@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* :root {
-  --swiper-navigation-color: #E49A38;
+  --swiper-pagination-bullet-active: #22C55E;
   --swiper-navigation-size: 40px;
 } */
 /* @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Hind+Siliguri&display=swap'); */
@@ -16,6 +16,29 @@
 }
 .active {
   color: #16A34A;
+}
+
+
+/* option:hover,
+option:checked {
+  background-color: #16A34A;
+  
+} */
+
+/* option:hover {
+  background-color: #16A34A !important;
+  
+} */
+
+
+/* Change the color of the active pagination bullet */
+.swiper-pagination-bullet-active {
+  background-color: #22C55E !important;
+}
+.my-custom-bullet-active {
+  background-color: #ff0000; /* Set your desired background color */
+  width: 10px; /* Set your desired width */
+  height: 10px; /* Set your desired height */
 }
 
 @keyframes ping {

@@ -130,32 +130,19 @@ const Orders = () => {
     address,
     phone,
     delivaryType,
-    quantity:
-      chackedItem === 1
-        ? quantity1
-        : chackedItem === 2
-        ? quantity2
-        : chackedItem === 3
-        ? quantity3
-        : quantity4,
-    Food: selectedFood.title,
-    foodPrice: selectedFood.price,
-    TotalAmount:
-      selectedFood.price *
-        (chackedItem === 1
-          ? quantity1
-          : chackedItem === 2
-          ? quantity2
-          : chackedItem === 3
-          ? quantity3
-          : quantity4) +
-      (delivaryCharge === "৮০" ? 80 : 100),
+
+    Food: orderdFood,
+    totalPrice:
+      orderdFood.reduce(
+        (total, item) => total + item.quantity * item.price,
+        0
+      ) + (delivaryCharge === "৮০" ? 80 : 100),
   };
-  console.log(orderedData);
 
   const onOrderSubmit = async () => {
     try {
       const response = await fetch(
+        // "http://localhost:5000/send-email",
         "https://chui-jhal-server.vercel.app/send-email",
         {
           method: "POST",
@@ -200,16 +187,16 @@ const Orders = () => {
 
   return (
     <div id="order" className="pb-4 mt-28">
-      <h1 className="text-3xl font-bold text-center text-green-600 mb-3">
+      <h1 className="text-3xl font-bold text-center text-green-600 mb-12">
         অর্ডার করুন এখনই
       </h1>
-      <p className="text-center text-green-600 mb-12">
+      {/* <p className="text-center text-green-600 ">
         আপনার পছন্দের চুইঝাল ও তার পরিমান সিলেক্ট করুন
-      </p>
+      </p> */}
       <div>
         <div>
           <div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-8 w-full mx-auto">
+            <div className="flex flex-col md:flex-row gap-8 w-full mx-auto">
               <div className="  w-full md:w-1/2">
                 <h2 className="text-xl font-bold text-gray-900">
                   প্রোডাক্ট নির্বাচন করুন
@@ -231,32 +218,15 @@ const Orders = () => {
                             alt=""
                           />
                           <div>
-                            <h1 className={`font-semibold mb-4  ${
-                        food.checked ? "text-green-500" : ""
-                      }`}>{food.title}</h1>
+                            <h1
+                              className={`font-semibold mb-4  ${
+                                food.checked ? "text-green-500" : ""
+                              }`}
+                            >
+                              {food.title}
+                            </h1>
                             <p className="flex items-center font-semibold text-green-600">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-currency-taka text-green-600"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path d="M16.5 15.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                                <path d="M7 7a2 2 0 1 1 4 0v9a3 3 0 0 0 6 0v-.5" />
-                                <path d="M8 11h6" />
-                              </svg>
-                              <span className="mt-1.5">{food.priceInBd}</span>
+                              &#x9F3; {food.priceInBd}
                             </p>
                           </div>
                         </div>
@@ -307,9 +277,9 @@ const Orders = () => {
                     <div className="mt-1">
                       <input
                         type="text"
-                        name="company"
+                        name="name"
                         onChange={(e) => setName(e.target.value)}
-                        id="company"
+                        id="name"
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
                       />
                     </div>
@@ -347,10 +317,20 @@ const Orders = () => {
                         name="country"
                         onChange={handleDelivaryType}
                         autoComplete="country-name"
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                        className="block  w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
                       >
-                        <option value={"ঢাকার ভেতরে"}>Inside Dhaka</option>
-                        <option value={"ঢাকার বাহিরে"}>Outside Dhaka</option>
+                        <option
+                          className="hover:bg-green-700 "
+                          value={"ঢাকার ভেতরে"}
+                        >
+                          Inside Dhaka - ঢাকার ভেতর - ৳৮০{" "}
+                        </option>
+                        <option
+                          className="hover:bg-green-700 "
+                          value={"ঢাকার বাহিরে"}
+                        >
+                          Outside Dhaka - ঢাকার বাহিরে - ৳১০০{" "}
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -364,10 +344,10 @@ const Orders = () => {
                     </label>
                     <div className="mt-1">
                       <input
-                        type="text"
+                        type="tel"
                         name="phone"
                         onChange={(e) => setPhone(e.target.value)}
-                        id="city"
+                        id="phone"
                         autoComplete="address-level2"
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
                       />
@@ -409,29 +389,8 @@ const Orders = () => {
                                   </span>
                                 </h1>
                                 <p className="flex items-center font-semibold">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="icon icon-tabler icon-tabler-currency-taka"
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                  >
-                                    <path
-                                      stroke="none"
-                                      d="M0 0h24v24H0z"
-                                      fill="none"
-                                    />
-                                    <path d="M16.5 15.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                                    <path d="M7 7a2 2 0 1 1 4 0v9a3 3 0 0 0 6 0v-.5" />
-                                    <path d="M8 11h6" />
-                                  </svg>
                                   <span className="mt-1.5">
-                                    {food.priceInBd}
+                                    &#x9F3; {food.priceInBd}
                                   </span>
                                 </p>
                               </div>
@@ -531,6 +490,18 @@ const Orders = () => {
                                   >
                                     8
                                   </option>
+                                  <option
+                                    className="hover:bg-green-100"
+                                    value={9}
+                                  >
+                                    9
+                                  </option>
+                                  <option
+                                    className="hover:bg-green-100 hover:text-red-600"
+                                    value={10}
+                                  >
+                                    10
+                                  </option>
                                 </select>
                               </div>
                             </div>
@@ -549,7 +520,7 @@ const Orders = () => {
                   >
                     <h1 className="font-semibold">মোট</h1>
                     <h1 className="font-semibold text-green-600">
-                      ট{" "}
+                      &#x9F3;{" "}
                       {orderdFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
@@ -559,13 +530,13 @@ const Orders = () => {
                   <div className="flex justify-between items-center mt-6 py-2">
                     <h1 className="font-semibold">ডেলিভারী চার্জ</h1>
                     <h1 className="font-semibold text-green-600">
-                      ট {delivaryCharge === "৮০" ? 80 : 100}
+                      &#x9F3; {delivaryCharge === "৮০" ? 80 : 100}
                     </h1>
                   </div>
                   <div className="flex justify-between items-center border-dashed border-t-2 border-slate-300 pt-2">
                     <h1 className="font-semibold">সর্বমোট</h1>
                     <h1 className="font-semibold text-green-600">
-                      ট{" "}
+                      &#x9F3;{" "}
                       {orderdFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
@@ -579,10 +550,11 @@ const Orders = () => {
                     </h1>
                   </div>
                   <button
+                    // onClick={onOrderSubmit2}
                     onClick={onOrderSubmit}
                     // onClick={notify}
-                    disabled={name === "" || phone == "" ? true : false}
-                    className="rounded-[10px] bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full mt-4"
+                    disabled={orderdFood.length === 0 ? true : false}
+                    className="rounded-[10px] disabled:bg-slate-400 bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full mt-4"
                   >
                     <div className="flex gap-2 justify-center items-center">
                       <svg

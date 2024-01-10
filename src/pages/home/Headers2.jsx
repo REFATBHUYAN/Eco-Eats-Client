@@ -4,6 +4,7 @@ import { Player, BigPlayButton } from "video-react";
 import "video-react/dist/video-react.css"; // import css
 
 import ReactPlayer from "react-player";
+import { Link } from "react-scroll";
 
 const benefits = [
   "গরুর মাংস",
@@ -56,7 +57,7 @@ const Headers2 = () => {
             </ul>
             <div className="mt-10 flex flex-col gap-4">
               <div className="">
-                <div className="flex">
+                <div className="flex gap-1">
                   {[1, 2, 3, 4, 5].map((item) => (
                     <StarIcon className="text-amber-500 h-6 w-6"></StarIcon>
                   ))}
@@ -65,9 +66,12 @@ const Headers2 = () => {
                   ৩০,০০০ হাজারেরও অধিক গ্রাহকের কাছে আমরা চুই ঝাল পৌঁছে দিয়েছি!
                 </p>
               </div>
-              <a
-                href="#"
-                className="rounded-[10px] bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-52 "
+              <Link
+                to={"order"}
+                smooth={true}
+                activeClass="text-white"
+                spy={true}
+                className="rounded-[10px] cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-52 "
               >
                 <div className="flex gap-2 justify-center items-center">
                   
@@ -76,7 +80,7 @@ const Headers2 = () => {
                   অর্ডার করুন এখনই
                   </span>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="h-full  w-full  mx-auto flex-none rounded-[10px] object-cover shadow-xl lg:max-w-sm">
