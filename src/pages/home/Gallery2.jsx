@@ -16,8 +16,8 @@ import "lightgallery/css/lg-thumbnail.css";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 // import LightGallery from 'lightgallery/react';
 // import { LightGallerySettings } from 'lightgallery/lg-settings';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgVideo from 'lightgallery/plugins/video';
+import lgZoom from "lightgallery/plugins/zoom";
+import lgVideo from "lightgallery/plugins/video";
 
 const images = [
   {
@@ -104,75 +104,46 @@ const SwiperNavButtons = () => {
   );
 };
 
-const Gallery = () => {
+const Gallery2 = () => {
   const onInit = () => {
     console.log("lightGallery has been initialized");
   };
   const onBeforeSlide = (detail) => {
     const { index, prevIndex } = detail;
     console.log(index, prevIndex);
-};
+  };
 
   return (
     <div className="">
-      <h1 className="text-3xl font-bold text-center text-green-500 my-12">
+      <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         চুইঝাল গ্যালারী
       </h1>
       <div id="gallery">
         <div className="App">
-          <div className="App relative">
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={10}
-              slidesPerView={2}
-              loop={true}
-              pagination={{
-                clickable: true,
-              }}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 10,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 4,
-                  spaceBetween: 20,
-                },
-              }}
-              //   slidesPerView="auto"
+          <div className="App ">
+            <LightGallery
+              onInit={onInit}
+              speed={500}
+              // plugins={[lgThumbnail, lgZoom]}
+              plugins={[lgThumbnail, lgZoom]}
+              mode="lg-fade"
+              elementClassNames="flex flex-wrap gap-4  "
+              onBeforeSlide={onBeforeSlide}
+              
+              autoplay={true}
+              pause= {3000}
+
             >
               {images.map((image) => (
-                <SwiperSlide key={image.id} >
-                  <LightGallery
-                    onInit={onInit}
-                    speed={500}
-                    // plugins={[lgThumbnail, lgZoom]}
-                    plugins={[lgThumbnail, lgZoom, lgVideo]} 
-                    mode="lg-fade"
-                    elementClassNames="custom-wrapper-class"
-                onBeforeSlide={onBeforeSlide}
-                  >
-                    <a href={image.url} className="mx-auto">
-                      <img
-                        className="w-full h-full rounded-xl object-cover aspect-square"
-                        alt={image.id}
-                        src={image.url}
-                      />
-                    </a>
-                  </LightGallery>
-                </SwiperSlide>
+                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto">
+                  <img
+                    className="md:w-72 w-36 md:h-72 h-36 rounded-xl "
+                    // alt={image.id}
+                    src={image.url}
+                  />
+                </a>
               ))}
-              
-              <SwiperNavButtons />
-            </Swiper>
+            </LightGallery>
           </div>
         </div>
       </div>
@@ -180,4 +151,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default Gallery2;

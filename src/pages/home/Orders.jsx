@@ -1,7 +1,9 @@
-import toast, { Toaster } from "react-hot-toast";
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, selectCart, updateQuantity } from "../../Redux/cartSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Orders = () => {
   const cart = useSelector(selectCart);
@@ -45,7 +47,7 @@ const Orders = () => {
     deliveryMethods[0]
   );
 
-  console.log(foodDatas);
+ 
 
   const selectedFood = foodDatas.find((food) => food.id === checkedItem);
 
@@ -55,14 +57,7 @@ const Orders = () => {
       ? setdeliveryCharge("৮০")
       : setdeliveryCharge("১০০");
   };
-  console.log(deliveryType);
-
-  // const notify = () => toast.success('Congratulations! আপনার অর্ডার সম্পন্ন হয়েছে',{duration: 4000,
-  //   position: 'top-right', style: {
-  //     borderRadius: '10px',
-  //     background: '#333',
-  //     color: '#fff',
-  //   },});
+  
 
   const orderedData = {
     name,
@@ -77,39 +72,42 @@ const Orders = () => {
         0
       ) + (deliveryCharge === "৮০" ? 80 : 100),
   };
+  console.log(orderedData)
 
   const onOrderSubmit = async () => {
-    try {
-      const response = await fetch(
-        // "http://localhost:5000/send-email",
-        "https://chui-jhal-server.vercel.app/send-email",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(orderedData),
-        }
-      );
+    if ((name === "") | (address === "") | (phone === "")) {
+      return toast.error("আপনার নাম, ঠিকানা এবং ফোন নাম্বার সঠিক ভাবে দিন। ধন্যবাদ !", {
+        position: "top-right",
+        autoClose: 5000,
+        theme: "dark",
+      });
+    } else {
+      try {
+        const response = await fetch(
+          // "http://localhost:5000/send-email",
+          "https://chui-jhal-server.vercel.app/send-email",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderedData),
+          }
+        );
 
-      if (response.ok) {
-        toast.success("আপনার অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
-          duration: 5000,
-          position: "top-center",
-          style: {
-            borderRadius: "15px",
-            background: "#0f172a",
-            color: "#fff",
-          },
-          iconTheme: {
-            primary: "#22C55E",
-          },
-        });
-      } else {
-        console.error("Failed to send email:", await response.text());
+        if (response.ok) {
+          
+          toast.success("আপনার অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
+            position: "top-right",
+            autoClose: 5000,
+            theme: "dark",
+          });
+        } else {
+          console.error("Failed to send email:", await response.text());
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
       }
-    } catch (error) {
-      console.error("Error sending email:", error);
     }
   };
 
@@ -135,18 +133,20 @@ const Orders = () => {
       <div>
         <div>
           <div>
-            <div className="flex flex-col md:flex-row gap-8 w-full mx-auto">
-              <div className="w-full md:w-1/2">
+            <div className="flex flex-col lg:flex-row gap-8 w-full mx-auto">
+              <div className="w-full lg:w-1/2">
                 <h2 className="text-xl font-bold text-slate-600">
                   প্রোডাক্ট নির্বাচন করুন
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mx-auto mt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mx-auto mt-4">
                   {foodDatas.map((food) => (
                     <div
                       onClick={() => handleAddToCart(food.id)}
                       key={food.id}
                       className={`block w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
-                        food.checked ? "ring-green-500 ring-2" : "ring-slate-200 ring-1"
+                        food.checked
+                          ? "ring-green-500 ring-2"
+                          : "ring-slate-200 ring-1"
                       }`}
                     >
                       <div className="flex justify-between w-full">
@@ -159,7 +159,9 @@ const Orders = () => {
                           <div>
                             <h1
                               className={`font-semibold mb-6  ${
-                                food.checked ? "text-green-500" : "text-slate-600"
+                                food.checked
+                                  ? "text-green-500"
+                                  : "text-slate-600"
                               }`}
                             >
                               {food.title}
@@ -295,7 +297,7 @@ const Orders = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-1/2 mt-8 md:mt-0">
+              <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
                 <h2 className="text-xl font-bold text-slate-600">
                   অর্ডার সামারি
                 </h2>
@@ -522,7 +524,8 @@ const Orders = () => {
               </div>
             </div>
           </div>
-          <Toaster />
+          {/* <Toaster /> */}
+          <ToastContainer />
         </div>
       </div>
     </div>

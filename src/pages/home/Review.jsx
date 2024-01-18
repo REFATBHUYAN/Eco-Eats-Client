@@ -154,7 +154,7 @@ const Review = () => {
                 <SwiperSlide key={review.id}>
                   <div>
                     <div className=" h-60 w-full bg-slate-100 rounded-xl p-9">
-                      <p className="text-slate-400 mb-5">
+                      <p className="text-slate-400 mb-5 line-clamp-2">
                         {review.description}
                       </p>
                       <div className="flex justify-between items-center">

@@ -23,81 +23,110 @@ const benefits = [
 
 const Headers = () => {
   return (
-      <div id="about" className="mx-auto max-w-7xl">
-        <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
-          <div className="h-full w-full md:hidden block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
-            />
-          </div>
-          <div className="w-full mx-auto flex-auto">
-            <h2 className="text-3xl font-bold text-green-500 sm:text-4xl">
-              খুলনার বিখ্যাত চুইঝাল!
-            </h2>
-            <p className="mt-6 text-xl leading-8 text-slate-500">
-              দৈনিক একঘেয়েমি রান্না খেতে খেতে বিরক্ত? রান্নায় এমন কিছু ব্যবহার
-              করতে চান যেন রান্নার স্বাদ হয় আরো স্পেশাল? প্রতিদিনের রান্নায়
-              টুইস্ট আনতে রান্নায় ব্যবহার করুন “চুইঝাল”। ঝাঁঝালো ঝাঁঝ যুক্ত এই
-              মসলা রান্নায় মিশে দারুন স্বাদ তৈরি করে। যেকোন রান্নায় যোগ করে এক
-              অতুলনীয় ফ্লেভার। বিভিন্ন মুখরোচক খাবারকে আরো বেশি মুখরোচক করে
-              তোলে এই চুইঝাল। যেসব রান্নায় ব্যবহার করা যায়...
-            </p>
-            <ul
-              role="list"
-              className="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-base leading-7 sm:grid-cols-3"
-            >
-              {benefits.map((benefit) => (
-                <li
-                  key={benefit}
-                  className="flex gap-x-3 text-xl text-slate-400"
-                >
-                  <CheckCircleIcon
-                    className="h-7 w-5 flex-none  "
-                    aria-hidden="true"
-                  />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 flex flex-col gap-4">
-              <div className="">
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <StarIcon className="text-amber-500 h-6 w-6"></StarIcon>
-                  ))}
-                </div>
-                <p className="w-56 h-11 text-amber-500 text-sm font-medium leading-normal mt-2">
-                  ৩০,০০০ হাজারেরও অধিক গ্রাহকের কাছে আমরা চুই ঝাল পৌঁছে দিয়েছি!
-                </p>
+    <div id="about" className="mx-auto max-w-7xl">
+      <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
+        <div className="h-full w-full md:hidden block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
+          />
+        </div>
+        <div className="w-full mx-auto flex-auto">
+          <h2 className="text-3xl font-bold text-green-500 sm:text-4xl">
+            খুলনার বিখ্যাত চুইঝাল!
+          </h2>
+          <p className="mt-6 text-xl leading-8 text-slate-500">
+            দৈনিক একঘেয়েমি রান্না খেতে খেতে বিরক্ত? রান্নায় এমন কিছু ব্যবহার
+            করতে চান যেন রান্নার স্বাদ হয় আরো স্পেশাল? প্রতিদিনের রান্নায়
+            টুইস্ট আনতে রান্নায় ব্যবহার করুন “চুইঝাল”। ঝাঁঝালো ঝাঁঝ যুক্ত এই
+            মসলা রান্নায় মিশে দারুন স্বাদ তৈরি করে। যেকোন রান্নায় যোগ করে এক
+            অতুলনীয় ফ্লেভার। বিভিন্ন মুখরোচক খাবারকে আরো বেশি মুখরোচক করে তোলে
+            এই চুইঝাল। যেসব রান্নায় ব্যবহার করা যায়...
+          </p>
+          <ul
+            role="list"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-base leading-7 sm:grid-cols-3"
+          >
+            {benefits.map((benefit) => (
+              <li key={benefit} className="flex gap-x-3 text-xl text-slate-400">
+                <CheckCircleIcon
+                  className="h-7 w-5 flex-none  "
+                  aria-hidden="true"
+                />
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex flex-col gap-4">
+            <div className="">
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((item) => (
+                  
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-star-filled text-amber-500"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                      stroke-width="0"
+                      fill="currentColor"
+                    />
+                  </svg>
+                ))}
               </div>
-              <Link
-                to={"order"}
-                smooth={true}
-                offset={-100}
-                activeClass="text-white"
-                spy={true}
-                className="rounded-xl cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center w-56"
-              >
-                <div className="flex gap-2 justify-center items-center">
-                  <img className="h-6 w-6" src="/icons/orders.svg" alt="" />
-                  <span className="pt-[4px] text-xl">
-                  এখনই অর্ডার করুন
-                  </span>
-                </div>
-              </Link>
+              <p className="w-56 h-11 text-amber-500 text-sm font-medium leading-normal mt-2">
+                ৩০,০০০ হাজারেরও অধিক গ্রাহকের কাছে আমরা চুই ঝাল পৌঁছে দিয়েছি!
+              </p>
             </div>
-          </div>
-          <div className="h-full w-full hidden md:block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
-            />
+            <Link
+              to={"order"}
+              smooth={true}
+              offset={-100}
+              activeClass="text-white"
+              spy={true}
+              className="rounded-xl cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center w-56"
+            >
+              <div className="flex gap-2 justify-center items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-shopping-bag "
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+                  <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+                </svg>
+                <span className="pt-[4px] text-xl">এখনই অর্ডার করুন</span>
+              </div>
+            </Link>
           </div>
         </div>
+        <div className="h-full w-full hidden md:block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
+          <ReactPlayer
+            width="100%"
+            height="100%"
+            url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
+          />
+        </div>
       </div>
+    </div>
   );
 };
 

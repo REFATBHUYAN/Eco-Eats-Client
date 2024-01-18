@@ -21,11 +21,11 @@ const Footer = () => {
                 ইকো<span className="text-green-400">ইটস</span>
               </span>
             </Link>
-            <p className="w-[350px] md:w-96 leading-6">
+            <p className="w-[350px] lg:w-96 leading-6">
               ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে। অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ করে চলেছি অবিরাম।
             </p>
           </aside>
-          <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
             <nav className="space-y-5 flex flex-col">
               <header className="font-bold text-slate-300 ">
                 আমাদের ঠিকানা
@@ -93,7 +93,7 @@ const Footer = () => {
                 +8801753492987
               </a>
             </nav>
-            <nav className="space-y-5 flex flex-col mt-8 md:mt-0">
+            <nav className="space-y-5 flex flex-col mt-8 lg:mt-0">
               <header className="font-bold text-slate-300">
                 সোশ্যাল মিডিয়া
               </header>
@@ -234,11 +234,11 @@ const Footer = () => {
           </div>
         </footer>
         <div className="divider bg-[#334155] h-[1px] my-0"></div>
-        <footer className="footer w-full md:flex md:justify-between  text-slate-400">
+        <footer className="footer w-full lg:flex lg:justify-between  text-slate-400">
           <aside className="flex gap-1 mt-8">
             <p>&copy; 2023 EcoEats. All rights reserved.</p>
           </aside>
-          <div className="-mt-4 md:mt-8">
+          <div className="-mt-4 lg:mt-8">
             <h1>Fueled By <a target="_blank" href="https://www.facebook.com/cyberspace.digital">CyberSpace Digital</a></h1>
           </div>
         </footer>

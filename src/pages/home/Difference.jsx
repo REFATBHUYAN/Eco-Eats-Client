@@ -22,26 +22,26 @@ const Difference = () => {
       <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         চুইঝালের পার্থক্যসমূহ
       </h1>
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="mb-4 md:mb-0">
-          <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left md:text-right mb-3">গাছ চুইঝাল</h1>
-          <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-4">
+        <div className="mb-4 lg:mb-0">
+          <h1 className="font-semibold hidden lg:block text-slate-600 text-xl text-left lg:text-right mb-3">গাছ চুইঝাল</h1>
+          <div className="flex flex-col lg:flex-row gap-4">
             <img
-              className="md:w-72 md:hidden block w-full rounded-xl aspect-auto "
+              className="lg:w-72 lg:hidden block w-full rounded-xl aspect-auto "
               src="/ecoeats/product/product-gach-chui.jpg"
               alt=""
             />
             <img
-              className="md:w-72 hidden md:block w-full rounded-xl aspect-auto "
+              className="lg:w-72 hidden lg:block w-full rounded-xl aspect-auto "
               src="/ecoeats/diff/diff-gach-chui.jpg"
               alt=""
             />
-            <h1 className="font-semibold md:hidden block text-slate-600 text-xl text-center md:text-right ">
+            <h1 className="font-semibold lg:hidden block text-slate-600 text-xl text-center lg:text-right ">
               গাছ চুইঝাল
             </h1>
-            <div className="md:w-80 w-full">
+            <div className="lg:w-80 w-full">
               {reasons1.map((reason) => (
-                <div className="text-left md:text-right py-2 border-t text-slate-400 border-slate-200">
+                <div className="text-left lg:text-right py-2 border-t text-slate-400 border-slate-200">
                   {reason}
                 </div>
               ))}
@@ -49,15 +49,15 @@ const Difference = () => {
           </div>
         </div>
         <div>
-          <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left mb-3">এটো চুইঝাল</h1>
-          <div className="flex flex-col md:flex-row gap-4">
+          <h1 className="font-semibold hidden lg:block text-slate-600 text-xl text-left mb-3">এটো চুইঝাল</h1>
+          <div className="flex flex-col lg:flex-row gap-4">
             <img
-              className="md:w-72 md:hidden block w-full rounded-xl aspect-auto "
+              className="lg:w-72 lg:hidden block w-full rounded-xl aspect-auto "
               src="/ecoeats/product/product-eto-chui.jpg"
               alt=""
             />
-            <h1 className="font-semibold md:hidden block text-slate-600 text-xl text-center">এটো চুইঝাল</h1>
-            <div className="md:w-80 w-full">
+            <h1 className="font-semibold lg:hidden block text-slate-600 text-xl text-center">এটো চুইঝাল</h1>
+            <div className="lg:w-80 w-full">
               {reasons2.map((reason) => (
                 <div className="text-left py-2 border-t text-slate-400 border-slate-200">
                   {reason}
@@ -66,7 +66,7 @@ const Difference = () => {
               ))}
             </div>
             <img
-              className="md:w-72 hidden md:block w-full rounded-xl aspect-auto "
+              className="lg:w-72 hidden lg:block w-full rounded-xl aspect-auto "
               src="/ecoeats/diff/diff-eto-chui.jpg"
               alt=""
             />

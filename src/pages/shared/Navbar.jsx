@@ -18,8 +18,6 @@ const Navbar = () => {
 
   const [showBorder, setShowBorder] = useState(false);
 
-  
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -48,7 +46,7 @@ const Navbar = () => {
           className={`mx-auto flex max-w-7xl items-center justify-between gap-x-6 pt-4 pb-4 px-4 `}
           aria-label="Global"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex ">
             <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
               <img
                 className="block h-8 w-auto"
@@ -60,7 +58,7 @@ const Navbar = () => {
               </div>
             </a>
           </div>
-          <div className="flex flex-1 items-center justify-end gap-x-6">
+          <div className="flex flex-1 lg:flex items-center justify-end gap-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -83,7 +81,23 @@ const Navbar = () => {
               className="rounded-xl cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center"
             >
               <div className="flex gap-2 justify-center items-center">
-                <img className="h-5 w-5 -pt-2" src="/icons/orders.svg" alt="" />
+                
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-shopping-bag "
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+                  <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+                </svg>
                 <span className="pt-[4px]">অর্ডার করুন</span>
               </div>
             </Link>
@@ -91,11 +105,22 @@ const Navbar = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-600"
+              // className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-600"
+              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-600 ${mobileMenuOpen ? 'hidden': ''}`}
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open Main Menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+             
+            </button>
+            <button
+              type="button"
+              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-600 ${mobileMenuOpen ? '': 'hidden'}`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Open Main Menu</span>
+              
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
         </nav>
@@ -107,24 +132,16 @@ const Navbar = () => {
         >
           <div className="fixed inset-0 z-10" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10">
-            <div className="flex items-center gap-x-6">
+            <div className="flex justify-between gap-x-6">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">ইকোইটস</span>
-                <img
-                  className="h-8 w-auto"
-                  src=""
-                  alt=""
-                />
+                <img className="h-8 w-auto" src="" alt="" />
               </a>
-              <a
-                href="#"
-                className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign up
-              </a>
+              
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-slate-600"
+                // className="-m-2.5 rounded-md p-2.5 text-slate-600"
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-600"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close Menu</span>
@@ -136,27 +153,20 @@ const Navbar = () => {
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
                     <Link
-                    key={item.name}
-                    activeClass="active"
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    smooth={true}
-                    offset={-100}
-                    spy={true}
+                      key={item.name}
+                      activeClass="active"
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      smooth={true}
+                      offset={-100}
+                      spy={true}
                       className="-mx-3 hover:text-green-500 block cursor-pointer rounded-xl px-3 py-2 text-base font-semibold leading-7 text-slate-600 hover:bg-slate-50"
                     >
                       {item.name}
                     </Link>
                   ))}
                 </div>
-                {/* <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-xl px-3 py-2.5 text-base font-semibold leading-7 text-slate-600 hover:bg-slate-50"
-                  >
-                    Log in
-                  </a>
-                </div> */}
+                
               </div>
             </div>
           </Dialog.Panel>
