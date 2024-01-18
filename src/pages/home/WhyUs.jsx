@@ -9,7 +9,7 @@ const WhyUs = () => {
           কেন আমরাই সেরা
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="group flex cursor-pointer flex-col justify-center items-center gap-3 text-slate-400 ">
+          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
                 className="h-20 w-20 rounded-xl bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
@@ -25,7 +25,7 @@ const WhyUs = () => {
               আমাদের কাছেই পাচ্ছেন সেরা স্বাদ যুক্ত খুলনার দেশীয় চুইঝাল
             </p>
           </div>
-          <div className="group flex cursor-pointer flex-col justify-center items-center gap-3 text-slate-400 ">
+          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
                 className="h-20 w-20 rounded-xl bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
@@ -42,7 +42,7 @@ const WhyUs = () => {
               কোয়ালিটির চুইঝাল
             </p>
           </div>
-          <div className="group flex cursor-pointer flex-col justify-center items-center gap-3 text-slate-400 ">
+          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
                 className="h-20 w-20 rounded-xl bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
@@ -59,7 +59,7 @@ const WhyUs = () => {
               সুবিধা
             </p>
           </div>
-          <div className="group flex cursor-pointer flex-col justify-center items-center gap-3 text-slate-400 ">
+          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
                 className="h-20 w-20 rounded-xl bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
