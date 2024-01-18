@@ -32,12 +32,12 @@ const MainLayout = () => {
   }, []);
 
   const borderClasses = showBorder
-    ? " shadow-md ease-in duration-100"
+    ? "shadow-md ease-in duration-100"
     : "border-transparent border-red-200 hidden";
 
   return (
     <>
-      <div className="max-w-full bg-white dark:bg-slate-900 overflow-hidden relative mx-auto">
+      <div className="max-w-full bg-white overflow-hidden relative mx-auto">
         <div className="fixed z-50 top-0 w-full">
           <Navbar></Navbar>
         </div>
@@ -51,7 +51,7 @@ const MainLayout = () => {
         <Footer></Footer>
         <button
           onClick={scrollToTop}
-          className={`float-right  fixed cursor-pointer z-30  right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 shadow-lg ${borderClasses}`}
+          className={`float-right  fixed cursor-pointer z-30  right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-xl bg-slate-700 hover:bg-green-500 shadow-xl ${borderClasses}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

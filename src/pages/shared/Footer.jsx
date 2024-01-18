@@ -5,7 +5,7 @@ import { BiHeart } from "react-icons/bi";
 
 const Footer = () => {
   return (
-    <div className="w-full mx-auto pb-10 bg-slate-900 dark:bg-slate-950 relative">
+    <div id="contact" className="w-full mx-auto pb-10 bg-slate-900 relative">
       <Container>
         <footer className="footer py-16 text-slate-400  rounded-md">
           <aside>
@@ -14,20 +14,15 @@ const Footer = () => {
               className="normal-case text-xl flex items-center gap-2"
             >
               <img
-                className="block h-10 w-10"
-                src="/favicon.ico"
-                alt="Your Company"
+                className="block h-8 w-auto"
+                src="/ecoeats/site-icon/ecoeats-icon.svg"
               />
-              <span className="text-green-600 hidden md:block text-4xl">
-                ইকোইটস
+              <span className="text-2xl font-bold text-green-500">
+                ইকো<span className="text-green-400">ইটস</span>
               </span>
             </Link>
             <p className="w-[350px] md:w-96 leading-6">
-              ২০২০ সাল থেকে ইকোইটস সর্বপ্রথম এটো এবং গাছ চুইঝাল এর নাম প্রচলন
-              করে অনলাইন দুনিয়ায় বিক্রি শুরু করে। এখন এটাকে কপি করে অনেকে অনেক
-              ভাবে ব্যবহার করছে। পাশাপাশি খুলনার দেশি চুইঝালের কথা বলে বিক্রি
-              হচ্ছে পাহাড়ি এবং উত্তরাঞ্চলের চুইঝাল। কিন্তু জিনিস যেটা ভালো দাম
-              তার একটু বেশিই, কারণ এর পিছনে শ্রমও যায় বেশি।
+              ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে। অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ করে চলেছি অবিরাম।
             </p>
           </aside>
           <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5">
@@ -35,27 +30,28 @@ const Footer = () => {
               <header className="font-bold text-slate-300 ">
                 আমাদের ঠিকানা
               </header>
-              <div className="link no-underline hover:text-green-600 flex gap-2 items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-map-pin"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                </svg>
-                সোনাডাংগা, খুলনা ৯১০০
-              </div>
+              <a href="https://maps.app.goo.gl/iu8fEDnuj1koBqLs5" 
+                target="_blank" className="link no-underline hover:text-green-500 flex gap-2 items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-map-pin"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                  </svg>
+                  সোনাডাংগা, খুলনা ৯১০০
+              </a>
               <a href="mailto:ecoeats.bd@gmail.com"
-                  target="_blank" className="link no-underline hover:text-green-600 flex gap-2 items-center">
+                  target="" className="link no-underline hover:text-green-500 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-mail"
@@ -74,8 +70,8 @@ const Footer = () => {
                 </svg>
                 ecoeats.bd@gmail.com
               </a>
-              <a href="tel:+8801753 492987"
-                  target="_blank" className="link no-underline hover:text-green-600 flex gap-2 items-center">
+              <a href="tel:+8801753492987"
+                  target="" className="link no-underline hover:text-green-500 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-headset"
@@ -94,7 +90,7 @@ const Footer = () => {
                   <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
                   <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
                 </svg>
-                +8801753 492987
+                +8801753492987
               </a>
             </nav>
             <nav className="space-y-5 flex flex-col mt-8 md:mt-0">
@@ -105,7 +101,7 @@ const Footer = () => {
                 <a
                   href="https://www.facebook.com/groups/ecoeats"
                   target="_blank"
-                  className="h-10 cursor-pointer w-10 flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white"
+                  className="h-10 cursor-pointer w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +125,7 @@ const Footer = () => {
                 <a
                   href="https://www.facebook.com/ecoeatsbangladesh"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +146,7 @@ const Footer = () => {
                 <a
                   href="https://m.me/ecoeatsbangladesh"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +168,7 @@ const Footer = () => {
                 <a
                   href="https://wa.me/+8801753492987"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -193,8 +189,8 @@ const Footer = () => {
                 </a>
                 <a
                   href="mailto:ecoeats.bd@gmail.com"
-                  target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white"
+                  target=""
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +209,7 @@ const Footer = () => {
                     <path d="M3 7l9 6l9 -6" />
                   </svg>
                 </a>
-                <a href="tel:+8801753 492987" target="_blank" className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-[10px] bg-slate-700 hover:bg-green-600 hover:text-white">
+                <a href="tel:+8801753492987" target="" className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-headset"
@@ -240,26 +236,10 @@ const Footer = () => {
         <div className="divider bg-[#334155] h-[1px] my-0"></div>
         <footer className="footer w-full md:flex md:justify-between  text-slate-400">
           <aside className="flex gap-1 mt-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-copyright"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-              <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
-            </svg>
-            <p>2017-2023 CyberSpace. All rights reserved.</p>
+            <p>&copy; 2023 EcoEats. All rights reserved.</p>
           </aside>
-          <div className="md:mt-8">
-            <h1>Fueled By CyberSpace Digital</h1>
+          <div className="-mt-4 md:mt-8">
+            <h1>Fueled By <a target="_blank" href="https://www.facebook.com/cyberspace.digital">CyberSpace Digital</a></h1>
           </div>
         </footer>
       </Container>

@@ -3,73 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, selectCart, updateQuantity } from "../../Redux/cartSlice";
 
-const foodItems = [
-  {
-    id: 1,
-    checked: true,
-    title: "গাছ চুইঝাল",
-    weight: "৫০০ গ্রাম",
-    price: 360,
-    priceInBd: "৩৬০",
-    quantity: 1,
-    photo:
-      "https://scontent.fdac5-2.fna.fbcdn.net/v/t39.30808-6/411071827_864466802353286_1798985628233004209_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=_-K7JzHYGjwAX_CqnKT&_nc_ht=scontent.fdac5-2.fna&oh=00_AfCGyJqvQFORraW4L-ffAcW_1vBUpJMEdPpF3R6Y1A4UVA&oe=65878ABC",
-  },
-  {
-    id: 2,
-    checked: false,
-    title: "গাছ চুইঝাল",
-    weight: "১ কেজি",
-    price: 700,
-    priceInBd: "৭০০",
-    quantity: 1,
-    photo:
-      "https://scontent.fdac5-2.fna.fbcdn.net/v/t39.30808-6/411437365_863795805753719_8755839441510138374_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=xtKXX4OArnsAX-0edYW&_nc_ht=scontent.fdac5-2.fna&oh=00_AfA85Dzd2fen73UUo7RYtSsDUsqx35ulrZAyqNcOtA1gmg&oe=6587D7FC",
-  },
-  {
-    id: 3,
-    checked: false,
-    title: "এটো চুইঝাল",
-    weight: "৫০০ গ্রাম",
-    price: 360,
-    priceInBd: "৩৬০",
-    quantity: 1,
-    photo:
-      "https://scontent.fdac5-2.fna.fbcdn.net/v/t39.30808-6/411131277_862384709228162_7122716054042689418_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=fmJ3Tnb0OxcAX_-wxAy&_nc_ht=scontent.fdac5-2.fna&oh=00_AfAxQK-bUlQjxzzGriaDxYXa3Zq9QJ6mz6svJi2VIQP5Vw&oe=658846F7",
-  },
-  {
-    id: 4,
-    checked: false,
-    title: "এটো চুইঝাল",
-    weight: "১ কেজি",
-    price: 700,
-    priceInBd: "৭০০",
-    quantity: 1,
-    photo:
-      "https://scontent.fdac5-2.fna.fbcdn.net/v/t39.30808-6/409009017_858145352985431_383209555235447952_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=dd5e9f&_nc_ohc=F6KUTcIA6ZoAX8fspDM&_nc_ht=scontent.fdac5-2.fna&oh=00_AfA_mfQ0HCEUFaiGXJ2wlnEanCo97b6vaHQW5uouTMp9MA&oe=6587B32D",
-  },
-];
-const products = [
-  {
-    id: 1,
-    title: "Basic Tee",
-    href: "#",
-    price: "$32.00",
-    color: "Black",
-    size: "Large",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/checkout-page-02-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-  },
-  // More products...
-];
-
 const Orders = () => {
   const cart = useSelector(selectCart);
   let foodDatas = cart.items;
-  let orderdFood = foodDatas.filter((food) => food.checked === true);
+  let orderedFood = foodDatas.filter((food) => food.checked === true);
   // const [foodDatas, setFoodDatas] = useState(cart.items);
-  const [chackedItem, setChackedItem] = useState(1);
+  const [checkedItem, setcheckedItem] = useState(1);
   const [totalItem, setTotalItem] = useState(1);
   const [selectQuantity, setSelectQuantity] = useState(null);
   // const [setQuantity, setQuantityof] = useState(1);
@@ -77,8 +16,8 @@ const Orders = () => {
   const [quantity2, setQuantityof2] = useState(1);
   const [quantity3, setQuantityof3] = useState(1);
   const [quantity4, setQuantityof4] = useState(1);
-  const [delivaryType, setDelivaryType] = useState("ঢাকার ভেতরে");
-  const [delivaryCharge, setDelivaryCharge] = useState("৮০");
+  const [deliveryType, setdeliveryType] = useState("ঢাকার ভেতরে");
+  const [deliveryCharge, setdeliveryCharge] = useState("৮০");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
@@ -108,15 +47,15 @@ const Orders = () => {
 
   console.log(foodDatas);
 
-  const selectedFood = foodDatas.find((food) => food.id === chackedItem);
+  const selectedFood = foodDatas.find((food) => food.id === checkedItem);
 
-  const handleDelivaryType = (e) => {
-    setDelivaryType(e.target.value);
+  const handledeliveryType = (e) => {
+    setdeliveryType(e.target.value);
     event.target.value === "ঢাকার ভেতরে"
-      ? setDelivaryCharge("৮০")
-      : setDelivaryCharge("১০০");
+      ? setdeliveryCharge("৮০")
+      : setdeliveryCharge("১০০");
   };
-  console.log(delivaryType);
+  console.log(deliveryType);
 
   // const notify = () => toast.success('Congratulations! আপনার অর্ডার সম্পন্ন হয়েছে',{duration: 4000,
   //   position: 'top-right', style: {
@@ -129,14 +68,14 @@ const Orders = () => {
     name,
     address,
     phone,
-    delivaryType,
+    deliveryType,
 
-    Food: orderdFood,
+    Food: orderedFood,
     totalPrice:
-      orderdFood.reduce(
+      orderedFood.reduce(
         (total, item) => total + item.quantity * item.price,
         0
-      ) + (delivaryCharge === "৮০" ? 80 : 100),
+      ) + (deliveryCharge === "৮০" ? 80 : 100),
   };
 
   const onOrderSubmit = async () => {
@@ -154,13 +93,16 @@ const Orders = () => {
       );
 
       if (response.ok) {
-        toast.success("Congratulations! আপনার অর্ডার সম্পন্ন হয়েছে", {
-          duration: 4000,
-          position: "top-right",
+        toast.success("আপনার অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
+          duration: 5000,
+          position: "top-center",
           style: {
-            borderRadius: "10px",
-            background: "#333",
+            borderRadius: "15px",
+            background: "#0f172a",
             color: "#fff",
+          },
+          iconTheme: {
+            primary: "#22C55E",
           },
         });
       } else {
@@ -187,55 +129,52 @@ const Orders = () => {
 
   return (
     <div id="order" className="pb-4 mt-28">
-      <h1 className="text-3xl font-bold text-center text-green-600 mb-12">
+      <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         অর্ডার করুন এখনই
       </h1>
-      {/* <p className="text-center text-green-600 ">
-        আপনার পছন্দের চুইঝাল ও তার পরিমান সিলেক্ট করুন
-      </p> */}
       <div>
         <div>
           <div>
             <div className="flex flex-col md:flex-row gap-8 w-full mx-auto">
-              <div className="  w-full md:w-1/2">
-                <h2 className="text-xl font-bold text-gray-900">
+              <div className="w-full md:w-1/2">
+                <h2 className="text-xl font-bold text-slate-600">
                   প্রোডাক্ট নির্বাচন করুন
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8 w-full mx-auto my-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mx-auto mt-4">
                   {foodDatas.map((food) => (
                     <div
                       onClick={() => handleAddToCart(food.id)}
                       key={food.id}
-                      className={`w-full cursor-pointer  relative md:w-72  bg-slate-100 flex items-center p-2 border-[1px]  rounded-md dark:border-gray-700 ${
-                        food.checked ? "border-green-500" : "border-gray-200"
+                      className={`block w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
+                        food.checked ? "ring-green-500 ring-2" : "ring-slate-200 ring-1"
                       }`}
                     >
                       <div className="flex justify-between w-full">
                         <div className="flex gap-2">
                           <img
                             src={food.photo}
-                            className="h-20 w-20 aspect-square object-cover rounded-md image-full"
+                            className="h-20 w-20 aspect-square object-cover rounded-lg image-full"
                             alt=""
                           />
                           <div>
                             <h1
-                              className={`font-semibold mb-4  ${
-                                food.checked ? "text-green-500" : ""
+                              className={`font-semibold mb-6  ${
+                                food.checked ? "text-green-500" : "text-slate-600"
                               }`}
                             >
                               {food.title}
                             </h1>
-                            <p className="flex items-center font-semibold text-green-600">
+                            <p className="flex items-center font-semibold text-slate-400">
                               &#x9F3; {food.priceInBd}
                             </p>
                           </div>
                         </div>
                         <div className="mt-12">
-                          <p className="mr-3">{food.weight}</p>
+                          <p className="mr-1 text-slate-400">{food.weight}</p>
                         </div>
                       </div>
                       <div
-                        className={`text-green-600 absolute top-2 right-2 ${
+                        className={`text-green-500 absolute top-2 right-2 ${
                           food.checked ? "block" : "hidden"
                         }`}
                       >
@@ -262,15 +201,15 @@ const Orders = () => {
                     </div>
                   ))}
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 mt-8">
+                <h2 className="text-xl font-bold text-slate-600 mt-16">
                   ডেলিভারী এড্রেস
                 </h2>
 
                 <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-700"
+                      htmlFor="name"
+                      className="block text-sm font-medium leading-6 text-slate-400"
                     >
                       আপনার নাম
                     </label>
@@ -280,7 +219,8 @@ const Orders = () => {
                         name="name"
                         onChange={(e) => setName(e.target.value)}
                         id="name"
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                        autoComplete="name"
+                        className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -288,7 +228,7 @@ const Orders = () => {
                   <div className="sm:col-span-2">
                     <label
                       htmlFor="address"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium leading-6 text-slate-400"
                     >
                       আপনার ঠিকানা
                     </label>
@@ -299,37 +239,37 @@ const Orders = () => {
                         onChange={(e) => setAddress(e.target.value)}
                         id="address"
                         autoComplete="street-address"
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                        className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
 
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="country"
-                      className="block text-sm font-medium text-gray-700"
+                      htmlFor="city"
+                      className="block text-sm font-medium leading-6 text-slate-400"
                     >
                       ডেলিভারী এরিয়া
                     </label>
                     <div className="mt-1">
                       <select
-                        id="country"
-                        name="country"
-                        onChange={handleDelivaryType}
-                        autoComplete="country-name"
-                        className="block  w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                        name="city"
+                        onChange={handledeliveryType}
+                        id="city"
+                        autoComplete="city"
+                        className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       >
                         <option
-                          className="hover:bg-green-700 "
+                          className="hover:bg-green-500 "
                           value={"ঢাকার ভেতরে"}
                         >
-                          Inside Dhaka - ঢাকার ভেতর - ৳৮০{" "}
+                          Inside Dhaka - ঢাকার ভেতরে - ৳ ৮০{" "}
                         </option>
                         <option
-                          className="hover:bg-green-700 "
-                          value={"ঢাকার বাহিরে"}
+                          className="hover:bg-green-500 "
+                          value={"ঢাকার বাইরে"}
                         >
-                          Outside Dhaka - ঢাকার বাহিরে - ৳১০০{" "}
+                          Outside Dhaka - ঢাকার বাইরে - ৳ ১০০{" "}
                         </option>
                       </select>
                     </div>
@@ -337,8 +277,8 @@ const Orders = () => {
 
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="city"
-                      className="block text-sm font-medium text-gray-700"
+                      htmlFor="phone"
+                      className="block text-sm font-medium leading-6 text-slate-400"
                     >
                       মোবাইল নাম্বার
                     </label>
@@ -348,30 +288,30 @@ const Orders = () => {
                         name="phone"
                         onChange={(e) => setPhone(e.target.value)}
                         id="phone"
-                        autoComplete="address-level2"
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
+                        autoComplete="phone"
+                        className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="  w-full md:w-1/2 ">
-                <h2 className="text-xl font-bold text-gray-900">
+              <div className="w-full md:w-1/2 mt-8 md:mt-0">
+                <h2 className="text-xl font-bold text-slate-600">
                   অর্ডার সামারি
                 </h2>
                 <div className="w-full mt-3">
                   {/* order summury */}
-                  <div className="mt-4 border-dashed border-t-2 border-gray-200 bg-white shadow-sm">
-                    <h3 className="sr-only">Items in your cart</h3>
+                  <div className="mt-4 border-dashed border-t-2 border-slate-200 bg-white">
+                    <h3 className="sr-only">কার্টের প্রোডাক্ট</h3>
                     <ul
                       role="list"
-                      className="divide-y-2 divide-dashed divide-gray-200"
+                      className="divide-y-2 divide-dashed divide-slate-200"
                     >
-                      {orderdFood.map((food) => (
+                      {orderedFood.map((food) => (
                         <div
                           // onClick={handleAddToCart}
                           key={food.id}
-                          className="w-full py-6  relative"
+                          className="w-full pt-6 pb-5 relative"
                         >
                           <div className="flex justify-between w-full">
                             <div className="flex">
@@ -381,24 +321,24 @@ const Orders = () => {
                                 alt=""
                               /> */}
                               <div>
-                                <h1 className="font-semibold text-green-600 mb-4">
+                                <h1 className="font-semibold text-green-500 mb-4">
                                   {" "}
                                   {food.title}{" "}
-                                  <span className="font-normal text-slate-300 text-base">
+                                  <span className="font-normal text-slate-400 text-base">
                                     {food.weight}
                                   </span>
                                 </h1>
-                                <p className="flex items-center font-semibold">
+                                <p className="flex items-center font-semibold text-slate-600">
                                   <span className="mt-1.5">
                                     &#x9F3; {food.priceInBd}
                                   </span>
                                 </p>
                               </div>
                             </div>
-                            <div className="mt-12">
+                            <div className="mt-8">
                               <button
                                 onClick={() => handleAddToCart(food.id)}
-                                className="hover:text-green-600 absolute top-6 right-6"
+                                className="hover:text-green-500 absolute top-6 right-6"
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -424,9 +364,9 @@ const Orders = () => {
                                   <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                                 </svg>
                               </button>
-                              <div className="ml-4">
+                              <div className="">
                                 <label htmlFor="quantity" className="sr-only">
-                                  Quantity
+                                  পরিমাণ
                                 </label>
                                 <select
                                   onChange={(e) =>
@@ -440,7 +380,7 @@ const Orders = () => {
                                   id="quantity"
                                   defaultValue={food.quantity}
                                   name="quantity"
-                                  className="rounded-md border border-gray-300 text-left text-base font-medium text-gray-700 shadow-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 sm:text-sm "
+                                  className="block w-full rounded-lg py-1.5 border-0 border-slate-300 text-left text-md font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                                 >
                                   <option
                                     className="hover:bg-green-100"
@@ -497,7 +437,7 @@ const Orders = () => {
                                     9
                                   </option>
                                   <option
-                                    className="hover:bg-green-100 hover:text-red-600"
+                                    className="hover:bg-green-100"
                                     value={10}
                                   >
                                     10
@@ -512,40 +452,40 @@ const Orders = () => {
                   </div>
                   {/* order summary finised */}
                   <div
-                    className={`flex justify-between items-center pt-2 ${
-                      orderdFood.length === 0
+                    className={`flex justify-between items-center pt-6 ${
+                      orderedFood.length === 0
                         ? ""
-                        : "border-dashed border-t-2 border-slate-300 "
+                        : "border-dashed border-t-2 border-slate-200 "
                     }`}
                   >
                     <h1 className="font-semibold">মোট</h1>
-                    <h1 className="font-semibold text-green-600">
+                    <h1 className="font-semibold text-green-500">
                       &#x9F3;{" "}
-                      {orderdFood.reduce(
+                      {orderedFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
                       )}
                     </h1>
                   </div>
-                  <div className="flex justify-between items-center mt-6 py-2">
+                  <div className="flex justify-between items-center py-6">
                     <h1 className="font-semibold">ডেলিভারী চার্জ</h1>
-                    <h1 className="font-semibold text-green-600">
-                      &#x9F3; {delivaryCharge === "৮০" ? 80 : 100}
+                    <h1 className="font-semibold text-green-500">
+                      &#x9F3; {deliveryCharge === "৮০" ? 80 : 100}
                     </h1>
                   </div>
-                  <div className="flex justify-between items-center border-dashed border-t-2 border-slate-300 pt-2">
+                  <div className="flex justify-between items-center border-dashed border-t-2 border-slate-200 pt-6">
                     <h1 className="font-semibold">সর্বমোট</h1>
-                    <h1 className="font-semibold text-green-600">
+                    <h1 className="font-semibold text-green-500">
                       &#x9F3;{" "}
-                      {orderdFood.reduce(
+                      {orderedFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
-                      ) + (delivaryCharge === "৮০" ? 80 : 100)}
+                      ) + (deliveryCharge === "৮০" ? 80 : 100)}
                     </h1>
                   </div>
-                  <div className="flex justify-between items-center  mt-8">
+                  <div className="flex justify-between items-center py-6">
                     <h1 className="font-semibold">ডেলিভারী মেথড</h1>
-                    <h1 className="font-semibold text-green-600">
+                    <h1 className="font-semibold text-green-500">
                       ক্যাশ অন ডেলিভারী
                     </h1>
                   </div>
@@ -553,8 +493,8 @@ const Orders = () => {
                     // onClick={onOrderSubmit2}
                     onClick={onOrderSubmit}
                     // onClick={notify}
-                    disabled={orderdFood.length === 0 ? true : false}
-                    className="rounded-[10px] disabled:bg-slate-400 bg-green-500 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full mt-4"
+                    disabled={orderedFood.length === 0 ? true : false}
+                    className="rounded-xl disabled:bg-slate-400 bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
                   >
                     <div className="flex gap-2 justify-center items-center">
                       <svg

@@ -1,46 +1,33 @@
 import React from "react";
 
 import Container from "../../components/Container";
-
-// import Headers from "./Headers";
-import WhyWeBest from "./WhyWeBest";
-// import CustomerReview from "./CustomerReview";
+import WhyUs from "./WhyUs";
 import Faq from "./Faq";
-// import Gallary from "./Gallary";
-// import Orders3 from "./Orders3";
 import Help from "./Help";
-import Review2 from "./Review2";
-import Gallary2 from "./Gallary2";
+import Review from "./Review";
+import Gallery from "./Gallery";
 import Orders from "./Orders";
-import Headers2 from "./Headers2";
+import Headers from "./Headers";
 import Banner from "./Banner";
-import TypesOfChuijhal from "./TypesOfChuijhal";
+import Difference from "./Difference";
 
 const Home = () => {
   return (
-    <>
       <div className="max-w-full mx-auto mt-28">
-        <>
           <div className="mx-auto w-full">
             <Container>
-              <Headers2></Headers2>
-              {/* <Headers></Headers> */}
-              <TypesOfChuijhal></TypesOfChuijhal>
-              <WhyWeBest></WhyWeBest>
+              <Headers></Headers>
+              <Difference></Difference>
+              <WhyUs></WhyUs>
               <Banner></Banner>
-              <Review2></Review2>
-              {/* <CustomerReview></CustomerReview> */}
+              <Review></Review>
               <Faq></Faq>
-              {/* <Gallary></Gallary> */}
-              <Gallary2></Gallary2>
+              <Gallery></Gallery>
               <Orders></Orders>
-              {/* <Orders3></Orders3> */}
               <Help></Help>
             </Container>
           </div>
-        </>
       </div>
-    </>
   );
 };
 
