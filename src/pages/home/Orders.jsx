@@ -9,47 +9,14 @@ const Orders = () => {
   const cart = useSelector(selectCart);
   let foodDatas = cart.items;
   let orderedFood = foodDatas.filter((food) => food.checked === true);
-  // const [foodDatas, setFoodDatas] = useState(cart.items);
-  const [checkedItem, setcheckedItem] = useState(1);
-  const [totalItem, setTotalItem] = useState(1);
-  const [selectQuantity, setSelectQuantity] = useState(null);
-  // const [setQuantity, setQuantityof] = useState(1);
-  const [quantity1, setQuantityof1] = useState(1);
-  const [quantity2, setQuantityof2] = useState(1);
-  const [quantity3, setQuantityof3] = useState(1);
-  const [quantity4, setQuantityof4] = useState(1);
+  
   const [deliveryType, setdeliveryType] = useState("ঢাকার ভেতরে");
   const [deliveryCharge, setdeliveryCharge] = useState("৮০");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  const deliveryMethods = [
-    {
-      id: 1,
-      title: "Standard",
-      turnaround: "4–10 business days",
-      price: "$5.00",
-    },
-    {
-      id: 2,
-      title: "Express",
-      turnaround: "2–5 business days",
-      price: "$16.00",
-    },
-    {
-      id: 3,
-      title: "Express",
-      turnaround: "2–5 business days",
-      price: "$16.00",
-    },
-  ];
-  const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(
-    deliveryMethods[0]
-  );
-
- 
-
-  const selectedFood = foodDatas.find((food) => food.id === checkedItem);
+  const [loading, setLoading] = useState(false);
+  
 
   const handledeliveryType = (e) => {
     setdeliveryType(e.target.value);
@@ -70,12 +37,15 @@ const Orders = () => {
       orderedFood.reduce(
         (total, item) => total + item.quantity * item.price,
         0
-      ) + (deliveryCharge === "৮০" ? 80 : 100),
+      ) ,
+    deliveryCharge : (deliveryCharge === "৮০" ? 80 : 100),
   };
   console.log(orderedData)
 
   const onOrderSubmit = async () => {
+    setLoading(true)
     if ((name === "") | (address === "") | (phone === "")) {
+
       return toast.error("আপনার নাম, ঠিকানা এবং ফোন নাম্বার সঠিক ভাবে দিন। ধন্যবাদ !", {
         position: "top-right",
         autoClose: 5000,

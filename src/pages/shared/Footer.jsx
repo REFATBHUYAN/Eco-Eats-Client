@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div id="contact" className="w-full mx-auto pb-10 bg-slate-900 relative">
       <Container>
-        <footer className="footer py-16 text-slate-400  rounded-md">
+        <footer className="footer py-16 text-slate-400  rounded-md flex flex-col lg:flex-row gap-10 lg:gap-40">
           <aside>
             <Link
               to="/"
@@ -238,7 +238,7 @@ const Footer = () => {
           <aside className="flex gap-1 mt-8">
             <p>&copy; 2023 EcoEats. All rights reserved.</p>
           </aside>
-          <div className="-mt-4 lg:mt-8">
+          <div className="-mt-4 md:mt-8">
             <h1>Fueled By <a target="_blank" href="https://www.facebook.com/cyberspace.digital">CyberSpace Digital</a></h1>
           </div>
         </footer>

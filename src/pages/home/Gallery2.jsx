@@ -1,10 +1,4 @@
 import React from "react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
-// light imag
 
 import LightGallery from "lightgallery/react";
 // import styles
@@ -54,55 +48,6 @@ const images = [
   },
 ];
 
-const SwiperNavButtons = () => {
-  const swiper = useSwiper();
-
-  return (
-    <div className="">
-      {/* chevron-right */}
-      <button
-        onClick={() => swiper.slidePrev()}
-        className="absolute left-1 top-20 md:top-32 z-50 bg-slate-200/50 hover:bg-green-500 rounded-full p-1 "
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-chevron-left text-white"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M15 6l-6 6l6 6" />
-        </svg>
-      </button>
-      <button
-        onClick={() => swiper.slideNext()}
-        className="absolute right-1 top-20 md:top-32 z-50 bg-slate-200/50 hover:bg-green-500 rounded-full p-1 ml-2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-chevron-right text-white"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M9 6l6 6l-6 6" />
-        </svg>
-      </button>
-    </div>
-  );
-};
 
 const Gallery2 = () => {
   const onInit = () => {
@@ -114,11 +59,11 @@ const Gallery2 = () => {
   };
 
   return (
-    <div className="">
+    <div id="gallery" className="">
       <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         চুইঝাল গ্যালারী
       </h1>
-      <div id="gallery">
+      <div>
         <div className="App">
           <div className="App ">
             <LightGallery
@@ -135,9 +80,18 @@ const Gallery2 = () => {
 
             >
               {images.map((image) => (
-                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto">
+                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto hidden md:block">
                   <img
-                    className="md:w-72 w-36 md:h-72 h-36 rounded-xl "
+                    className="lg:w-72 w-36   lg:h-72 h-36 rounded-xl aspect-square"
+                    // alt={image.id}
+                    src={image.url}
+                  />
+                </a>
+              ))}
+              {images.slice(0,4).map((image) => (
+                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto block md:hidden">
+                  <img
+                    className="lg:w-72 w-36   lg:h-72 h-36 rounded-xl aspect-square"
                     // alt={image.id}
                     src={image.url}
                   />
