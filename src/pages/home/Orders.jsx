@@ -76,7 +76,7 @@ const Orders = () => {
 
   const onOrderSubmit = async () => {
     if ((name === "") | (address === "") | (phone === "")) {
-      return toast.error("আপনার নাম, ঠিকানা এবং ফোন নাম্বার সঠিক ভাবে দিন। ধন্যবাদ !", {
+      return toast.error("আপনার নাম, ঠিকানা এবং ফোন নাম্বার সঠিক ভাবে দিন। ধন্যবাদ!", {
         position: "top-right",
         autoClose: 5000,
         theme: "dark",
@@ -177,7 +177,9 @@ const Orders = () => {
                       </div>
                       <div
                         className={`text-green-500 absolute top-2 right-2 ${
-                          food.checked ? "block" : "hidden"
+                          food.checked
+                            ? "block"
+                            : "hidden"
                         }`}
                       >
                         <svg

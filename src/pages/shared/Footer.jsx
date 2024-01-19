@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div id="contact" className="w-full mx-auto pb-10 bg-slate-900 relative">
       <Container>
-        <footer className="footer py-16 text-slate-400  rounded-md">
+        <footer className="footer py-16 text-slate-400 rounded-md">
           <aside>
             <Link
               to="/"
@@ -234,7 +234,7 @@ const Footer = () => {
           </div>
         </footer>
         <div className="divider bg-[#334155] h-[1px] my-0"></div>
-        <footer className="footer w-full lg:flex lg:justify-between  text-slate-400">
+        <footer className="footer w-full lg:flex lg:justify-between text-slate-400">
           <aside className="flex gap-1 mt-8">
             <p>&copy; 2023 EcoEats. All rights reserved.</p>
           </aside>

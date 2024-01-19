@@ -127,13 +127,13 @@ const Gallery2 = () => {
               // plugins={[lgThumbnail, lgZoom]}
               plugins={[lgThumbnail, lgZoom]}
               mode="lg-fade"
-              elementClassNames="flex flex-wrap gap-4  "
+              elementClassNames="flex flex-wrap gap-4"
               onBeforeSlide={onBeforeSlide}
-              
               autoplay={true}
               pause= {3000}
 
             >
+              
               {images.map((image) => (
                 <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto">
                   <img
