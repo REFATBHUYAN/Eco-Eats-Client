@@ -24,7 +24,6 @@ const Difference = () => {
       </h1>
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="mb-4 lg:mb-0">
-          <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left md:text-right mb-3">গাছ চুইঝাল</h1>
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <img
               className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto "
@@ -32,7 +31,7 @@ const Difference = () => {
               alt=""
             />
             <img
-              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto "
+              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto mt-4"
               src="/ecoeats/diff/diff-gach-chui.jpg"
               alt=""
             />
@@ -40,6 +39,7 @@ const Difference = () => {
               গাছ চুইঝাল
             </h1>
             <div className="lg:w-80 w-full">
+              <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left md:text-right mb-4">গাছ চুইঝাল</h1>
               {reasons1.map((reason) => (
                 <div className="text-left md:text-right py-2 border-t text-slate-400 border-slate-200">
                   {reason}
@@ -49,7 +49,6 @@ const Difference = () => {
           </div>
         </div>
         <div className="">
-          <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left mb-3">এটো চুইঝাল</h1>
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <img
               className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto "
@@ -58,6 +57,7 @@ const Difference = () => {
             />
             <h1 className="font-semibold md:hidden block text-slate-600 text-xl text-center">এটো চুইঝাল</h1>
             <div className="lg:w-80 w-full">
+              <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left mb-4">এটো চুইঝাল</h1>
               {reasons2.map((reason) => (
                 <div className="text-left py-2 border-t text-slate-400 border-slate-200">
                   {reason}
@@ -66,7 +66,7 @@ const Difference = () => {
               ))}
             </div>
             <img
-              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto "
+              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto mt-4"
               src="/ecoeats/diff/diff-eto-chui.jpg"
               alt=""
             />
