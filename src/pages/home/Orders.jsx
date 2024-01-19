@@ -46,9 +46,9 @@ const Orders = () => {
     setLoading(true)
     if ((name === "") | (address === "") | (phone === "")) {
 
-      return toast.error("আপনার নাম, ঠিকানা এবং ফোন নাম্বার সঠিক ভাবে দিন। ধন্যবাদ !", {
+      return toast.error("আপনার নাম, ঠিকানা এবং মোবাইল নাম্বার সঠিকভাবে দিন।", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 4000,
         theme: "dark",
       });
     } else {
@@ -67,9 +67,9 @@ const Orders = () => {
 
         if (response.ok) {
           
-          toast.success("আপনার অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
+          toast.success("অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 4000,
             theme: "dark",
           });
         } else {
@@ -113,7 +113,7 @@ const Orders = () => {
                     <div
                       onClick={() => handleAddToCart(food.id)}
                       key={food.id}
-                      className={`block w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
+                      className={`block w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-lg ${
                         food.checked
                           ? "ring-green-500 ring-2"
                           : "ring-slate-200 ring-1"
@@ -128,7 +128,7 @@ const Orders = () => {
                           />
                           <div>
                             <h1
-                              className={`font-semibold mb-6  ${
+                              className={`font-semibold mb-6 line-clamp-1 ${
                                 food.checked
                                   ? "text-green-500"
                                   : "text-slate-600"
@@ -136,13 +136,13 @@ const Orders = () => {
                             >
                               {food.title}
                             </h1>
-                            <p className="flex items-center font-semibold text-slate-400">
+                            <p className="flex items-center font-light text-slate-600">
                               &#x9F3; {food.priceInBd}
                             </p>
                           </div>
                         </div>
                         <div className="mt-12">
-                          <p className="mr-1 text-slate-400">{food.weight}</p>
+                          <p className="mr-1 text-slate-400 font-light line-clamp-1">{food.weight}</p>
                         </div>
                       </div>
                       <div
@@ -234,13 +234,13 @@ const Orders = () => {
                         className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       >
                         <option
-                          className="hover:bg-green-500 "
+                          className="hover:bg-green-500 font-light"
                           value={"ঢাকার ভেতরে"}
                         >
                           Inside Dhaka - ঢাকার ভেতরে - ৳ ৮০{" "}
                         </option>
                         <option
-                          className="hover:bg-green-500 "
+                          className="hover:bg-green-500 font-light"
                           value={"ঢাকার বাইরে"}
                         >
                           Outside Dhaka - ঢাকার বাইরে - ৳ ১০০{" "}
@@ -298,11 +298,11 @@ const Orders = () => {
                                 <h1 className="font-semibold text-green-500 mb-4">
                                   {" "}
                                   {food.title}{" "}
-                                  <span className="font-normal text-slate-400 text-base">
+                                  <span className="font-light text-slate-400 text-base">
                                     {food.weight}
                                   </span>
                                 </h1>
-                                <p className="flex items-center font-semibold text-slate-600">
+                                <p className="flex items-center font-bold text-slate-600">
                                   <span className="mt-1.5">
                                     &#x9F3; {food.priceInBd}
                                   </span>
@@ -468,7 +468,7 @@ const Orders = () => {
                     onClick={onOrderSubmit}
                     // onClick={notify}
                     disabled={orderedFood.length === 0 ? true : false}
-                    className="rounded-xl disabled:bg-slate-400 bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
+                    className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 px-5 py-3 text-md font-semibold text-white hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
                   >
                     <div className="flex gap-2 justify-center items-center">
                       <svg
@@ -487,9 +487,7 @@ const Orders = () => {
                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                         <path d="M9 12l2 2l4 -4" />
                       </svg>
-                      <span className="pt-[2px] text-xl">
                         অর্ডার প্লেস করুন
-                      </span>
                     </div>
                   </button>
                 </div>

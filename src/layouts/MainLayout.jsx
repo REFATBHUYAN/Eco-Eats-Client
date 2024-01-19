@@ -51,7 +51,7 @@ const MainLayout = () => {
         <Footer></Footer>
         <button
           onClick={scrollToTop}
-          className={`float-right  fixed cursor-pointer z-30  right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-xl bg-slate-700 hover:bg-green-500 shadow-xl ${borderClasses}`}
+          className={`float-right  fixed cursor-pointer z-30  right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 shadow-xl ${borderClasses}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

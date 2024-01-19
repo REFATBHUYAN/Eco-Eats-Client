@@ -83,7 +83,7 @@ const Faq = () => {
                         </Disclosure.Button>
                       </dt>
                       <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                        <p className="text-base leading-7 text-slate-400">
+                        <p className="text-base leading-7 text-slate-400 font-light">
                           {faq.answer}
                         </p>
                       </Disclosure.Panel>

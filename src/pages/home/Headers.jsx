@@ -25,7 +25,7 @@ const Headers = () => {
   return (
     <div id="about" className="mx-auto max-w-7xl">
       <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
-        <div className="h-full w-full md:hidden block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
+        <div className="h-full w-full md:hidden block mx-auto flex-none rounded-lg object-cover lg:max-w-sm">
           <ReactPlayer
             width="100%"
             height="100%"
@@ -44,7 +44,7 @@ const Headers = () => {
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-base leading-7 sm:grid-cols-3"
           >
             {benefits.map((benefit) => (
-              <li key={benefit} className="flex gap-x-3 text-xl text-slate-400">
+              <li key={benefit} className="flex gap-x-3 text-xl text-slate-400 font-light">
                 <CheckCircleIcon
                   className="h-7 w-5 flex-none  "
                   aria-hidden="true"
@@ -89,31 +89,33 @@ const Headers = () => {
               offset={-100}
               activeClass="text-white"
               spy={true}
-              className="rounded-xl cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center w-56"
+              className="rounded-lg cursor-pointer bg-green-500 px-5 py-3 text-md font-semibold text-white hover:bg-green-600 items-center w-fit"
             >
               <div className="flex gap-2 justify-center items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-shopping-bag "
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
-                  <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
-                </svg>
-                <span className="pt-[4px] text-xl">এখনই অর্ডার করুন</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-shopping-cart"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 17h-11v-14h-2" />
+                <path d="M6 5l14 1l-1 7h-13" />
+              </svg>
+                এখনই অর্ডার করুন
               </div>
             </Link>
           </div>
         </div>
-        <div className="h-full w-full hidden md:block mx-auto flex-none rounded-xl object-cover lg:max-w-sm">
+        <div className="h-full w-full hidden md:block mx-auto flex-none rounded-lg object-cover lg:max-w-sm">
           <ReactPlayer
             width="100%"
             height="100%"

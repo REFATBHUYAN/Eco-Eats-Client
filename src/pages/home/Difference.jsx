@@ -27,12 +27,12 @@ const Difference = () => {
           <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left md:text-right mb-3">গাছ চুইঝাল</h1>
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <img
-              className="lg:w-72 md:hidden block w-full rounded-xl aspect-auto "
+              className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto "
               src="/ecoeats/product/product-gach-chui.jpg"
               alt=""
             />
             <img
-              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-xl aspect-auto "
+              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto "
               src="/ecoeats/diff/diff-gach-chui.jpg"
               alt=""
             />
@@ -52,7 +52,7 @@ const Difference = () => {
           <h1 className="font-semibold hidden md:block text-slate-600 text-xl text-left mb-3">এটো চুইঝাল</h1>
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <img
-              className="lg:w-72 md:hidden block w-full rounded-xl aspect-auto "
+              className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto "
               src="/ecoeats/product/product-eto-chui.jpg"
               alt=""
             />
@@ -66,7 +66,7 @@ const Difference = () => {
               ))}
             </div>
             <img
-              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-xl aspect-auto "
+              className="md:w-72 md:h-72 lg:h-full hidden md:block w-full rounded-lg aspect-auto "
               src="/ecoeats/diff/diff-eto-chui.jpg"
               alt=""
             />

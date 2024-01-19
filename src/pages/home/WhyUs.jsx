@@ -12,7 +12,7 @@ const WhyUs = () => {
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-xl bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
                 src="/ecoeats/features/authentic.svg"
                 alt=""
               />
@@ -21,14 +21,14 @@ const WhyUs = () => {
               অথেন্টিক প্রোডাক্ট
             </h1>
 
-            <p className="text-center text-slate-400 line-clamp-2">
-              আমাদের কাছেই পাচ্ছেন সেরা স্বাদ যুক্ত খুলনার দেশীয় চুইঝাল
+            <p className="text-center text-slate-400 line-clamp-2 font-light">
+              আমাদের কাছেই পাচ্ছেন সেরা স্বাদ যুক্ত খুলনার অথেন্টিক দেশীয় চুইঝাল
             </p>
           </div>
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-xl bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-100 p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
                 src="/ecoeats/features/premium.svg"
                 alt=""
               />
@@ -37,14 +37,14 @@ const WhyUs = () => {
               প্রিমিয়াম কোয়ালিটি
             </h1>
 
-            <p className="text-center text-slate-400 line-clamp-2">
+            <p className="text-center text-slate-400 line-clamp-2 font-light">
               রেগুলার বা অপরিপক্ক নয়, আমরাই দিচ্ছি বাছাইকৃত প্রিমিয়াম কোয়ালিটির চুইঝাল
             </p>
           </div>
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-xl bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
                 src="/ecoeats/features/refund.svg"
                 alt=""
               />
@@ -53,14 +53,14 @@ const WhyUs = () => {
               রিফান্ড পলিসি
             </h1>
 
-            <p className="text-center text-slate-400 line-clamp-2">
+            <p className="text-center text-slate-400 line-clamp-2 font-light">
               যেকোন ত্রুটিপূর্ণ পণ্যের ক্ষেত্রে থাকছে পণ্য অথবা টাকা রিফান্ডের সুবিধা
             </p>
           </div>
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-xl bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-100  p-6 text-green-500 group-hover:bg-green-100 group-hover:text-white"
                 src="/ecoeats/features/delivery.svg"
                 alt=""
               />
@@ -69,7 +69,7 @@ const WhyUs = () => {
               ক্যাশ অন ডেলিভারী
             </h1>
 
-            <p className="text-center text-slate-400 line-clamp-2">
+            <p className="text-center text-slate-400 line-clamp-2 font-light">
               আমাদের রয়েছে পন্য হাতে পেয়ে তারপর টাকা পরিশোধ করার সুব্যবস্থা
             </p>
           </div>
