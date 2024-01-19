@@ -48,7 +48,6 @@ const images = [
   },
 ];
 
-
 const Gallery2 = () => {
   const onInit = () => {
     console.log("lightGallery has been initialized");
@@ -72,27 +71,32 @@ const Gallery2 = () => {
               // plugins={[lgThumbnail, lgZoom]}
               plugins={[lgThumbnail, lgZoom]}
               mode="lg-fade"
-              elementClassNames="flex flex-wrap gap-4"
+              elementClassNames="grid grid-cols-2 md:grid-cols-4 w-full gap-5 "
+              // elementClassNames="flex flex-wrap gap-1  "
               onBeforeSlide={onBeforeSlide}
               autoplay={true}
-              pause= {3000}
-
+              pause={3000}
             >
-              
               {images.map((image) => (
-                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto hidden md:block">
+                <a
+                  key={image.id}
+                  href={image.url}
+                  className="gallery-item basis-1/4 mx-auto hidden md:block"
+                >
                   <img
-                    className="lg:w-72 w-36   lg:h-72 h-36 rounded-xl aspect-square"
-                    // alt={image.id}
+                    className=" w-full   h-full rounded-xl aspect-square"
                     src={image.url}
                   />
                 </a>
               ))}
-              {images.slice(0,4).map((image) => (
-                <a key={image.id} href={image.url} className="gallery-item flex-auto mx-auto block md:hidden">
+              {images.slice(0, 4).map((image) => (
+                <a
+                  key={image.id}
+                  href={image.url}
+                  className="gallery-item flex-auto mx-auto block md:hidden"
+                >
                   <img
-                    className="lg:w-72 w-36   lg:h-72 h-36 rounded-xl aspect-square"
-                    // alt={image.id}
+                    className="w-full h-full rounded-xl aspect-square"
                     src={image.url}
                   />
                 </a>
