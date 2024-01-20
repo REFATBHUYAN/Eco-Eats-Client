@@ -11,7 +11,7 @@ const navigation = [
   { name: "রিভিউ", href: "review" },
   { name: "জিজ্ঞাসা", href: "faq" },
   { name: "গ্যালারী", href: "gallery" },
-  { name: "যোগাযোগ", href: "contact" },
+  { name: "যোগাযোগ", href: "help" },
 ];
 
 const Navbar = () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
               offset={-100}
               activeClass="text-white"
               spy={true}
-              className="rounded-xl cursor-pointer bg-green-500 px-5 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center"
+              className="rounded-lg cursor-pointer bg-green-500 px-4 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center"
             >
               <div className="flex gap-2 justify-center items-center">
                 
@@ -99,7 +99,7 @@ const Navbar = () => {
                   <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
                   <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
                 </svg>
-                <span className="pt-[4px]">অর্ডার করুন</span>
+                  অর্ডার করুন
               </div>
             </Link>
           </div>
@@ -161,7 +161,7 @@ const Navbar = () => {
                       smooth={true}
                       offset={-100}
                       spy={true}
-                      className="-mx-3 hover:text-green-500 block cursor-pointer rounded-xl px-3 py-2 text-base font-semibold leading-7 text-slate-600 hover:bg-slate-50"
+                      className="-mx-3 hover:text-green-500 block cursor-pointer rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-600 hover:bg-slate-50"
                     >
                       {item.name}
                     </Link>

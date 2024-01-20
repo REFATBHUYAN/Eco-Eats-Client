@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { BiHeart } from "react-icons/bi";
 
 const Footer = () => {
+  const today = new Date();
+  const year = today.getFullYear();
   return (
-    <div id="contact" className="w-full mx-auto pb-10 bg-slate-900 relative">
+    <div className="w-full mx-auto pb-10 bg-slate-900 relative">
       <Container>
         <footer className="footer py-16 text-slate-400  rounded-md flex flex-col lg:flex-row gap-10 lg:gap-40">
           <aside>
@@ -21,12 +23,12 @@ const Footer = () => {
                 ইকো<span className="text-green-400">ইটস</span>
               </span>
             </Link>
-            <p className="w-[350px] lg:w-96 leading-6">
+            <p className="w-[350px] lg:w-96 leading-6 font-light">
               ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে। অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ করে চলেছি অবিরাম।
             </p>
           </aside>
           <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
-            <nav className="space-y-5 flex flex-col">
+            <nav className="space-y-5 flex flex-col font-light">
               <header className="font-bold text-slate-300 ">
                 আমাদের ঠিকানা
               </header>
@@ -233,10 +235,10 @@ const Footer = () => {
             </nav>
           </div>
         </footer>
-        <div className="divider bg-[#334155] h-[1px] my-0"></div>
+        <div className="divider bg-slate-700 h-[1px] my-0"></div>
         <footer className="footer w-full lg:flex lg:justify-between text-slate-400">
           <aside className="flex gap-1 mt-8">
-            <p>&copy; 2023 EcoEats. All rights reserved.</p>
+            <p>&copy; 2020-{year} EcoEats. All rights reserved.</p>
           </aside>
           <div className="-mt-4 md:mt-8">
             <h1>Fueled By <a target="_blank" href="https://www.facebook.com/cyberspace.digital">CyberSpace Digital</a></h1>

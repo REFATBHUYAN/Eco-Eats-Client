@@ -194,7 +194,7 @@ const Review = () => {
                 clickable: true,
               }}
               autoplay={{
-                delay: 2500,
+                delay: 4000,
                 disableOnInteraction: false,
               }}
               breakpoints={{
@@ -216,8 +216,8 @@ const Review = () => {
               {reviews.map((review) => (
                 <SwiperSlide key={review.id}>
                   <div>
-                    <div className=" h-60 w-full bg-slate-100 rounded-xl p-9">
-                      <p className="text-slate-400 mb-5 line-clamp-3">
+                    <div className=" h-60 w-full bg-slate-100 rounded-lg p-9">
+                      <p className="text-slate-400 mb-8 line-clamp-3 font-light">
                         {review.description}
                       </p>
                       <div className="flex justify-between items-center">
@@ -230,7 +230,7 @@ const Review = () => {
                             />
                           </a>  
                           <div className="text-start">
-                            <h1 className="text-slate-600 group-hover:text-green-500 font-semibold">
+                            <h1 className="text-slate-600 group-hover:text-green-500 font-semibold line-clamp-1">
                               <a href={review.url} target="_blank">{review.name}</a>
                             </h1>
                             <p className="text-slate-500">{review.address}</p>
