@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+// import { Link } from "react-router-dom";
 import { Link } from "react-scroll";
 
 const navigation = [
@@ -47,7 +48,7 @@ const Navbar = () => {
           aria-label="Global"
         >
           <div className="flex ">
-            <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2">
+            <a  href="/" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
               <img
                 className="block h-8 w-auto"
                 src="/ecoeats/site-icon/ecoeats-icon.svg"
@@ -133,10 +134,10 @@ const Navbar = () => {
           <div className="fixed inset-0 z-10" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10">
             <div className="flex justify-between gap-x-6">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">ইকোইটস</span>
                 <img className="h-8 w-auto" src="" alt="" />
-              </a>
+              </Link>
               
               <button
                 type="button"

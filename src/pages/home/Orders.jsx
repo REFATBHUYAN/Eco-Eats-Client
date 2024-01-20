@@ -113,7 +113,7 @@ const Orders = () => {
                     <div
                       onClick={() => handleAddToCart(food.id)}
                       key={food.id}
-                      className={`block w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
+                      className={` w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
                         food.checked
                           ? "ring-green-500 ring-2"
                           : "ring-slate-200 ring-1"
