@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import Container from "../../components/Container";
 import jsPDF from "jspdf";
 import { ToastContainer, toast } from "react-toastify";
-import moment from 'moment';
-
-
-
-
+import moment from "moment";
 
 const generatePdf = (orderItems) => {
   // Create a new instance of jsPDF
   const pdf = new jsPDF();
-  pdf.setFont('SolaimanLipi'); // set custom font (SolaimanLipi)
-pdf.setFontSize(10);
+  pdf.setFont("SolaimanLipi"); // set custom font (SolaimanLipi)
+  pdf.setFontSize(10);
 
   const item = `
     Customer Name: ${orderItems.name}
@@ -58,15 +54,15 @@ const AllOrders = () => {
   // const dhakaDate = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Dhaka' });
   const [date, setDate] = useState(moment().format().split("T")[0]);
   const [allData, setAllData] = useState([]);
-  // const [dataUpdated, setDataUpdated] = useState(false);
+  const [dataUpdated, setDataUpdated] = useState(false);
   const [filterData, setFilterData] = useState([]);
   const [currentTime, setCurrentTime] = useState(new Date());
   // const dhakaTime = new Date().toLocaleString( { timeZone: 'Asia/Dhaka' }).split("T")[0];
   const timestamp = new Date().toISOString();
-  
-console.log( "time stamp", timestamp);
 
-  console.log( date)
+  console.log("time stamp", timestamp);
+
+  console.log(date);
 
   useEffect(() => {
     fetch(`https://chui-jhal-server.vercel.app/orders/${date}`)
@@ -75,17 +71,30 @@ console.log( "time stamp", timestamp);
         setAllData(data);
         setFilterData(data);
       });
-  }, [date]);
+  }, [date,dataUpdated]);
 
   const stats = [
     { name: "Total Orders", stat: allData.length },
-    { name: "Today", stat: filterData.length},
-    { name: "Total Pending", stat: allData.filter(d => d.status === "Pending" ).length },
-    { name: "Ordered Complete", stat: allData.filter(d => d.status === "Delivered" ).length },
-    { name: "Sales", stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk` },
-    { name: "Sales Today", stat: `${allData.filter(d => d.date === date).reduce((acc, item) => acc + item.totalPrice, 0)} tk` },
+    { name: "Today", stat: filterData.length },
+    {
+      name: "Total Pending",
+      stat: allData.filter((d) => d.status === "Pending").length,
+    },
+    {
+      name: "Ordered Complete",
+      stat: allData.filter((d) => d.status === "Delivered").length,
+    },
+    {
+      name: "Sales",
+      stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
+    },
+    {
+      name: "Sales Today",
+      stat: `${allData
+        .filter((d) => d.date === date)
+        .reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
+    },
   ];
-  
 
   // console.log(filterData)
   console.log(allData);
@@ -253,12 +262,14 @@ console.log( "time stamp", timestamp);
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                         <div className="flex justify-center gap-2">
-                          <button
-                            onClick={() => handleStatus(person._id)}
-                            className="bg-green-400 py-1.5 px-3 rounded"
-                          >
-                            Delivered
-                          </button>
+                          {person.status === "Pending" && (
+                            <button
+                              onClick={() => handleStatus(person._id)}
+                              className="bg-green-400 py-1.5 px-3 rounded"
+                            >
+                              Delivered
+                            </button>
+                          )}
                           <button
                             onClick={() =>
                               document
@@ -297,7 +308,6 @@ console.log( "time stamp", timestamp);
                                 ))}
                               </div>
                               <button
-                                
                                 onClick={() => generatePdf(person)}
                                 className="bg-green-400 py-1.5 px-3 rounded"
                               >

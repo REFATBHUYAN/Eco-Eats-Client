@@ -89,11 +89,6 @@ const Orders = () => {
     const cart = useSelector(selectCart);
     setFoodDatas(cart.items);
   };
-  // const handleUpdateQuantity = (e) => {
-  //   const quantity = e.target.value;
-  //   console.log(quantity)
-  //   // dispatch(updateQuantity( {id, quantity} ));
-  // };
 
   return (
     <div id="order" className="pb-4 mt-28">
