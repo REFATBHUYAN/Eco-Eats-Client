@@ -59,7 +59,7 @@ const Gallery = () => {
   };
 
   return (
-    <div id="gallery" className="">
+    <div id="gallery" className="my-28">
       <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         চুইঝাল গ্যালারী
       </h1>
@@ -80,7 +80,7 @@ const Gallery = () => {
                 <a
                   key={image.id}
                   href={image.url}
-                  className="gallery-item basis-1/4 mx-auto hidden md:block"
+                  className="gallery-item basis-1/4 mx-auto hidden md:block hover:opacity-90 ease-in duration-75"
                 >
                   <img
                     className="w-full h-full rounded-lg aspect-square"
@@ -92,7 +92,7 @@ const Gallery = () => {
                 <a
                   key={image.id}
                   href={image.url}
-                  className="gallery-item flex-auto mx-auto block md:hidden"
+                  className="gallery-item flex-auto mx-auto block md:hidden hover:opacity-75"
                 >
                   <img
                     className="w-full h-full rounded-lg aspect-square"

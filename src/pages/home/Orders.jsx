@@ -91,7 +91,7 @@ const Orders = () => {
   };
 
   return (
-    <div id="order" className="pb-4 mt-28">
+    <div id="order" className="my-28">
       <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
         অর্ডার করুন এখনই
       </h1>
@@ -103,12 +103,12 @@ const Orders = () => {
                 <h2 className="text-xl font-bold text-slate-600">
                   প্রোডাক্ট নির্বাচন করুন
                 </h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mx-auto mt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mx-auto mt-4 group">
                   {foodDatas.map((food) => (
                     <div
                       onClick={() => handleAddToCart(food.id)}
                       key={food.id}
-                      className={` w-full cursor-pointer relative bg-slate-100 border-0 border-inset border-slate-300  focus:border-green-500 focus:outline-none ring-inset focus:ring-inset flex items-center p-2 rounded-xl ${
+                      className={`w-full cursor-pointer relative bg-slate-50 hover:bg-slate-100 ease-in duration-75 ring-inset flex items-center p-2 rounded-xl ${
                         food.checked
                           ? "ring-green-500 ring-2"
                           : "ring-slate-200 ring-1"
@@ -225,7 +225,6 @@ const Orders = () => {
                         name="city"
                         onChange={handledeliveryType}
                         id="city"
-                        autoComplete="city"
                         className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                       >
                         <option
@@ -463,7 +462,7 @@ const Orders = () => {
                     onClick={onOrderSubmit}
                     // onClick={notify}
                     disabled={orderedFood.length === 0 ? true : false}
-                    className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 px-5 py-3 text-md font-semibold text-white hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
+                    className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
                   >
                     <div className="flex gap-2 justify-center items-center">
                       <svg

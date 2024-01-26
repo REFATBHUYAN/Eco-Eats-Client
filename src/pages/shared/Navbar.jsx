@@ -17,15 +17,15 @@ const navigation = [
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [showBorder, setShowBorder] = useState(false);
+  const [ShowShadow, setShowShadow] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowBorder(true);
+      if (window.scrollY > 50) {
+        setShowShadow(true);
         // console.log("yes scrolled");
       } else {
-        setShowBorder(false);
+        setShowShadow(false);
       }
     };
 
@@ -36,13 +36,13 @@ const Navbar = () => {
     };
   }, []);
 
-  const borderClasses = showBorder
-    ? "border-slate-200 shadow-md"
+  const shadowClasses = ShowShadow
+    ? "shadow-md"
     : "border-transparent";
 
   return (
     <>
-      <header className={`bg-white ${borderClasses}`}>
+      <header className={`bg-white ${shadowClasses}`}>
         <nav
           className={`mx-auto flex max-w-7xl items-center justify-between gap-x-6 pt-4 pb-4 px-4 `}
           aria-label="Global"
@@ -68,7 +68,7 @@ const Navbar = () => {
                 smooth={true}
                 offset={-100}
                 spy={true}
-                className="hidden hover:text-green-500 cursor-pointer lg:block text-base font-semibold leading-6 text-slate-600"
+                className="hidden cursor-pointer lg:block text-base font-semibold leading-6 text-slate-600 hover:text-green-500 ease-in duration-75"
               >
                 {item.name}
               </Link>
@@ -79,7 +79,7 @@ const Navbar = () => {
               offset={-100}
               activeClass="text-white"
               spy={true}
-              className="rounded-lg cursor-pointer bg-green-500 px-4 py-2 text-sm font-semibold text-white hover:bg-green-600 items-center"
+              className="rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-4 py-2 text-sm font-semibold text-white items-center"
             >
               <div className="flex gap-2 justify-center items-center">
                 

@@ -23,7 +23,7 @@ const benefits = [
 
 const Headers = () => {
   return (
-    <div id="about" className="mx-auto max-w-7xl">
+    <div id="about" className="mx-auto max-w-7xl mt-12 md:mt-28">
       <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
         <div className="h-full w-full md:hidden block mx-auto flex-none rounded-lg object-cover lg:max-w-sm">
           <ReactPlayer
@@ -89,7 +89,7 @@ const Headers = () => {
               offset={-100}
               activeClass="text-white"
               spy={true}
-              className="rounded-lg cursor-pointer bg-green-500 px-5 py-3 text-md font-semibold text-white hover:bg-green-600 items-center w-fit"
+              className="rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white items-center w-fit"
             >
               <div className="flex gap-2 justify-center items-center">
               <svg

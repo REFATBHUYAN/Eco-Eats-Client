@@ -12,7 +12,7 @@ const WhyUs = () => {
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-lg bg-slate-100 p-6 text-green-500 group-hover:bg-slate-200/75 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
                 src="/ecoeats/features/authentic.svg"
                 alt=""
               />
@@ -28,7 +28,7 @@ const WhyUs = () => {
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-lg bg-slate-100 p-6 text-green-500 group-hover:bg-slate-200/75 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
                 src="/ecoeats/features/premium.svg"
                 alt=""
               />
@@ -44,7 +44,7 @@ const WhyUs = () => {
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-lg bg-slate-100  p-6 text-green-500 group-hover:bg-slate-200/75 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
                 src="/ecoeats/features/refund.svg"
                 alt=""
               />
@@ -60,7 +60,7 @@ const WhyUs = () => {
           <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
             <div>
               <img
-                className="h-20 w-20 rounded-lg bg-slate-100  p-6 text-green-500 group-hover:bg-slate-200/75 group-hover:text-white"
+                className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
                 src="/ecoeats/features/delivery.svg"
                 alt=""
               />

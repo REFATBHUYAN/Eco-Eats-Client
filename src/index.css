@@ -10,14 +10,12 @@
 
 @layer base {
   html {
-    font-family: "Baloo Da 2", sans-serif;
     font-family: "Hind Siliguri", sans-serif;
   }
 }
 .active {
   color: #16A34A;
 }
-
 
 /* option:hover,
 option:checked {
@@ -35,11 +33,6 @@ option:checked {
 .swiper-pagination-bullet-active {
   background-color: #22C55E !important;
 }
-.my-custom-bullet-active {
-  background-color: #ff0000; /* Set your desired background color */
-  width: 10px; /* Set your desired width */
-  height: 10px; /* Set your desired height */
-}
 
 @keyframes ping {
   75%,
@@ -48,8 +41,6 @@ option:checked {
     opacity: 0;
   }
 }
-
-
 
 .ping-icon {
   animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -70,8 +61,8 @@ option:checked {
 
 ::-webkit-scrollbar {
   display: block;
-  width: 10px;
-  border-radius: 10px;
+  width: 5px;
+  border-radius: 15px;
 }
 
 /* ::-webkit-scrollbar-track {
@@ -80,7 +71,7 @@ option:checked {
 
 ::-webkit-scrollbar-thumb {
   background-color: slategrey;
-  border-radius: 15px;
+  border-radius: 5px;
   border-right: none;
   border-left: none;
 }

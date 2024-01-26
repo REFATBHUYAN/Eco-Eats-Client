@@ -13,7 +13,7 @@ import Difference from "./Difference";
 
 const Home = () => {
   return (
-      <div className="max-w-full mx-auto mt-28">
+      <div className="max-w-full mx-auto">
           <div className="mx-auto w-full">
             <Container>
               <Headers></Headers>

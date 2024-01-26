@@ -13,14 +13,14 @@ const MainLayout = () => {
     });
   };
 
-  const [showBorder, setShowBorder] = useState(false);
+  const [ShowButton, setShowButton] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 500) {
-        setShowBorder(true);
+        setShowButton(true);
         // console.log("yes scrolled");
       } else {
-        setShowBorder(false);
+        setShowButton(false);
       }
     };
 
@@ -31,8 +31,8 @@ const MainLayout = () => {
     };
   }, []);
 
-  const borderClasses = showBorder
-    ? "shadow-md ease-in duration-100"
+  const buttonClasses = ShowButton
+    ? "shadow-md ease-in duration-75"
     : "border-transparent border-red-200 hidden";
 
   return (
@@ -42,7 +42,7 @@ const MainLayout = () => {
           <Navbar></Navbar>
         </div>
 
-        <div className="mt-24 mx-auto w-full">
+        <div className="mx-auto w-full">
           <Providers>
             <Outlet></Outlet>
           </Providers>
@@ -51,7 +51,7 @@ const MainLayout = () => {
         <Footer></Footer>
         <button
           onClick={scrollToTop}
-          className={`float-right  fixed cursor-pointer z-30  right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 shadow-xl ${borderClasses}`}
+          className={`float-right fixed cursor-pointer z-30 right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-700 active:scale-95 ease-in duration-75 opacity-50 hover:opacity-100 shadow-xl ${buttonClasses}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

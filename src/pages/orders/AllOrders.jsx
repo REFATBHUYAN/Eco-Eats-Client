@@ -49,6 +49,7 @@ const generatePdf = (orderItems) => {
   pdf.save("order_details.pdf");
 };
 
+
 const AllOrders = () => {
   // const newDate = new Date().toISOString().split("T")[0];
   // const dhakaDate = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Dhaka' });
@@ -74,20 +75,20 @@ const AllOrders = () => {
   }, [date,dataUpdated]);
 
   const stats = [
-    { name: "Total Orders", stat: allData.length },
-    { name: "Today", stat: filterData.length },
+    // { name: "Total Orders", stat: allData.length },
+    { name: "Orders Today", stat: filterData.length },
     {
-      name: "Total Pending",
+      name: "Completed Orders",
+      stat: allData.filter((d) => d.status === "Shipped").length,
+    },
+    {
+      name: "Pending Orders",
       stat: allData.filter((d) => d.status === "Pending").length,
     },
-    {
-      name: "Ordered Complete",
-      stat: allData.filter((d) => d.status === "Delivered").length,
-    },
-    {
-      name: "Sales",
-      stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
-    },
+    // {
+    //   name: "Total Sales",
+    //   stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
+    // },
     {
       name: "Sales Today",
       stat: `${allData
@@ -113,16 +114,16 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.success("আপনার অর্ডার Status Updae করা হয়েছে, ধন্যবাদ!", {
+        toast.success("অর্ডার স্ট্যাটাস আপডেট করা হয়েছে!", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 4000,
           theme: "dark",
         });
       } else {
         console.error("Failed to updade status:", await response.text());
       }
     } catch (error) {
-      console.error("Error update status:", error);
+      console.error("Error updating status:", error);
     }
   };
 
@@ -141,21 +142,20 @@ const AllOrders = () => {
 
   return (
     <Container>
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div>
-          <h3 className="text-base font-semibold leading-6 text-gray-900">
-            Total Orders
+        <div className="mt-20 md:mt-28">
+          <h3 className="text-xl font-bold text-slate-400">
+            Today's Summary
           </h3>
-          <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
             {stats.map((item) => (
               <div
                 key={item.name}
-                className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
+                className="overflow-hidden px-4 py-5 sm:p-6 rounded-lg bg-slate-50 ring-inset ring-slate-200 ring-1"
               >
-                <dt className="truncate text-sm font-medium text-gray-500">
+                <dt className="truncate text-sm font-medium text-slate-400">
                   {item.name}
                 </dt>
-                <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+                <dd className="text-3xl font-semibold tracking-tight text-slate-600">
                   {item.stat}
                 </dd>
               </div>
@@ -163,9 +163,8 @@ const AllOrders = () => {
           </dl>
         </div>
         <div className="mt-1 py-8 flex items-center gap-4 w-full">
-          Filter By:{" "}
           <input
-            className="bg-gray-50 border w-48 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-slate-50 border  border-slate-300 text-slate-600 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
             type="date"
             value={date}
             onChange={handleDate}
@@ -174,100 +173,98 @@ const AllOrders = () => {
           />
           <button
             onClick={handleFilterPending}
-            className="bg-green-400 py-1.5 px-3 rounded"
+            className="bg-green-500 py-1.5 px-3 rounded-lg text-white"
           >
-            Pending Order
+            Pending
           </button>
         </div>
 
         <div className="mt-8 flow-root my-8">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <table className="min-w-full divide-y divide-gray-300">
+              <table className="min-w-full divide-y divide-slate-200">
                 <thead>
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+                      className="py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600 sm:pl-3"
+                      
                     >
                       Invoice
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Name
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Number
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Total Amount
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                    >
-                      Date
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
                     >
                       Status
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
+                    >
+                      Name
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
+                    >
+                      Mobile
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
+                    >
+                      Amount
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
+                    >
+                      Date
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
                     >
                       Actions
                     </th>
-                    {/* <th
-                      scope="col"
-                      className="relative py-3.5 pl-3 pr-4 sm:pr-3"
-                    >
-                      <span className="sr-only">Edit</span>
-                    </th> */}
                   </tr>
                 </thead>
                 <tbody className="bg-white">
                   {filterData.map((person, personIdx) => (
                     <tr
                       key={person._id}
-                      className={personIdx % 2 === 0 ? undefined : "bg-gray-50"}
+                      className={personIdx % 2 === 0 ? undefined : "bg-slate-50"}
                     >
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
+                      <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-slate-700 sm:pl-3">
+                        
                         {person._id}
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                        <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                          {person.status}
+                        </span>
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
                         {person.name}
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
                         {person.phone}
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.totalPrice + person.deliveryCharge}
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                        {person.totalPrice + person.deliveryCharge} tk
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
                         {person.date}
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {person.status}
-                      </td>
-                      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                        <div className="flex justify-center gap-2">
+                      <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-3 h-10">
+                        <div className="flex gap-2">
                           {person.status === "Pending" && (
                             <button
                               onClick={() => handleStatus(person._id)}
-                              className="bg-green-400 py-1.5 px-3 rounded"
+                              className="py-1.5 px-1.5 rounded-md bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 font-semibold text-white hover:text-white"
                             >
-                              Delivered
+                              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
                             </button>
                           )}
                           <button
@@ -276,9 +273,9 @@ const AllOrders = () => {
                                 .getElementById(`${person._id}`)
                                 .showModal()
                             }
-                            className="bg-amber-400 py-1.5 px-3 rounded"
+                            className="py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
-                            Show items
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
                           </button>
                           <dialog id={`${person._id}`} className="modal">
                             <div className="modal-box w-full text-left">
@@ -325,7 +322,7 @@ const AllOrders = () => {
           </div>
         </div>
         <ToastContainer />
-      </div>
+
     </Container>
   );
 };

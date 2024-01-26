@@ -33,7 +33,7 @@ const Footer = () => {
                 আমাদের ঠিকানা
               </header>
               <a href="https://maps.app.goo.gl/iu8fEDnuj1koBqLs5" 
-                target="_blank" className="link no-underline hover:text-green-500 flex gap-2 items-center">
+                target="_blank" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-map-pin"
@@ -53,7 +53,7 @@ const Footer = () => {
                   সোনাডাংগা, খুলনা ৯১০০
               </a>
               <a href="mailto:ecoeats.bd@gmail.com"
-                  target="" className="link no-underline hover:text-green-500 flex gap-2 items-center">
+                  target="" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-mail"
@@ -73,7 +73,7 @@ const Footer = () => {
                 ecoeats.bd@gmail.com
               </a>
               <a href="tel:+8801753492987"
-                  target="" className="link no-underline hover:text-green-500 flex gap-2 items-center">
+                  target="" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-headset"
@@ -103,7 +103,7 @@ const Footer = () => {
                 <a
                   href="https://www.facebook.com/groups/ecoeats"
                   target="_blank"
-                  className="h-10 cursor-pointer w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
+                  className="h-10 cursor-pointer w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +127,7 @@ const Footer = () => {
                 <a
                   href="https://www.facebook.com/ecoeatsbangladesh"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ const Footer = () => {
                 <a
                   href="https://m.me/ecoeatsbangladesh"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ const Footer = () => {
                 <a
                   href="https://wa.me/+8801753492987"
                   target="_blank"
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -192,7 +192,7 @@ const Footer = () => {
                 <a
                   href="mailto:ecoeats.bd@gmail.com"
                   target=""
-                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white"
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +211,7 @@ const Footer = () => {
                     <path d="M3 7l9 6l9 -6" />
                   </svg>
                 </a>
-                <a href="tel:+8801753492987" target="" className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 hover:text-white">
+                <a href="tel:+8801753492987" target="" className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-headset"
