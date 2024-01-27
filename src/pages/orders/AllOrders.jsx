@@ -62,7 +62,7 @@ const generatePdf = (orderItems) => {
 const sortOptions = [
   { name: "All", href: "#" },
   { name: "Pending", href: "#" },
-  { name: "Delivered", href: "#" },
+  { name: "Shipped", href: "#" },
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
