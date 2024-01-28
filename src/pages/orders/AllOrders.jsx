@@ -266,7 +266,7 @@ const AllOrders = () => {
     <div className="bg-white">
       <DashboardNav></DashboardNav>
       <Container>
-        <div className="mt-28">
+        <div className="pt-28">
           <h3 className="text-xl font-bold text-slate-600">Daily Summary</h3>
           <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
             <div className="overflow-hidden p-3 rounded-lg ring-inset ring-pink-200 ring-1 bg-pink-50/50">

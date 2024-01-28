@@ -88,6 +88,7 @@ const SingleOrders = () => {
     window.print();
   };
   return (
+    <div className="w-full bg-white">
     <Container>
       <>
         <Helmet>
@@ -330,6 +331,7 @@ const SingleOrders = () => {
         </div>
       </>
     </Container>
+    </div>
   );
 };
 
