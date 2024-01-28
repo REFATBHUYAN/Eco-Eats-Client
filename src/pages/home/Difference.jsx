@@ -26,7 +26,7 @@ const Difference = () => {
         <div className="mb-4 lg:mb-0">
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <img
-              className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto "
+              className="lg:w-72 md:hidden block w-full rounded-lg aspect-auto"
               src="/ecoeats/product/product-gach-chui.jpg"
               alt=""
             />
@@ -35,7 +35,7 @@ const Difference = () => {
               src="/ecoeats/diff/diff-gach-chui.jpg"
               alt=""
             />
-            <h1 className="font-semibold md:hidden block text-slate-600 text-xl text-center lg:text-right ">
+            <h1 className="font-semibold md:hidden block text-slate-600 text-xl text-center lg:text-right">
               গাছ চুইঝাল
             </h1>
             <div className="lg:w-80 w-full">

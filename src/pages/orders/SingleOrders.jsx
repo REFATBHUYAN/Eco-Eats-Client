@@ -58,7 +58,7 @@ const moods = [
     name: "I feel nothing",
     value: null,
     icon: XMarkIconMini,
-    iconColor: "text-gray-400",
+    iconColor: "text-slate-400",
     bgColor: "bg-transparent",
   },
 ];
@@ -94,111 +94,130 @@ const SingleOrders = () => {
             {/* Invoice summary */}
 
             {/* Invoice */}
-            <div className="-mx-4 px-4 py-8 shadow-sm ring-1 ring-gray-900/5 sm:mx-0 sm:rounded-lg sm:px-8 sm:pb-14 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:px-16 xl:pb-20 xl:pt-16">
-              <Link
-                to="/"
-                className="normal-case text-xl flex items-center gap-2 mb-4"
-              >
-                <img
-                  className="block h-8 w-auto"
-                  src="/ecoeats/site-icon/ecoeats-icon.svg"
-                />
-                <span className="text-2xl font-bold text-green-500">
-                  ইকো<span className="text-green-400">ইটস</span>
-                </span>
-              </Link>
+            <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
+              <div className="flex">
+                <Link
+                  to="/orders"
+                  className="normal-case text-xl flex items-center gap-2"
+                >
+                  <img
+                    className="block h-8 w-auto"
+                    src="/ecoeats/site-icon/ecoeats-icon.svg"
+                  />
+                  <span className="text-2xl font-bold text-green-500">
+                    ইকো<span className="text-green-400">ইটস</span>
+                  </span>
+                </Link>
+
+                <button
+                  onClick={handlePrint}
+                  className="float-right py-2 px-4 rounded-lg bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-printer"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                    <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
+                  </svg>
+                  Print
+                </button>
+
+
+              </div>
               <div className="mt-8">
-                <dt className="inline text-base font-semibold leading-6 text-gray-900">
-                  Invoice:
+                <dt className="inline text-base font-semibold text-slate-600">
+                  Invoice #
                 </dt>{" "}
-                <dd className="inline text-gray-700">
+                <dd className="inline text-sm font-semibold text-slate-400">
                   <time dateTime="2023-31-01">
                     {singleItem?.invoice || singleItem?._id}
                   </time>
                 </dd>
               </div>
-              <dl className=" grid grid-cols-1 text-sm leading-6 sm:grid-cols-2">
+              <dl className="grid grid-cols-1 text-sm leading-6 sm:grid-cols-2">
                 {/* <div className="sm:pr-4">
-                  <dt className="inline text-gray-500">
+                  <dt className="inline text-slate-600">
                     {" "}
                     {singleItem?.invoice || singleItem?._id}
                   </dt>{" "}
                 </div> */}
 
-                <div className="mt-6 border-t border-gray-900/5 pt-6 sm:pr-4">
-                  <dt className="font-semibold text-gray-900">From</dt>
-                  <dd className="mt-2 text-gray-500">
-                    <span className="font-medium text-gray-900">EcoEats</span>
+                <div className="mt-6 border-t border-slate-100 pt-6 sm:pr-4">
+                  <dt className="font-semibold text-slate-400">From</dt>
+                  <dd className="mt-2">
+                    <span className="font-medium text-slate-600">EcoEats</span>
                     <br />
-                    সোনাডাংগা, খুলনা ৯১০০
+                    <span className="font-light text-slate-600">Sonadanga, Khulna 9100</span>
                     <br />
-                    +8801753492987
+                    <span className="font-light text-slate-600">+8801753492987</span>
                   </dd>
                 </div>
-                <div className="mt-8 sm:mt-6 sm:border-t sm:border-gray-900/5 sm:pl-4 sm:pt-6">
-                  <dt className="font-semibold text-gray-900">To</dt>
-                  <dd className="mt-2 text-gray-500">
-                    <span className="font-medium text-gray-900">
+                <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-100 sm:pl-4 sm:pt-6">
+                  <dt className="font-semibold text-slate-400">To</dt>
+                  <dd className="mt-2">
+                    <span className="font-medium text-slate-600">
                       {singleItem?.name}
                     </span>
                     <br />
-                    {singleItem?.address}
+                    <span className="font-light text-slate-600">{singleItem?.address}</span>
                     <br />
-                    {singleItem?.phone}
+                    <span className="font-light text-slate-600">{singleItem?.phone}</span>
                   </dd>
                 </div>
               </dl>
-              <table className="mt-10 w-full whitespace-nowrap text-left text-sm leading-6">
+              <table className="mt-10 w-full whitespace-nowrap text-left text-sm uppercase text-slate-600">
                 <colgroup>
                   <col className="w-full" />
                   <col />
                   <col />
                   <col />
                 </colgroup>
-                <thead className="border-b border-gray-200 text-gray-900">
+                <thead className="text-slate-400">
                   <tr>
-                    <th scope="col" className="px-0 py-3 font-semibold">
+                    <th scope="col" className="px-0 py-3 font-semibold text-xs">
                       Ordered Items
                     </th>
-                    <th
-                      scope="col"
-                      className="hidden py-3 pl-8 pr-0 text-right font-semibold sm:table-cell"
-                    >
+                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell">
                       Price
                     </th>
-                    <th
-                      scope="col"
-                      className="hidden py-3 pl-8 pr-0 text-right font-semibold sm:table-cell"
-                    >
-                      Quantity
+                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell">
+                      Qty
                     </th>
-                    <th
-                      scope="col"
-                      className="py-3 pl-8 pr-0 text-right font-semibold"
-                    >
-                      Sub-total
+                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs">
+                      Amount
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {singleItem &&
                     singleItem?.food.map((item) => (
-                      <tr key={item.id} className="border-b border-gray-100">
+                      <tr key={item.id} className="border-y border-slate-100">
                         <td className="max-w-0 px-0 py-5 align-top">
-                          <div className="truncate font-medium text-gray-900">
+                          <div className="truncate font-medium text-slate-600">
                             {item.title}
                           </div>
-                          <div className="truncate text-gray-500">
+                          <div className="truncate text-slate-400 font-light">
                             {item.weight}
                           </div>
                         </td>
-                        <td className="hidden py-5 pl-8 pr-0 text-right align-top tabular-nums text-gray-700 sm:table-cell">
+                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                           {item.price}
                         </td>
-                        <td className="hidden py-5 pl-8 pr-0 text-right align-top tabular-nums text-gray-700 sm:table-cell">
+                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                           {item.quantity}
                         </td>
-                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-gray-700">
+                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {item.price * item.quantity}
                         </td>
                       </tr>
@@ -208,82 +227,63 @@ const SingleOrders = () => {
                   <tr>
                     <th
                       scope="row"
-                      className="px-0 pb-0 pt-6 font-normal text-gray-700 sm:hidden"
+                      colSpan={3}
+                      className="px-0 pb-0 pt-6 font-semibold text-slate-400 sm:hidden text-xs font-semibold uppercase"
                     >
                       Subtotal
                     </th>
                     <th
                       scope="row"
                       colSpan={3}
-                      className="hidden px-0 pb-0 pt-6 text-right font-normal text-gray-700 sm:table-cell"
+                      className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                     >
                       Subtotal
                     </th>
-                    <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-gray-900">
+                    <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
                       {singleItem?.totalPrice}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      className="pt-4 font-normal text-gray-700 sm:hidden"
+                      colSpan={3}
+                      className="pt-4 font-semibold text-slate-400 sm:hidden text-xs uppercase"
                     >
-                      Charge
+                      Delivery
                     </th>
                     <th
                       scope="row"
                       colSpan={3}
-                      className="hidden pt-4 text-right font-normal text-gray-700 sm:table-cell"
+                      className="hidden pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                     >
-                      Charge
+                      Delivery
                     </th>
-                    <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-gray-900">
+                    <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                       {singleItem?.deliveryCharge}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      className="pt-4 font-semibold text-gray-900 sm:hidden"
+                      colSpan={3}
+                      className="pt-4 font-semibold text-slate-600 sm:hidden text-xs uppercase"
                     >
                       Total
                     </th>
                     <th
                       scope="row"
                       colSpan={3}
-                      className="hidden pt-4 text-right font-semibold text-gray-900 sm:table-cell"
+                      className="hidden pt-4 text-right font-semibold text-slate-600 sm:table-cell text-xs uppercase"
                     >
                       Total
                     </th>
-                    <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-gray-900">
+                    <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                       {singleItem?.deliveryCharge + singleItem?.totalPrice}
                     </td>
                   </tr>
                 </tfoot>
               </table>
-              <button
-                onClick={handlePrint}
-                className="py-1.5 px-1.5 rounded-md bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 font-semibold text-white hover:text-white flex items-center gap-1 mt-10"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-printer"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-                  <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-                  <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
-                </svg>
-                Print
-              </button>
+              <div className="font-light text-slate-300 text-xs italic mt-8 text-center">Thank you for shopping with us. Please contact our helpline or chat with us for any issues. Have a nice day.</div>
             </div>
           </div>
         </div>

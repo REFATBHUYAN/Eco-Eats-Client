@@ -10,7 +10,6 @@ import {
   Popover,
   Transition,
 } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 
@@ -59,7 +58,7 @@ const generatePdf = (orderItems) => {
   pdf.save("order_details.pdf");
 };
 
-const sortOptions = [
+const filtersOptions = [
   { name: "All", href: "#" },
   { name: "Pending", href: "#" },
   { name: "Shipped", href: "#" },
@@ -122,50 +121,6 @@ const AllOrders = () => {
     fetchData2();
   }, [date, dataUpdated]); 
 
-  const stats = [
-    // { name: "Total Orders", stat: allData.length },
-    { name: "Orders Today", stat: filterData.length },
-    {
-      name: "Completed Orders",
-      stat: allData.filter((d) => d.status === "Shipped").length,
-    },
-    {
-      name: "Pending Orders",
-      stat: allData.filter((d) => d.status === "Pending").length,
-    },
-    // {
-    //   name: "Total Sales",
-    //   stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
-    // },
-    {
-      name: "Sales Today",
-      stat: `${allData
-        .filter((d) => d.date === date)
-        .reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
-    },
-  ];
-  const stats2 = [
-    // { name: "Total Orders", stat: allData.length },
-    { name: "Total Orders", stat: allOrders.length },
-    {
-      name: "Total Completed Orders",
-      stat: allOrders.filter((d) => d.status === "Shipped").length,
-    },
-    {
-      name: "Total Pending Orders",
-      stat: allOrders.filter((d) => d.status === "Pending").length,
-    },
-    // {
-    //   name: "Total Sales",
-    //   stat: `${allData.reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
-    // },
-    {
-      name: "Total Sales",
-      stat: `${allOrders
-        .reduce((acc, item) => acc + item.totalPrice, 0)} tk`,
-    },
-  ];
-
   // console.log(filterData)
   console.log(allData);
   const handleStatusDelivered = async (_id) => {
@@ -183,7 +138,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.success("অর্ডার স্ট্যাটাস আপডেট করা হয়েছে!", {
+        toast.success("অর্ডার শিপড হিসেবে মার্ক করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -210,7 +165,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.success("অর্ডার স্ট্যাটাস আপডেট করা হয়েছে!", {
+        toast.warn("অর্ডার পেন্ডিং হিসেবে মার্ক করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -243,27 +198,64 @@ const AllOrders = () => {
 
   return (
     <Container>
-      <div className="mt-20 md:mt-28">
-        <h3 className="text-xl font-bold text-slate-400">Today's Summary</h3>
+      <div className="mt-28">
+        <h3 className="text-xl font-bold text-slate-600">Daily Summary</h3>
         <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
-          {stats.map((item) => (
-            <div
-              key={item.name}
-              className="overflow-hidden px-4 py-5 sm:p-6 rounded-lg bg-slate-50 ring-inset ring-slate-200 ring-1"
-            >
-              <dt className="truncate text-sm font-medium text-slate-400">
-                {item.name}
-              </dt>
-              <dd className="text-3xl font-semibold tracking-tight text-slate-600">
-                {item.stat}
-              </dd>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-pink-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart stroke-pink-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
             </div>
-          ))}
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Orders Today
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{filterData.length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-green-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check stroke-green-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Completed Orders
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{allData.filter((d) => d.status === "Shipped").length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-amber-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle stroke-amber-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Pending Orders
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{allData.filter((d) => d.status === "Pending").length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-indigo-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar stroke-indigo-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Sales Today
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">
+                {`${allData
+                  .filter((d) => d.date === date)
+                  .reduce((acc, item) => acc + item.totalPrice, 0)} tk`
+                }
+              </p>
+            </dd>
+          </div>
         </dl>
       </div>
-      <div className="mt-1 py-8 flex items-center justify-between gap-4 w-full">
+      <div className="mt-8 py-8 flex items-center justify-between gap-4 w-full">
         <input
-          className="bg-slate-50 border  border-slate-300 text-slate-600 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
+          className="block rounded-lg py-1.5 border-0 border-slate-300 text-md font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+          //  ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6
           type="date"
           value={date}
           onChange={handleDate}
@@ -273,10 +265,10 @@ const AllOrders = () => {
 
         <Menu as="div" className="relative inline-block text-left">
           <div>
-            <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-              Sort
+            <Menu.Button className="group inline-flex justify-center block w-full rounded-lg py-1.5 px-3 border-0 border-slate-300 text-left text-md font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6">
+              Filters
               <ChevronDownIcon
-                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-slate-400 group-hover:text-slate-600"
                 aria-hidden="true"
               />
             </Menu.Button>
@@ -291,16 +283,17 @@ const AllOrders = () => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none">
+              
               <div className="py-1">
-                {sortOptions.map((option) => (
+                {filtersOptions.map((option) => (
                   <Menu.Item key={option}>
                     {({ active }) => (
                       <button
                         onClick={() => handleFilter(option.name)}
                         className={classNames(
-                          active ? "bg-gray-100 w-full text-start" : "",
-                          "block px-4 py-2 text-sm font-medium text-gray-900"
+                          active ? "bg-slate-100 w-full text-start" : "",
+                          "block px-4 py-2 text-sm font-medium text-slate-600"
                         )}
                       >
                         {option.name}
@@ -314,9 +307,9 @@ const AllOrders = () => {
         </Menu>
       </div>
 
-      <div className="mt-8 flow-root my-8">
+      <div className="flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <div className="inline-block min-w-full align-middle sm:px-6 lg:px-8">
             <table className="min-w-full divide-y divide-slate-200">
               <thead>
                 <tr>
@@ -370,30 +363,30 @@ const AllOrders = () => {
                     key={person._id}
                     className={personIdx % 2 === 0 ? undefined : "bg-slate-50"}
                   >
-                    <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-slate-700 sm:pl-3">
+                    <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-slate-400 sm:pl-3">
                       {person?.invoice || person._id}
                     </td>
                     <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
                       <span
-                        className={`inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium  ring-1 ring-inset  ${
+                        className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset  ${
                           person.status === "Pending"
                             ? "text-amber-500 bg-amber-50 ring-amber-600/20"
-                            : "text-green-700 bg-green-50 ring-green-600/20"
+                            : "text-green-500 bg-green-50 ring-green-600/20"
                         }`}
                       >
                         {person.status}
                       </span>
                     </td>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                       {person.name}
                     </td>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                       {person.phone}
                     </td>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                       {person.totalPrice + person.deliveryCharge} tk
                     </td>
-                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
+                    <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                       {person.date}
                     </td>
                     <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-3 h-10">
@@ -404,7 +397,7 @@ const AllOrders = () => {
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="icon icon-tabler icon-tabler-clock-pause"
+                            className="icon icon-tabler icon-tabler-alert-triangle"
                             width="20"
                             height="20"
                             viewBox="0 0 24 24"
@@ -414,11 +407,10 @@ const AllOrders = () => {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                           >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M20.942 13.018a9 9 0 1 0 -7.909 7.922" />
-                            <path d="M12 7v5l2 2" />
-                            <path d="M17 17v5" />
-                            <path d="M21 17v5" />
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 9v4" />
+                            <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                            <path d="M12 16h.01" />
                           </svg>
                         </button>
                         <button
@@ -468,7 +460,7 @@ const AllOrders = () => {
                         </button> */}
                         <Link
                           to={`/orders/${person._id}`}
-                          className="py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          className="py-1.5 px-1.5 rounded-md bg-slate-400 hover:bg-slate-500 active:bg-slate-600 ease-in duration-75 font-semibold text-white hover:text-white"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -532,22 +524,57 @@ const AllOrders = () => {
         </div>
       </div>
 
-      <div className="mt-20 md:mt-28">
-        <h3 className="text-xl font-bold text-slate-400">Order Summary</h3>
-        <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4 mb-6">
-          {stats2.map((item) => (
-            <div
-              key={item.name}
-              className="overflow-hidden px-4 py-5 sm:p-6 rounded-lg bg-slate-50 ring-inset ring-slate-200 ring-1"
-            >
-              <dt className="truncate text-sm font-medium text-slate-400">
-                {item.name}
-              </dt>
-              <dd className="text-3xl font-semibold tracking-tight text-slate-600">
-                {item.stat}
-              </dd>
+      <div className="my-16">
+        <h3 className="text-xl font-bold text-slate-600">Website Summary</h3>
+        <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-pink-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart stroke-pink-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
             </div>
-          ))}
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Total Orders
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-green-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check stroke-green-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Total Completed
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.filter((d) => d.status === "Shipped").length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-amber-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle stroke-amber-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Total Pending
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.filter((d) => d.status === "Pending").length}</p>
+            </dd>
+          </div>
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+            <div className="absolute rounded-md bg-indigo-100 p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar stroke-indigo-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
+            </div>
+            <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+              Total Sales
+            </dt>
+            <dd className="ml-14 flex items-baseline -mt-1">
+              <p className="text-2xl truncate font-semibold text-slate-600">
+                {`${allOrders
+                  .reduce((acc, item) => acc + item.totalPrice, 0)} tk`
+                }
+              </p>
+            </dd>
+          </div>
         </dl>
       </div>
       <ToastContainer />
