@@ -17,6 +17,26 @@
   color: #16A34A;
 }
 
+@media print {
+  .printButton {
+    color: transparent !important;
+  }
+  body {
+    counter-reset: page;
+  }
+
+  body::before {
+    content: counter(page);
+    counter-increment: page;
+    display: none;
+  }
+
+  body::after {
+    content: "URL: " attr(data-url) "\A Title: " attr(data-title) "\A Time: " attr(data-time);
+    display: none;
+  }
+}
+
 /* option:hover,
 option:checked {
   background-color: #16A34A;

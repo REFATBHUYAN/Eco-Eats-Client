@@ -17,6 +17,7 @@ import {
 } from "@heroicons/react/20/solid";
 
 import Container from "../../components/Container";
+import { Helmet } from "react-helmet-async";
 
 const moods = [
   {
@@ -70,8 +71,8 @@ function classNames(...classes) {
 const SingleOrders = () => {
   const { id } = useParams();
   const [singleItem, setSingleItem] = useState();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selected, setSelected] = useState(moods[5]);
+
+  // const [selected, setSelected] = useState(moods[5]);
 
   console.log(singleItem);
 
@@ -88,11 +89,15 @@ const SingleOrders = () => {
   };
   return (
     <Container>
-      <main>
-        <div className="mx-auto max-w-7xl my-4">
+      <>
+        <Helmet>
+          <title>Invoice # {`${singleItem?.invoice || singleItem?._id}`}</title>
+        </Helmet>
+
+        <div className=" bg-white mx-auto max-w-7xl my-4">
           <div>
             <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
-              <div className="flex">
+              <div className="flex justify-between">
                 <Link
                   to="/orders"
                   className="normal-case text-xl flex items-center gap-2"
@@ -108,7 +113,7 @@ const SingleOrders = () => {
 
                 <button
                   onClick={handlePrint}
-                  className="float-right py-2 px-4 rounded-lg bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2"
+                  className={`float-right py-2 px-4 rounded-lg bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -129,18 +134,26 @@ const SingleOrders = () => {
                   </svg>
                   Print
                 </button>
-
-
               </div>
-              <div className="mt-8">
-                <dt className="inline text-base font-semibold text-slate-600">
-                  Invoice #
-                </dt>{" "}
-                <dd className="inline text-sm font-semibold text-slate-400">
-                  <time dateTime="2023-31-01">
-                    {singleItem?.invoice || singleItem?._id}
-                  </time>
-                </dd>
+              <div className="flex justify-between">
+                <div className="mt-8 flex-1">
+                  <dt className="inline text-base font-semibold text-slate-600">
+                    Invoice #
+                  </dt>{" "}
+                  <dd className="inline text-sm font-semibold text-slate-400">
+                    <time dateTime="2023-31-01">
+                      {singleItem?.invoice || singleItem?._id}
+                    </time>
+                  </dd>
+                </div>
+                <div className="mt-8 flex-1 ml-8">
+                  <dt className="inline text-base font-semibold text-slate-600">
+                    Date:
+                  </dt>{" "}
+                  <dd className="inline text-sm font-semibold text-slate-400">
+                    <time dateTime="2023-31-01">{singleItem?.date}</time>
+                  </dd>
+                </div>
               </div>
               <dl className="grid grid-cols-1 text-sm leading-6 sm:grid-cols-2">
                 {/* <div className="sm:pr-4">
@@ -155,9 +168,13 @@ const SingleOrders = () => {
                   <dd className="mt-2">
                     <span className="font-medium text-slate-600">EcoEats</span>
                     <br />
-                    <span className="font-light text-slate-600">Sonadanga, Khulna 9100</span>
+                    <span className="font-light text-slate-600">
+                      Sonadanga, Khulna 9100
+                    </span>
                     <br />
-                    <span className="font-light text-slate-600">+8801753492987</span>
+                    <span className="font-light text-slate-600">
+                      +8801753492987
+                    </span>
                   </dd>
                 </div>
                 <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-200 sm:pl-4 sm:pt-6">
@@ -167,9 +184,13 @@ const SingleOrders = () => {
                       {singleItem?.name}
                     </span>
                     <br />
-                    <span className="font-light text-slate-600">{singleItem?.address}</span>
+                    <span className="font-light text-slate-600">
+                      {singleItem?.address}
+                    </span>
                     <br />
-                    <span className="font-light text-slate-600">{singleItem?.phone}</span>
+                    <span className="font-light text-slate-600">
+                      {singleItem?.phone}
+                    </span>
                   </dd>
                 </div>
               </dl>
@@ -185,14 +206,29 @@ const SingleOrders = () => {
                     <th scope="col" className="px-0 py-3 font-semibold text-xs">
                       Ordered Items
                     </th>
-                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell">
+                    <th
+                      scope="col"
+                      className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell"
+                    >
                       Price
                     </th>
-                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell">
+                    <th
+                      scope="col"
+                      className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell"
+                    >
                       Qty
                     </th>
-                    <th scope="col" className="py-3 pl-8 pr-0 text-right font-semibold text-xs">
+                    <th
+                      scope="col"
+                      className="py-3 pl-8 pr-0 text-right font-semibold text-xs"
+                    >
                       Amount
+                    </th>
+                    <th
+                      scope="col"
+                      className="py-3 pl-8 pr-0 text-right font-semibold text-xs"
+                    >
+                      SL
                     </th>
                   </tr>
                 </thead>
@@ -217,6 +253,9 @@ const SingleOrders = () => {
                         <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {item.price * item.quantity}
                         </td>
+                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
+                          N/A
+                        </td>
                       </tr>
                     ))}
                 </tbody>
@@ -225,7 +264,7 @@ const SingleOrders = () => {
                     <th
                       scope="row"
                       colSpan={3}
-                      className="px-0 pb-0 pt-6 font-semibold text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                      className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                     >
                       Subtotal
                     </th>
@@ -280,11 +319,14 @@ const SingleOrders = () => {
                   </tr>
                 </tfoot>
               </table>
-              <div className="font-light text-slate-300 text-xs italic mt-8 text-center">Thank you for shopping with us. Please contact our helpline or chat with us for any issues. Have a nice day.</div>
+              <div className="font-light text-slate-300 text-xs italic mt-8 text-center">
+                Thank you for shopping with us. Please contact our helpline or
+                chat with us for any issues. Have a nice day.
+              </div>
             </div>
           </div>
         </div>
-      </main>
+      </>
     </Container>
   );
 };
