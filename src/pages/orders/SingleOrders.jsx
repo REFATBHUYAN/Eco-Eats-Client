@@ -196,6 +196,7 @@ const SingleOrders = () => {
               </dl>
               <table className="mt-10 w-full whitespace-nowrap text-left text-sm uppercase text-slate-600">
                 <colgroup>
+                  <col />
                   <col className="w-full" />
                   <col />
                   <col />
@@ -203,9 +204,16 @@ const SingleOrders = () => {
                 </colgroup>
                 <thead className="text-slate-400 border-b border-slate-200">
                   <tr>
+                    <th
+                      scope="col"
+                      className="px-0 py-3 font-semibold text-xs"
+                    >
+                      SL
+                    </th>
                     <th scope="col" className="px-0 py-3 font-semibold text-xs">
                       Ordered Items
                     </th>
+                    
                     <th
                       scope="col"
                       className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell"
@@ -224,18 +232,15 @@ const SingleOrders = () => {
                     >
                       Amount
                     </th>
-                    <th
-                      scope="col"
-                      className="py-3 pl-8 pr-0 text-right font-semibold text-xs"
-                    >
-                      SL
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {singleItem &&
-                    singleItem?.food.map((item) => (
+                    singleItem?.food.map((item, i) => (
                       <tr key={item.id} className="border-y border-slate-100">
+                        <td className="max-w-0 pr-8 py-5 align-top">
+                          {i + 1}
+                        </td>
                         <td className="max-w-0 px-0 py-5 align-top">
                           <div className="truncate font-medium text-slate-600">
                             {item.title}
@@ -253,14 +258,11 @@ const SingleOrders = () => {
                         <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {item.price * item.quantity}
                         </td>
-                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
-                          N/A
-                        </td>
                       </tr>
                     ))}
                 </tbody>
-                <tfoot>
-                  <tr>
+                <tfoot className="px-0">
+                  <tr >
                     <th
                       scope="row"
                       colSpan={3}

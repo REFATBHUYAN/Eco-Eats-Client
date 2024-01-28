@@ -15,6 +15,11 @@ import { Link } from "react-router-dom";
 import DashboardNav from "./DashboardNav";
 import Footer from "../shared/Footer";
 // import { DateRangePicker } from "dates-picker";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
+import { format } from "date-fns";
+import { addMonths, isSameMonth } from "date-fns";
+// import PickDate from "./PickDate";
 
 const generatePdf = (orderItems) => {
   // Create a new instance of jsPDF
@@ -82,6 +87,43 @@ const AllOrders = () => {
   const timestamp = new Date().toISOString();
   const [allOrders, setAllOrders] = useState([]);
   const [filterOption, setFilterOption] = useState("All Orders");
+  const today = new Date();
+  const nextMonth = addMonths(new Date(), 0);
+  const [month, setMonth] = useState(nextMonth);
+  const [selected, setSelected] = useState(today);
+  const formattedDate = format(selected, "yyyy-MM-dd");
+  const [selectCalender, setSelectCelender] = useState(false);
+
+  // scroll code
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const [ShowButton, setShowButton] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowButton(true);
+        // console.log("yes scrolled");
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const buttonClasses = ShowButton
+    ? "shadow-md ease-in duration-75"
+    : "border-transparent border-red-200 hidden";
+    // scroll code finished
 
   console.log("time stamp", timestamp);
 
@@ -100,9 +142,10 @@ const AllOrders = () => {
     const fetchData1 = async () => {
       try {
         const response1 = await fetch(
-          `https://chui-jhal-server.vercel.app/orders/${date}`
+          `https://chui-jhal-server.vercel.app/orders/${formattedDate}`
         );
         const result1 = await response1.json();
+        setSelectCelender(false);
         setAllData(result1);
         setFilterData(result1);
         setDataUpdated(false);
@@ -126,7 +169,7 @@ const AllOrders = () => {
     // Call both fetchData functions
     fetchData1();
     fetchData2();
-  }, [date, dataUpdated]);
+  }, [selected, dataUpdated]);
 
   // console.log(filterData)
   console.log(allData);
@@ -202,19 +245,25 @@ const AllOrders = () => {
     // const pendingData = allData.filter((d) => d.status === "Pending");
     // setFilterData(pendingData);
   };
-  function callbackFunction(dates) {
-    setDate(dates.text);
-    console.log(`The range of dates that got picked is: ${dates.text}`)
-    console.log(`The min date that got picked is: ${dates.minDate}`)
-    console.log(`The max date that got picked is: ${dates.maxDate}`)
-    console.log(
-      `The number of days that got picked is: ${dates.numberOfDaysPicked}`
-    )
-    console.log(`All dates: ${dates.allDates}`)
-  }
+
+  const footer = (
+    <button
+      className="text-green-500 bg-green-50 ring-green-600/20 inline-flex items-center rounded-md px-3 py-2 text-sm font-medium ring-1 ring-inset gap-1 mt-2"
+      // disabled={isSameMonth(today, month)}
+      onClick={() => {
+        setMonth(today);
+        setSelected(today);
+      }}
+    >
+      Go to Today
+    </button>
+  );
+
+  // setDate(formattedDate)
+  console.log("selected day", formattedDate);
 
   return (
-    <>
+    <div className="bg-white">
       <DashboardNav></DashboardNav>
       <Container>
         <div className="mt-28">
@@ -340,7 +389,7 @@ const AllOrders = () => {
           </dl>
         </div>
         <div className="mt-8 py-8 flex items-center justify-between gap-4 w-full">
-          <input
+          {/* <input
             className="block rounded-lg py-1.5 border-0 border-slate-300 text-md font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
             //  ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6
             type="date"
@@ -348,24 +397,54 @@ const AllOrders = () => {
             onChange={handleDate}
             name=""
             id=""
-          />
-
-          {/* <DateRangePicker options={options}></DateRangePicker> */}
-          {/* <DateRangePicker
-            language="English"
-            colorsPalette="enabled"
-            format="YYYY-DD-MM"
-            // format="DD-MM-YYYY"
-            selectAllButton="disabled"
-            // startDate={new Date(2000, 8, 21)}
-            // endDate={new Date(2024, 9, 21)}
-            firstDayOfWeekIndex={0}
-            pickMethod="date"
-            defaultColor="#178905"
-            daysAmountTab="disabled"
-            boardsNum={1}
-            callback={callbackFunction}
           /> */}
+
+          <div className="relative">
+            <button
+              onClick={() => setSelectCelender(!selectCalender)}
+              className={`text-green-500 bg-green-50 ring-green-600/20 inline-flex items-center rounded-md px-3 py-2 text-sm font-medium ring-1 ring-inset gap-1`}
+            >
+              {formattedDate === date ? "Today" : formattedDate}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-calendar-event"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                <path d="M16 3l0 4" />
+                <path d="M8 3l0 4" />
+                <path d="M4 11l16 0" />
+                <path d="M8 15h2v2h-2z" />
+              </svg>
+            </button>
+            <div
+              className={`absolute left-0 z-50 shadow-md bg-white ${
+                selectCalender ? "block" : "hidden"
+              }`}
+            >
+              <DayPicker
+                mode="single"
+                selected={selected}
+                onSelect={setSelected}
+                footer={footer}
+                month={month}
+                onMonthChange={setMonth}
+                captionLayout="dropdown-buttons"
+                fromYear={2020}
+                toYear={2030}
+              />
+            </div>
+          </div>
+
+          {/* <PickDate></PickDate> */}
 
           <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -773,7 +852,27 @@ const AllOrders = () => {
         <ToastContainer />
       </Container>
       <Footer></Footer>
-    </>
+      <button
+          onClick={scrollToTop}
+          className={`float-right fixed cursor-pointer z-30 right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-700 active:scale-95 ease-in duration-75 opacity-50 hover:opacity-100 shadow-xl ${buttonClasses}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-chevron-up text-white mx-auto"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M6 15l6 -6l6 6"></path>
+          </svg>
+        </button>
+    </div>
   );
 };
 
