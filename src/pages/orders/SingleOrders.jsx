@@ -150,7 +150,7 @@ const SingleOrders = () => {
                   </dt>{" "}
                 </div> */}
 
-                <div className="mt-6 border-t border-slate-100 pt-6 sm:pr-4">
+                <div className="mt-6 border-t border-slate-200 pt-6 sm:pr-4">
                   <dt className="font-semibold text-slate-400">From</dt>
                   <dd className="mt-2">
                     <span className="font-medium text-slate-600">EcoEats</span>
@@ -160,7 +160,7 @@ const SingleOrders = () => {
                     <span className="font-light text-slate-600">+8801753492987</span>
                   </dd>
                 </div>
-                <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-100 sm:pl-4 sm:pt-6">
+                <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-200 sm:pl-4 sm:pt-6">
                   <dt className="font-semibold text-slate-400">To</dt>
                   <dd className="mt-2">
                     <span className="font-medium text-slate-600">
@@ -180,7 +180,7 @@ const SingleOrders = () => {
                   <col />
                   <col />
                 </colgroup>
-                <thead className="text-slate-400">
+                <thead className="text-slate-400 border-b border-slate-200">
                   <tr>
                     <th scope="col" className="px-0 py-3 font-semibold text-xs">
                       Ordered Items

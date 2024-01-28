@@ -201,7 +201,7 @@ const AllOrders = () => {
       <div className="mt-28">
         <h3 className="text-xl font-bold text-slate-600">Daily Summary</h3>
         <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-pink-50/50">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-pink-200 ring-1 bg-pink-50/50">
             <div className="absolute rounded-md bg-pink-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart stroke-pink-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
             </div>
@@ -212,7 +212,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{filterData.length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-green-50/50">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-green-200 ring-1 bg-green-50/50">
             <div className="absolute rounded-md bg-green-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check stroke-green-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
             </div>
@@ -223,7 +223,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{allData.filter((d) => d.status === "Shipped").length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-amber-50/50">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-amber-200 ring-1 bg-amber-50/50">
             <div className="absolute rounded-md bg-amber-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle stroke-amber-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
             </div>
@@ -234,7 +234,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{allData.filter((d) => d.status === "Pending").length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-indigo-50/50">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-indigo-200 ring-1 bg-indigo-50/50">
             <div className="absolute rounded-md bg-indigo-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar stroke-indigo-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
             </div>
@@ -460,7 +460,7 @@ const AllOrders = () => {
                         </button> */}
                         <Link
                           to={`/orders/${person._id}`}
-                          className="py-1.5 px-1.5 rounded-md bg-slate-400 hover:bg-slate-500 active:bg-slate-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -527,7 +527,7 @@ const AllOrders = () => {
       <div className="my-16">
         <h3 className="text-xl font-bold text-slate-600">Website Summary</h3>
         <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-pink-200 ring-1">
             <div className="absolute rounded-md bg-pink-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart stroke-pink-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
             </div>
@@ -538,7 +538,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-green-200 ring-1">
             <div className="absolute rounded-md bg-green-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check stroke-green-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
             </div>
@@ -549,7 +549,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.filter((d) => d.status === "Shipped").length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-amber-200 ring-1">
             <div className="absolute rounded-md bg-amber-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-triangle stroke-amber-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4" /><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /><path d="M12 16h.01" /></svg>
             </div>
@@ -560,7 +560,7 @@ const AllOrders = () => {
               <p className="text-2xl truncate font-semibold text-slate-600">{allOrders.filter((d) => d.status === "Pending").length}</p>
             </dd>
           </div>
-          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1">
+          <div className="overflow-hidden p-3 rounded-lg ring-inset ring-indigo-200 ring-1">
             <div className="absolute rounded-md bg-indigo-100 p-3">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-dollar stroke-indigo-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" /><path d="M12 3v3m0 12v3" /></svg>
             </div>
