@@ -91,9 +91,6 @@ const SingleOrders = () => {
       <main>
         <div className="mx-auto max-w-7xl my-4">
           <div>
-            {/* Invoice summary */}
-
-            {/* Invoice */}
             <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
               <div className="flex">
                 <Link
