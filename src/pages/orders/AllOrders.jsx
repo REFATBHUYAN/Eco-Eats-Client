@@ -14,12 +14,10 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import DashboardNav from "./DashboardNav";
 import Footer from "../shared/Footer";
-// import { DateRangePicker } from "dates-picker";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
 import { addMonths, isSameMonth } from "date-fns";
-// import PickDate from "./PickDate";
 
 const generatePdf = (orderItems) => {
   // Create a new instance of jsPDF
@@ -241,7 +239,7 @@ const AllOrders = () => {
 
   const footer = (
     <button
-      className="rounded-lg bg-slate-400 hover:bg-green-600 active:bg-green-700 px-4 py-2 text-xs font-semibold text-white items-center gap-1 mt-4"
+      className="rounded-lg bg-slate-400 hover:bg-slate-500 active:bg-slate-600 px-4 py-2 text-xs font-semibold text-white items-center gap-1 mt-4"
       
       // disabled={isSameMonth(today, month)}
       onClick={() => {
@@ -403,7 +401,7 @@ const AllOrders = () => {
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
             </button>
             <div
-              className={`absolute  left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
+              className={`absolute left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
                 selectCalender ? "block" : "hidden"
               }`}
             >
@@ -426,7 +424,7 @@ const AllOrders = () => {
 
           <Menu as="div" className="relative inline-block text-left">
             <div>
-              <Menu.Button className="group inline-flex justify-center w-full rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium text-slate-600 ring-1 ring-inset ring-slate-300  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2">
+              <Menu.Button className="group inline-flex justify-center w-full rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2">
                 {filterOption}
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter-cog text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 20l-3 1v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v1.5" /><path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M19.001 15.5v1.5" /><path d="M19.001 21v1.5" /><path d="M22.032 17.25l-1.299 .75" /><path d="M17.27 20l-1.3 .75" /><path d="M15.97 17.25l1.3 .75" /><path d="M20.733 20l1.3 .75" /></svg>
               </Menu.Button>
@@ -441,7 +439,7 @@ const AllOrders = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none">
+              <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-left rounded-md text bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none">
                 <div className="py-1">
                   {filtersOptions.map((option) => (
                     <Menu.Item key={option}>
@@ -449,8 +447,8 @@ const AllOrders = () => {
                         <button
                           onClick={() => handleFilter(option.name)}
                           className={classNames(
-                            active ? "bg-slate-100 w-full text-start" : "",
-                            "block px-4 py-2 text-sm font-medium text-slate-600"
+                            active ? "bg-slate-100 w-full text-start  text-slate-600" : "font-medium",
+                            "block px-4 py-2 text-sm text-slate-400 font-normal"
                           )}
                         >
                           {option.name}
@@ -556,10 +554,9 @@ const AllOrders = () => {
                         {person.totalPrice + person.deliveryCharge} tk
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
-                        {person.date}{" "}
-                        <span className="text-xs">
-                          {" "}
-                          {person?.time && ", " + person?.time}
+                        {person.date};
+                        <span>
+                          {person?.time && " " + person?.time}
                         </span>
                       </td>
                       <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-3 h-10">

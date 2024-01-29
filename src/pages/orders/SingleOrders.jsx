@@ -114,7 +114,7 @@ const SingleOrders = () => {
 
                 <button
                   onClick={handlePrint}
-                  className={`float-right py-2 px-4 rounded-lg bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
+                  className={`float-right py-2 px-4 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ const SingleOrders = () => {
                     Date:
                   </dt>{" "}
                   <dd className="inline text-sm font-semibold text-slate-400">
-                    <time dateTime="2023-31-01">{singleItem?.date}</time>
+                    <time dateTime="2023-31-01">{singleItem?.date}; {singleItem?.time && " " + singleItem?.time}</time>
                   </dd>
                 </div>
               </div>
