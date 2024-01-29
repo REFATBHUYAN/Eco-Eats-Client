@@ -1,22 +1,22 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, selectCart, updateQuantity } from "../../Redux/cartSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import moment from "moment";
 
 const Orders = () => {
   const cart = useSelector(selectCart);
   let foodDatas = cart.items;
   let orderedFood = foodDatas.filter((food) => food.checked === true);
-  
+
   const [deliveryType, setdeliveryType] = useState("ঢাকার ভেতরে");
   const [deliveryCharge, setdeliveryCharge] = useState("৮০");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  const orderedTime = moment().format('LT');
 
   const handledeliveryType = (e) => {
     setdeliveryType(e.target.value);
@@ -24,28 +24,25 @@ const Orders = () => {
       ? setdeliveryCharge("৮০")
       : setdeliveryCharge("১০০");
   };
-  
 
   const orderedData = {
     name,
     address,
     phone,
     deliveryType,
-
+    orderedTime,
     Food: orderedFood,
-    totalPrice:
-      orderedFood.reduce(
-        (total, item) => total + item.quantity * item.price,
-        0
-      ) ,
-    deliveryCharge : (deliveryCharge === "৮০" ? 80 : 100),
+    totalPrice: orderedFood.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    ),
+    deliveryCharge: deliveryCharge === "৮০" ? 80 : 100,
   };
-  console.log(orderedData)
+  // console.log(orderedData);
 
   const onOrderSubmit = async () => {
-    setLoading(true)
+    setLoading(true);
     if ((name === "") | (address === "") | (phone === "")) {
-
       return toast.error("আপনার নাম, ঠিকানা এবং মোবাইল নাম্বার সঠিকভাবে দিন।", {
         position: "top-right",
         autoClose: 4000,
@@ -66,16 +63,21 @@ const Orders = () => {
         );
 
         if (response.ok) {
-          
-          toast.success("অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!", {
-            position: "top-right",
-            autoClose: 4000,
-            theme: "dark",
-          });
+          toast.success(
+            "অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!",
+            {
+              position: "top-right",
+              autoClose: 4000,
+              theme: "dark",
+            }
+          );
+          setLoading(false);
         } else {
+          setLoading(false);
           console.error("Failed to send email:", await response.text());
         }
       } catch (error) {
+        setLoading(false);
         console.error("Error sending email:", error);
       }
     }
@@ -137,14 +139,14 @@ const Orders = () => {
                           </div>
                         </div>
                         <div className="mt-12">
-                          <p className="mr-1 text-slate-400 font-light line-clamp-1">{food.weight}</p>
+                          <p className="mr-1 text-slate-400 font-light line-clamp-1">
+                            {food.weight}
+                          </p>
                         </div>
                       </div>
                       <div
                         className={`text-green-500 absolute top-2 right-2 ${
-                          food.checked
-                            ? "block"
-                            : "hidden"
+                          food.checked ? "block" : "hidden"
                         }`}
                       >
                         <svg
@@ -457,33 +459,60 @@ const Orders = () => {
                       ক্যাশ অন ডেলিভারী
                     </h1>
                   </div>
-                  <button
-                    // onClick={onOrderSubmit2}
-                    onClick={onOrderSubmit}
-                    // onClick={notify}
-                    disabled={orderedFood.length === 0 ? true : false}
-                    className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
-                  >
-                    <div className="flex gap-2 justify-center items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-circle-check"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                        <path d="M9 12l2 2l4 -4" />
-                      </svg>
+                  {loading && (
+                    <button
+                      disabled={true}
+                      className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
+                    >
+                      <div className="flex gap-2 justify-center items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-loader-2 animate-spin"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 3a9 9 0 1 0 9 9" />
+                        </svg>
+                        অর্ডার প্লেস হচ্ছে
+                      </div>
+                    </button>
+                  )}
+                  {!loading && (
+                    <button
+                      // onClick={onOrderSubmit2}
+                      onClick={onOrderSubmit}
+                      // onClick={notify}
+                      disabled={orderedFood.length === 0 ? true : false}
+                      className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
+                    >
+                      <div className="flex gap-2 justify-center items-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-circle-check"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                          <path d="M9 12l2 2l4 -4" />
+                        </svg>
                         অর্ডার প্লেস করুন
-                    </div>
-                  </button>
+                      </div>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

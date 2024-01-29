@@ -93,6 +93,7 @@ const AllOrders = () => {
   const [selected, setSelected] = useState(today);
   const formattedDate = format(selected, "yyyy-MM-dd");
   const [selectCalender, setSelectCelender] = useState(false);
+  
 
   // scroll code
   const scrollToTop = () => {
@@ -123,33 +124,25 @@ const AllOrders = () => {
   const buttonClasses = ShowButton
     ? "shadow-md ease-in duration-75"
     : "border-transparent border-red-200 hidden";
-    // scroll code finished
+  // scroll code finished
 
-  console.log("time stamp", timestamp);
-
-  console.log(date);
-
-  // useEffect(() => {
-  //   fetch(`https://chui-jhal-server.vercel.app/orders/${date}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setAllData(data);
-  //       setFilterData(data);
-  //     });
-  // }, [date, dataUpdated]);
+  // console.log("time stamp", timestamp);
 
   useEffect(() => {
+    
     const fetchData1 = async () => {
       try {
         const response1 = await fetch(
           `https://chui-jhal-server.vercel.app/orders/${formattedDate}`
         );
         const result1 = await response1.json();
+        
         setSelectCelender(false);
         setAllData(result1);
         setFilterData(result1);
         setDataUpdated(false);
       } catch (error) {
+        
         console.error("Error fetching data1:", error);
       }
     };
@@ -172,7 +165,7 @@ const AllOrders = () => {
   }, [selected, dataUpdated]);
 
   // console.log(filterData)
-  console.log(allData);
+  // console.log(allData);
   const handleStatusDelivered = async (_id) => {
     try {
       const response = await fetch(
@@ -260,7 +253,8 @@ const AllOrders = () => {
   );
 
   // setDate(formattedDate)
-  console.log("selected day", formattedDate);
+
+  // console.log("selected day", formattedDate);
 
   return (
     <div className="bg-white">
@@ -440,6 +434,7 @@ const AllOrders = () => {
                 captionLayout="dropdown-buttons"
                 fromYear={2020}
                 toYear={2030}
+                
               />
             </div>
           </div>
@@ -572,7 +567,11 @@ const AllOrders = () => {
                         {person.totalPrice + person.deliveryCharge} tk
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
-                        {person.date}
+                        {person.date}{" "}
+                        <span className="text-xs">
+                          {" "}
+                          {person?.time && ", " + person?.time}
+                        </span>
                       </td>
                       <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-3 h-10">
                         <div className="flex gap-2">
@@ -722,6 +721,7 @@ const AllOrders = () => {
                   No Orders found for today till now
                 </div>
               )}
+              
             </div>
           </div>
         </div>
@@ -853,25 +853,25 @@ const AllOrders = () => {
       </Container>
       <Footer></Footer>
       <button
-          onClick={scrollToTop}
-          className={`float-right fixed cursor-pointer z-30 right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-700 active:scale-95 ease-in duration-75 opacity-50 hover:opacity-100 shadow-xl ${buttonClasses}`}
+        onClick={scrollToTop}
+        className={`float-right fixed cursor-pointer z-30 right-7 bottom-14 h-10 w-10 flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-700 active:scale-95 ease-in duration-75 opacity-50 hover:opacity-100 shadow-xl ${buttonClasses}`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-chevron-up text-white mx-auto"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-chevron-up text-white mx-auto"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M6 15l6 -6l6 6"></path>
-          </svg>
-        </button>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M6 15l6 -6l6 6"></path>
+        </svg>
+      </button>
     </div>
   );
 };
