@@ -241,7 +241,8 @@ const AllOrders = () => {
 
   const footer = (
     <button
-      className="text-green-500 bg-green-50 ring-green-600/20 inline-flex items-center rounded-md px-3 py-2 text-sm font-medium ring-1 ring-inset gap-1 mt-2"
+      className="rounded-lg bg-slate-400 hover:bg-green-600 active:bg-green-700 px-4 py-2 text-xs font-semibold text-white items-center gap-1 mt-4"
+      
       // disabled={isSameMonth(today, month)}
       onClick={() => {
         setMonth(today);
@@ -396,31 +397,13 @@ const AllOrders = () => {
           <div className="relative">
             <button
               onClick={() => setSelectCelender(!selectCalender)}
-              className={`text-green-500 bg-green-50 ring-green-600/20 inline-flex items-center rounded-md px-3 py-2 text-sm font-medium ring-1 ring-inset gap-1`}
+              className={`text-slate-600 ring-green-600/20 inline-flex items-center rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2`}
             >
               {formattedDate === date ? "Today" : formattedDate}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-calendar-event"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-                <path d="M16 3l0 4" />
-                <path d="M8 3l0 4" />
-                <path d="M4 11l16 0" />
-                <path d="M8 15h2v2h-2z" />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
             </button>
             <div
-              className={`absolute left-0 z-50 shadow-md bg-white ${
+              className={`absolute  left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
                 selectCalender ? "block" : "hidden"
               }`}
             >
@@ -429,12 +412,18 @@ const AllOrders = () => {
                 selected={selected}
                 onSelect={setSelected}
                 footer={footer}
+                className="text-slate-400"
                 month={month}
                 onMonthChange={setMonth}
                 captionLayout="dropdown-buttons"
+<<<<<<< HEAD
                 fromYear={2020}
                 toYear={2030}
                 
+=======
+                fromYear={2023}
+                toYear={2034}
+>>>>>>> ff7fd6f6a2b1d6eaafe548270bf2e313869673d2
               />
             </div>
           </div>
@@ -443,13 +432,9 @@ const AllOrders = () => {
 
           <Menu as="div" className="relative inline-block text-left">
             <div>
-              <Menu.Button className="group inline-flex justify-center w-full rounded-lg py-1.5 px-3 border-0 border-slate-300 text-left text-md font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6">
-                {/* Filters */}
+              <Menu.Button className="group inline-flex justify-center w-full rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium text-slate-600 ring-1 ring-inset ring-slate-300  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2">
                 {filterOption}
-                <ChevronDownIcon
-                  className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-slate-400 group-hover:text-slate-600"
-                  aria-hidden="true"
-                />
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-filter-cog text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 20l-3 1v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v1.5" /><path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M19.001 15.5v1.5" /><path d="M19.001 21v1.5" /><path d="M22.032 17.25l-1.299 .75" /><path d="M17.27 20l-1.3 .75" /><path d="M15.97 17.25l1.3 .75" /><path d="M20.733 20l1.3 .75" /></svg>
               </Menu.Button>
             </div>
 
@@ -544,7 +529,12 @@ const AllOrders = () => {
                       }
                     >
                       <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-slate-400 sm:pl-3">
-                        {person?.invoice || person._id}
+                          <Link
+                            to={`/orders/${person._id}`}
+                            target="_blank"
+                            className="hover:text-green-500 active:text-green-600 ease-in duration-75"
+                          >{person?.invoice || person._id} 
+                          </Link>
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-500">
                         <span
@@ -558,7 +548,12 @@ const AllOrders = () => {
                         </span>
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
-                        {person.name}
+                        <Link
+                          to={`/orders/${person._id}`}
+                          target="_blank"
+                          className="hover:text-green-500 active:text-green-600 ease-in duration-75"
+                        >{person.name}
+                        </Link>
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         {person.phone}
@@ -652,6 +647,7 @@ const AllOrders = () => {
                         </button> */}
                           <Link
                             to={`/orders/${person._id}`}
+                            target="_blank"
                             className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
                             <svg
@@ -717,8 +713,8 @@ const AllOrders = () => {
                 </tbody>
               </table>
               {filterData.length === 0 && (
-                <div className="font-light text-slate-300 text-lg italic mt-2 text-center w-full mx-auto">
-                  No Orders found for today till now
+                <div className="font-light text-slate-400 text-sm italic text-center w-full mx-auto">
+                  <div className="px-3 py-4 border-t border-slate-200">No orders found for this date!</div>
                 </div>
               )}
               
@@ -729,26 +725,24 @@ const AllOrders = () => {
         <div className="my-16">
           <h3 className="text-xl font-bold text-slate-600">Website Summary</h3>
           <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
-            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-pink-200 ring-1">
-              <div className="absolute rounded-md bg-pink-100 p-3">
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-purple-200 ring-1 bg-purple-50/50">
+              <div className="absolute rounded-md bg-purple-100 p-3">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-shopping-cart stroke-pink-500"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M17 17h-11v-14h-2" />
-                  <path d="M6 5l14 1l-1 7h-13" />
-                </svg>
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-shopping-bag stroke-purple-500"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+                    <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+                  </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
                 Total Orders
@@ -759,11 +753,11 @@ const AllOrders = () => {
                 </p>
               </dd>
             </div>
-            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-green-200 ring-1">
-              <div className="absolute rounded-md bg-green-100 p-3">
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-teal-200 ring-1 bg-teal-50/50">
+              <div className="absolute rounded-md bg-teal-100 p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-circle-check stroke-green-500"
+                  class="icon icon-tabler icon-tabler-star stroke-teal-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -773,9 +767,8 @@ const AllOrders = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                  <path d="M9 12l2 2l4 -4" />
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
@@ -787,11 +780,11 @@ const AllOrders = () => {
                 </p>
               </dd>
             </div>
-            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-amber-200 ring-1">
-              <div className="absolute rounded-md bg-amber-100 p-3">
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-orange-200 ring-1 bg-orange-50/50">
+              <div className="absolute rounded-md bg-orange-100 p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-alert-triangle stroke-amber-500"
+                  class="icon icon-tabler icon-tabler-reload stroke-orange-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -801,10 +794,9 @@ const AllOrders = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12 9v4" />
-                  <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
-                  <path d="M12 16h.01" />
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747" />
+                  <path d="M20 4v5h-5" />
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
@@ -816,11 +808,11 @@ const AllOrders = () => {
                 </p>
               </dd>
             </div>
-            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-indigo-200 ring-1">
-              <div className="absolute rounded-md bg-indigo-100 p-3">
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-sky-200 ring-1 bg-sky-50/50">
+              <div className="absolute rounded-md bg-sky-100 p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-currency-dollar stroke-indigo-500"
+                  class="icon icon-tabler icon-tabler-briefcase stroke-sky-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -830,9 +822,11 @@ const AllOrders = () => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                  <path d="M12 3v3m0 12v3" />
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+                  <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                  <path d="M12 12l0 .01" />
+                  <path d="M3 13a20 20 0 0 0 18 0" />
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">

@@ -3,7 +3,7 @@ import { CheckCircleIcon, StarIcon } from "@heroicons/react/20/solid";
 import { Player, BigPlayButton } from "video-react";
 import "video-react/dist/video-react.css"; // import css
 
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/facebook"
 import { Link } from "react-scroll";
 
 const benefits = [
@@ -25,8 +25,9 @@ const Headers = () => {
   return (
     <div id="about" className="mx-auto max-w-7xl mt-12 md:mt-28">
       <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
-        <div className="h-full w-full md:hidden block mx-auto flex-none rounded-lg object-cover lg:max-w-sm">
+        <div className="h-full w-full md:hidden block mx-auto flex-none rounded-lg object-cover lg:max-w-sm player-wrapper">
           <ReactPlayer
+            className="react-player"
             width="100%"
             height="100%"
             url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
@@ -115,10 +116,12 @@ const Headers = () => {
             </Link>
           </div>
         </div>
-        <div className="h-full w-full hidden md:block mx-auto flex-none rounded-lg object-cover lg:max-w-sm">
+        <div className="h-full w-full hidden md:block mx-auto flex-none rounded-lg object-cover lg:max-w-sm player-wrapper">
           <ReactPlayer
+            className="react-player"
             width="100%"
             height="100%"
+            controls={true}
             url="https://www.facebook.com/ecoeatsbangladesh/videos/1998056963903868"
           />
         </div>

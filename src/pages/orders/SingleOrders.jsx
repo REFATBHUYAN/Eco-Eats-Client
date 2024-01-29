@@ -95,7 +95,7 @@ const SingleOrders = () => {
           <title>Invoice # {`${singleItem?.invoice || singleItem?._id}`}</title>
         </Helmet>
 
-        <div className=" bg-white mx-auto max-w-7xl my-4">
+        <div className=" bg-white mx-auto max-w-3xl my-4">
           <div>
             <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
               <div className="flex justify-between">
@@ -195,7 +195,7 @@ const SingleOrders = () => {
                   </dd>
                 </div>
               </dl>
-              <table className="mt-10 w-full whitespace-nowrap text-left text-sm uppercase text-slate-600">
+              <table className="mt-10 w-full whitespace-nowrap text-left text-sm text-slate-600">
                 <colgroup>
                   <col />
                   <col className="w-full" />
@@ -203,7 +203,7 @@ const SingleOrders = () => {
                   <col />
                   <col />
                 </colgroup>
-                <thead className="text-slate-400 border-b border-slate-200">
+                <thead className="text-slate-400 border-b border-slate-200 uppercase tracking-wide">
                   <tr>
                     <th
                       scope="col"
@@ -211,7 +211,10 @@ const SingleOrders = () => {
                     >
                       SL
                     </th>
-                    <th scope="col" className="px-0 py-3 font-semibold text-xs">
+                    <th
+                      scope="col"
+                      className="px-0 py-3 font-semibold text-xs"
+                    >
                       Ordered Items
                     </th>
                     
@@ -251,13 +254,13 @@ const SingleOrders = () => {
                           </div>
                         </td>
                         <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
-                          {item.price}
+                          {item.price} tk
                         </td>
                         <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                           {item.quantity}
                         </td>
                         <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
-                          {item.price * item.quantity}
+                          {item.price * item.quantity} tk
                         </td>
                       </tr>
                     ))}
@@ -266,58 +269,58 @@ const SingleOrders = () => {
                   <tr >
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                     >
                       Subtotal
                     </th>
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                     >
                       Subtotal
                     </th>
                     <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
-                      {singleItem?.totalPrice}
+                      {singleItem?.totalPrice} tk
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="pt-4 font-semibold text-slate-400 sm:hidden text-xs uppercase"
                     >
                       Delivery
                     </th>
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="hidden pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                     >
                       Delivery
                     </th>
                     <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                      {singleItem?.deliveryCharge}
+                      {singleItem?.deliveryCharge} tk
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="pt-4 font-semibold text-slate-600 sm:hidden text-xs uppercase"
                     >
                       Total
                     </th>
                     <th
                       scope="row"
-                      colSpan={3}
+                      colSpan={4}
                       className="hidden pt-4 text-right font-semibold text-slate-600 sm:table-cell text-xs uppercase"
                     >
                       Total
                     </th>
                     <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                      {singleItem?.deliveryCharge + singleItem?.totalPrice}
+                      {singleItem?.deliveryCharge + singleItem?.totalPrice} tk
                     </td>
                   </tr>
                 </tfoot>
