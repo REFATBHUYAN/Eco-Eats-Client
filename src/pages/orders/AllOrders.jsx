@@ -248,7 +248,7 @@ const AllOrders = () => {
 
   const footer = (
     <button
-      className="rounded-lg bg-slate-400 hover:bg-green-600 active:bg-green-700 px-3 py-1.5 text-xs font-semibold text-white items-center gap-1 mt-4"
+      className="rounded-lg bg-slate-400 hover:bg-green-600 active:bg-green-700 px-4 py-2 text-xs font-semibold text-white items-center gap-1 mt-4"
       
       // disabled={isSameMonth(today, month)}
       onClick={() => {
@@ -409,7 +409,7 @@ const AllOrders = () => {
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
             </button>
             <div
-              className={`absolute left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
+              className={`absolute  left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
                 selectCalender ? "block" : "hidden"
               }`}
             >
@@ -418,6 +418,7 @@ const AllOrders = () => {
                 selected={selected}
                 onSelect={setSelected}
                 footer={footer}
+                className="text-slate-400"
                 month={month}
                 onMonthChange={setMonth}
                 captionLayout="dropdown-buttons"
