@@ -397,7 +397,7 @@ const AllOrders = () => {
           <div className="relative">
             <button
               onClick={() => setSelectCelender(!selectCalender)}
-              className={`text-slate-600 ring-green-600/20 inline-flex items-center rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium text-slate-600 ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2`}
+              className={`text-slate-600 ring-green-600/20 inline-flex items-center rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium  ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2`}
             >
               {formattedDate === date ? "Today" : formattedDate}
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
@@ -416,14 +416,8 @@ const AllOrders = () => {
                 month={month}
                 onMonthChange={setMonth}
                 captionLayout="dropdown-buttons"
-<<<<<<< HEAD
-                fromYear={2020}
-                toYear={2030}
-                
-=======
                 fromYear={2023}
                 toYear={2034}
->>>>>>> ff7fd6f6a2b1d6eaafe548270bf2e313869673d2
               />
             </div>
           </div>
