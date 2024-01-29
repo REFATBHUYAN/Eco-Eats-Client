@@ -270,7 +270,6 @@ const Orders = () => {
                 <div className="w-full mt-3">
                   {/* order summury */}
                   <div className="mt-4 border-dashed border-t-2 border-slate-200 bg-white">
-                    <h3 className="sr-only">কার্টের প্রোডাক্ট</h3>
                     <ul
                       role="list"
                       className="divide-y-2 divide-dashed divide-slate-200"

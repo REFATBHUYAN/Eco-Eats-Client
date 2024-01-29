@@ -50,28 +50,13 @@ const DashboardNav = () => {
             </a>
           </div>
 
-          <div className="rounded-lg cursor-pointer  active:scale-95 ease-in duration-75 text-sm font-semibold items-center">
-            <div className="flex gap-1 justify-center items-center">
-              <div className="text-2xl font-bold text-green-500">
-                Admin<span className="text-green-400">Dashboard</span>
+          <div className="cursor-pointer items-center">
+            <div className="flex gap-2 justify-center items-center">
+              <div className="text-green-500 text-base font-semibold leading-6 text-slate-600">
+                Dashboard
               </div>
-              <div className="rounded-full p-1.5 bg-green-400 hover:bg-green-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-user text-white font-bold"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
-                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg>
+              <div className="rounded-full p-1.5 bg-slate-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bolt text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" /></svg>
               </div>
             </div>
           </div>
