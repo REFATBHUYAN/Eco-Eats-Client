@@ -47,7 +47,7 @@ const Navbar = () => {
           className={`mx-auto flex max-w-7xl items-center justify-between gap-x-6 pt-4 pb-4 px-4 `}
           aria-label="Global"
         >
-          <div className="flex ">
+          <div className="flex">
             <a  href="/" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
               <img
                 className="block h-8 w-auto"

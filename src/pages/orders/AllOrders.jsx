@@ -164,7 +164,7 @@ const AllOrders = () => {
 
   // console.log(filterData)
   // console.log(allData);
-  const handleStatusDelivered = async (_id) => {
+  const handleStatusShipped = async (_id) => {
     try {
       const response = await fetch(
         // `http://localhost:5000/update/${_id}`,
@@ -261,7 +261,7 @@ const AllOrders = () => {
       <Container>
         <div className="pt-28">
           <h3 className="text-xl font-bold text-slate-600">Daily Summary</h3>
-          <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-5">
             <div className="overflow-hidden p-3 rounded-lg ring-inset ring-pink-200 ring-1 bg-pink-50/50">
               <div className="absolute rounded-md bg-pink-100 p-3">
                 <svg
@@ -284,7 +284,7 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Orders Today
+                Orders
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
@@ -312,7 +312,7 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Completed Orders
+                Completed
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
@@ -341,11 +341,24 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Pending Orders
+                Pending
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
                   {allData.filter((d) => d.status === "Pending").length}
+                </p>
+              </dd>
+            </div>
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-slate-50/50">
+              <div className="absolute rounded-md bg-slate-100 p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-playstation-x stroke-slate-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" /><path d="M8.5 8.5l7 7" /><path d="M8.5 15.5l7 -7" /></svg>
+              </div>
+              <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+                Cancelled
+              </dt>
+              <dd className="ml-14 flex items-baseline -mt-1">
+                <p className="text-2xl truncate font-semibold text-slate-600">
+                  !!!
                 </p>
               </dd>
             </div>
@@ -391,36 +404,42 @@ const AllOrders = () => {
             name=""
             id=""
           /> */}
-
-          <div className="relative">
-            <button
-              onClick={() => setSelectCelender(!selectCalender)}
-              className={`text-slate-600 ring-green-600/20 inline-flex items-center rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium  ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2`}
-            >
-              {formattedDate === date ? "Today" : formattedDate}
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
-            </button>
-            <div
-              className={`absolute left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
-                selectCalender ? "block" : "hidden"
-              }`}
-            >
-              <DayPicker
-                mode="single"
-                selected={selected}
-                onSelect={setSelected}
-                footer={footer}
-                className="text-slate-400"
-                month={month}
-                onMonthChange={setMonth}
-                captionLayout="dropdown-buttons"
-                fromYear={2023}
-                toYear={2034}
-              />
+          <div className="flex gap-2">
+            <div className="relative">
+              <button
+                onClick={() => setSelectCelender(!selectCalender)}
+                className={`text-slate-600 ring-green-600/20 inline-flex items-center rounded-lg py-2 px-3 border-0 border-slate-300 text-left text-sm font-medium  ring-1 ring-inset ring-slate-300 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 gap-2`}
+              >
+                {formattedDate === date ? "Today" : formattedDate}
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar text-slate-400" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h16" /><path d="M11 15h1" /><path d="M12 15v3" /></svg>
+              </button>
+              <div
+                className={`absolute left-0 z-50 mt-2 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-slate-200 focus:outline-none transform opacity-100 scale-100 ${
+                  selectCalender ? "block" : "hidden"
+                }`}
+              >
+                <DayPicker
+                  mode="single"
+                  selected={selected}
+                  onSelect={setSelected}
+                  footer={footer}
+                  className="text-slate-400"
+                  month={month}
+                  onMonthChange={setMonth}
+                  captionLayout="dropdown-buttons"
+                  fromYear={2023}
+                  toYear={2034}
+                />
+              </div>
             </div>
+            <button
+              className={`py-2 px-3 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+            >
+              Create
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M9 12h6" /><path d="M12 9v6" /></svg>
+            </button>
           </div>
 
-          {/* <PickDate></PickDate> */}
 
           <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -468,9 +487,15 @@ const AllOrders = () => {
               <table className="min-w-full divide-y divide-slate-200">
                 <thead>
                   <tr>
-                    <th
+                  <th
                       scope="col"
                       className="py-3 pl-4 pr-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600 sm:pl-3"
+                    >
+                      SL
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
                     >
                       Invoice
                     </th>
@@ -520,7 +545,10 @@ const AllOrders = () => {
                         personIdx % 2 === 0 ? undefined : "bg-slate-50"
                       }
                     >
-                      <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-slate-400 sm:pl-3">
+                      <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-slate-400 sm:pl-3">
+                        !!!
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-2 text-sm font-medium text-slate-400">
                           <Link
                             to={`/orders/${person._id}`}
                             target="_blank"
@@ -561,7 +589,7 @@ const AllOrders = () => {
                       </td>
                       <td className="relative whitespace-nowrap py-2 pl-3 pr-4 text-right text-sm font-medium sm:pr-3 h-10">
                         <div className="flex gap-2">
-                          <button
+                          {/* <button
                             onClick={() => handleStatusPending(person._id)}
                             className="py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
@@ -588,7 +616,7 @@ const AllOrders = () => {
                             </svg>
                           </button>
                           <button
-                            onClick={() => handleStatusDelivered(person._id)}
+                            onClick={() => handleStatusShipped(person._id)}
                             className="py-1.5 px-1.5 rounded-md bg-green-400 hover:bg-green-500 active:bg-green-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
                             <svg
@@ -611,6 +639,35 @@ const AllOrders = () => {
                               <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                               <path d="M9 12l2 2l4 -4" />
                             </svg>
+                          </button> */}
+
+
+                        
+                          <Link
+                            to={`/orders/${person._id}`}
+                            target="_blank"
+                            className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-invoice" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 7l1 0" /><path d="M9 13l6 0" /><path d="M13 17l2 0" /></svg>
+                          </Link>
+                          <Link
+                            to={``}
+                            target="_blank"
+                            className="py-1.5 px-1.5 rounded-md bg-blue-400 hover:bg-blue-500 active:bg-blue-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
+                          </Link>
+                          <button
+                            onClick={``}
+                            className="py-1.5 px-1.5 rounded-md bg-slate-400 hover:bg-slate-500 active:bg-slate-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-playstation-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" /><path d="M8.5 8.5l7 7" /><path d="M8.5 15.5l7 -7" /></svg>
+                          </button>
+                          <button
+                            onClick={``}
+                            className="py-1.5 px-1.5 rounded-md bg-red-400 hover:bg-red-500 active:bg-red-600 ease-in duration-75 font-semibold text-white hover:text-white"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
                           </button>
 
                           {/* <button
@@ -636,39 +693,11 @@ const AllOrders = () => {
                             <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
                           </svg>
                         </button> */}
-                          <Link
-                            to={`/orders/${person._id}`}
-                            target="_blank"
-                            className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="icon icon-tabler icon-tabler-eye"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              stroke-width="2"
-                              stroke="currentColor"
-                              fill="none"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            >
-                              <path
-                                stroke="none"
-                                d="M0 0h24v24H0z"
-                                fill="none"
-                              />
-                              <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                              <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                            </svg>
-                          </Link>
-                          <dialog id={`${person._id}`} className="modal">
+
+                          {/* <dialog id={`${person._id}`} className="modal">
                             <div className="modal-box w-full text-left">
                               <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                  ✕
-                                </button>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
                               </form>
                               <h3 className="font-bold text-lg">
                                 Ordered Item of {person.name}!
@@ -696,7 +725,7 @@ const AllOrders = () => {
                                 Print Invoice
                               </button>
                             </div>
-                          </dialog>
+                          </dialog> */}
                         </div>
                       </td>
                     </tr>
@@ -715,7 +744,7 @@ const AllOrders = () => {
 
         <div className="my-16">
           <h3 className="text-xl font-bold text-slate-600">Website Summary</h3>
-          <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <dl className="mt-5 grid grid-cols-2 gap-5 sm:grid-cols-5">
             <div className="overflow-hidden p-3 rounded-lg ring-inset ring-purple-200 ring-1 bg-purple-50/50">
               <div className="absolute rounded-md bg-purple-100 p-3">
                 <svg
@@ -736,7 +765,7 @@ const AllOrders = () => {
                   </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Total Orders
+                Orders
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
@@ -763,7 +792,7 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Total Completed
+                Completed
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
@@ -791,11 +820,24 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Total Pending
+                Pending
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
                   {allOrders.filter((d) => d.status === "Pending").length}
+                </p>
+              </dd>
+            </div>
+            <div className="overflow-hidden p-3 rounded-lg ring-inset ring-slate-200 ring-1 bg-slate-50/50">
+              <div className="absolute rounded-md bg-slate-100 p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-minus stroke-slate-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l6 0" /></svg>
+              </div>
+              <dt className="ml-14 truncate text-sm font-medium text-slate-400">
+                Cancelled
+              </dt>
+              <dd className="ml-14 flex items-baseline -mt-1">
+                <p className="text-2xl truncate font-semibold text-slate-600">
+                  !!!
                 </p>
               </dd>
             </div>
@@ -821,7 +863,7 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Total Sales
+                Sales
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">

@@ -98,23 +98,31 @@ const SingleOrders = () => {
         <div className=" bg-white mx-auto max-w-3xl my-4">
           <div>
             <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
-              <div className="flex justify-between">
-                <Link
-                  to="/orders"
-                  className="normal-case text-xl flex items-center gap-2"
+            <nav
+              className={`mx-auto flex items-center justify-between gap-x-6 `}
+              aria-label="Global"
+            >
+            <div className="flex">
+            <a  href="/" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
+              <img
+                className="block h-8 w-auto"
+                src="/ecoeats/site-icon/ecoeats-icon.svg"
+                alt=""
+              />
+              <div className="text-2xl font-bold text-green-500">
+                ইকো<span className="text-green-400">ইটস</span>
+              </div>
+            </a>
+          </div>
+          <div className="flex flex-1 lg:flex items-center justify-end gap-2">
+                <button
+                  className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
                 >
-                  <img
-                    className="block h-8 w-auto"
-                    src="/ecoeats/site-icon/ecoeats-icon.svg"
-                  />
-                  <span className="text-2xl font-bold text-green-500">
-                    ইকো<span className="text-green-400">ইটস</span>
-                  </span>
-                </Link>
-
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                </button>
                 <button
                   onClick={handlePrint}
-                  className={`float-right py-2 px-4 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
+                  className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +141,52 @@ const SingleOrders = () => {
                     <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
                     <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
                   </svg>
-                  Print
                 </button>
-              </div>
+          </div>
+          </nav>
+              {/* <div className="flex justify-between">
+                <Link
+                  to="/orders"
+                  className="normal-case text-xl flex items-center gap-2"
+                >
+                  <img
+                    className="block h-8 w-auto"
+                    src="/ecoeats/site-icon/ecoeats-icon.svg"
+                  />
+                  <span className="text-2xl font-bold text-green-500">
+                    ইকো<span className="text-green-400">ইটস</span>
+                  </span>
+                </Link>
+
+                <button
+                  className={`float-right py-2 px-4 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                  Shipped
+                </button>
+                <button
+                  onClick={handlePrint}
+                  className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-printer"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
+                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
+                    <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
+                  </svg>
+                </button>
+              </div> */}
               <div className="flex justify-between">
                 <div className="mt-8 flex-1">
                   <dt className="inline text-base font-semibold text-slate-600">
