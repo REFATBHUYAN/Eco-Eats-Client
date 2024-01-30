@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import AllOrders from "../pages/orders/AllOrders.jsx";
 import SingleOrders from "../pages/orders/SingleOrders.jsx";
+import SuccessPage from "../pages/orders/SuccessPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/orders",
     element: <AllOrders></AllOrders>,
+  },
+  {
+    path: "/success/:id",
+    element: <SuccessPage></SuccessPage>
   },
   {
     path: "/orders/:id",

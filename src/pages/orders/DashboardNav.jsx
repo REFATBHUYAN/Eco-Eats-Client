@@ -52,7 +52,7 @@ const DashboardNav = () => {
 
           <div className="cursor-pointer items-center">
             <div className="flex gap-2 justify-center items-center">
-              <div className="text-green-500 text-base font-semibold leading-6 text-slate-600">
+              <div className=" text-base font-semibold leading-6 text-slate-600">
                 Dashboard
               </div>
               <div className="rounded-full p-1.5 bg-slate-500">
