@@ -16,7 +16,7 @@ const benefits = [
   "সবজি",
   "হালিম",
   "মুরগির মাংস",
-  "সবজি",
+  "ভুনা তরকারি",
   "খিচুড়ি",
   "চটপটি",
 ];
@@ -84,7 +84,7 @@ const Headers = () => {
                 ৩০,০০০ হাজারেরও অধিক গ্রাহকের কাছে আমরা চুই ঝাল পৌঁছে দিয়েছি!
               </p>
             </div>
-            <Link
+            {/* <Link
               to={"order"}
               smooth={true}
               offset={-100}
@@ -111,9 +111,30 @@ const Headers = () => {
                 <path d="M17 17h-11v-14h-2" />
                 <path d="M6 5l14 1l-1 7h-13" />
               </svg>
-                এখনই অর্ডার করুন
+                অর্ডার করুন
               </div>
-            </Link>
+            </Link> */}
+            <div className="flex gap-2">
+              <Link
+                to={"order"}
+                smooth={true}
+                offset={-100}
+                activeClass="text-white"
+                spy={true}
+                className="rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white"
+              >
+                <div className="flex gap-2 justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
+                  অর্ডার করুন
+                </div>
+              </Link>
+              <a target="_blank" href="https://wa.me/" className="rounded-lg cursor-pointer bg-slate-500 hover:bg-slate-600 active:bg-slate-700 active:scale-95 ease-in duration-75 px-3 py-3 text-md font-semibold text-white flex gap-2 items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" /><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" /></svg>
+              </a>
+              <a href="tel:+8801753492987" className="rounded-lg cursor-pointer bg-slate-500 hover:bg-slate-600 active:bg-slate-700 active:scale-95 ease-in duration-75 px-3 py-3 text-md font-semibold text-white flex gap-2 items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-phone-call" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /><path d="M15 7a2 2 0 0 1 2 2" /><path d="M15 3a6 6 0 0 1 6 6" /></svg>
+              </a>
+              </div>
           </div>
         </div>
         <div className="h-full w-full hidden md:block mx-auto flex-none rounded-lg object-cover lg:max-w-sm player-wrapper">

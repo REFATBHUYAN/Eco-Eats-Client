@@ -13,7 +13,7 @@ const Help = () => {
               যেকোন জিজ্ঞাসা ও অর্ডারজনিত সমস্যায় নক করুন আমাদের ফেসবুক পেজে। অথবা কল করুন আমাদের হেল্পলাইনে। আমরা আছি সকাল ১০ টা থেকে রাত ৮ টা পর্যন্ত আপনার সেবায়।
               </p>
               <div className="flex gap-2">
-                <a target="_blank" href="https://m.me/ecoeatsbangladesh" className="rounded-lg cursor-pointer bg-slate-600 hover:bg-slate-700 active:bg-slate-800 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white flex gap-2 items-center justify-center">
+                <a target="_blank" href="https://m.me/ecoeatsbangladesh" className="rounded-lg cursor-pointer bg-slate-500 hover:bg-slate-600 active:bg-slate-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white flex gap-2 items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-messenger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 20l1.3 -3.9a9 8 0 1 1 3.4 2.9l-4.7 1" /><path d="M8 13l3 -2l2 2l3 -2" /></svg>
                 ম্যাসেঞ্জার
                 </a>
