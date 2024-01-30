@@ -438,27 +438,25 @@ const Orders = () => {
                   >
                     <h1 className="font-semibold">মোট</h1>
                     <h1 className="font-semibold text-green-500">
-                      &#x9F3;{" "}
                       {orderedFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
-                      )}
+                      )} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center py-6">
                     <h1 className="font-semibold">ডেলিভারী চার্জ</h1>
                     <h1 className="font-semibold text-green-500">
-                      &#x9F3; {deliveryCharge === "৮০" ? 80 : 100}
+                      {deliveryCharge === "৮০" ? 80 : 100} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center border-dashed border-t-2 border-slate-200 pt-6">
                     <h1 className="font-semibold">সর্বমোট</h1>
                     <h1 className="font-semibold text-green-500">
-                      &#x9F3;{" "}
                       {orderedFood.reduce(
                         (total, item) => total + item.quantity * item.price,
                         0
-                      ) + (deliveryCharge === "৮০" ? 80 : 100)}
+                      ) + (deliveryCharge === "৮০" ? 80 : 100)} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center py-6">

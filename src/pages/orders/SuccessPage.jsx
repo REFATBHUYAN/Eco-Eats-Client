@@ -30,155 +30,117 @@ const SuccessPage = () => {
   console.log(order);
 
   return (
-    <>
-      <main className="relative lg:min-h-full">
-        {/* <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/confirmation-page-06-hero.jpg"
-            alt="TODO"
-            className="h-full w-full object-cover object-center"
-          />
-        </div> */}
-
-        <div>
-          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-10 ">
-            <div className="w-full">
-              <div className="flex ">
-                <Link
-                  to={'/'}
-                  className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
-                >
-                  <img
-                    className="block h-8 w-auto"
-                    src="/ecoeats/site-icon/ecoeats-icon.svg"
-                    alt=""
-                  />
-                  <div className="text-2xl font-bold text-green-500">
-                    ইকো<span className="text-green-400">ইটস</span>
-                  </div>
-                </Link>
-              </div>
-              <h1 className="text-sm font-medium text-indigo-600 mt-10">
-                Payment successful
-              </h1>
-              <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                Thanks for ordering
-              </p>
-              <p className="mt-2 text-base text-gray-500">
-                We appreciate your order, we’re currently processing it. So hang
-                tight and we’ll send you confirmation very soon!
-              </p>
-
-              <dl className="mt-16 text-sm font-medium">
-                <dt className="text-gray-900">Invoice number #</dt>
-                <dd className="mt-2 text-indigo-600">{order?.invoice}</dd>
-              </dl>
-
-              <ul
-                role="list"
-                className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
+    <div className="px-4">
+      <div className="mx-auto max-w-3xl my-4">
+        <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
+          <div className="w-full">
+            <div className="flex">
+              <Link
+                to={'/'}
+                className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
               >
-                {order?.food.map((product) => (
-                  <li key={product.id} className="flex space-x-6 py-6">
-                    {/* <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
-                      className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
-                    /> */}
-                    <div className="flex-auto space-y-1">
-                      <h3 className="text-gray-900">
-                        <p>{product.title}</p>
-                      </h3>
-                      <p>{product.weight}</p>
-                      <p>{product.quantity}</p>
-                    </div>
-                    <p className="flex-none font-medium text-gray-900">
-                      {product.price} tk
-                    </p>
-                  </li>
-                ))}
-              </ul>
-
-              <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
-                <div className="flex justify-between">
-                  <dt>Subtotal</dt>
-                  <dd className="text-gray-900">{order?.totalPrice} tk</dd>
+                <img
+                  className="block h-8 w-auto"
+                  src="/ecoeats/site-icon/ecoeats-icon.svg"
+                  alt=""
+                />
+                <div className="text-2xl font-bold text-green-500">
+                  ইকো<span className="text-green-400">ইটস</span>
                 </div>
-
-                <div className="flex justify-between">
-                  <dt>Shipping</dt>
-                  <dd className="text-gray-900">{order?.deliveryCharge} tk</dd>
-                </div>
-
-                {/* <div className="flex justify-between">
-                  <dt>Taxes</dt>
-                  <dd className="text-gray-900">$6.40</dd>
-                </div> */}
-
-                <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900">
-                  <dt className="text-base">Total</dt>
-                  <dd className="text-base">
-                    {order?.totalPrice + order?.deliveryCharge} tk
-                  </dd>
-                </div>
-              </dl>
-
-              <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
-                <div>
-                  <dt className="font-medium text-gray-900">
-                    Shipping Address
-                  </dt>
-                  <dd className="mt-2">
-                    <address className="not-italic">
-                      <span className="block">{order?.name}</span>
-                      <span className="block">{order?.address}</span>
-                      <span className="block">{order?.phone}</span>
-                    </address>
-                  </dd>
-                </div>
-                {/* <div>
-                  <dt className="font-medium text-gray-900">
-                    Payment Information
-                  </dt>
-                  <dd className="mt-2 space-y-2 sm:flex sm:space-x-4 sm:space-y-0">
-                    <div className="flex-none">
-                      <svg
-                        aria-hidden="true"
-                        width={36}
-                        height={24}
-                        viewBox="0 0 36 24"
-                        className="h-6 w-auto"
-                      >
-                        <rect width={36} height={24} rx={4} fill="#224DBA" />
-                        <path
-                          d="M10.925 15.673H8.874l-1.538-6c-.073-.276-.228-.52-.456-.635A6.575 6.575 0 005 8.403v-.231h3.304c.456 0 .798.347.855.75l.798 4.328 2.05-5.078h1.994l-3.076 7.5zm4.216 0h-1.937L14.8 8.172h1.937l-1.595 7.5zm4.101-5.422c.057-.404.399-.635.798-.635a3.54 3.54 0 011.88.346l.342-1.615A4.808 4.808 0 0020.496 8c-1.88 0-3.248 1.039-3.248 2.481 0 1.097.969 1.673 1.653 2.02.74.346 1.025.577.968.923 0 .519-.57.75-1.139.75a4.795 4.795 0 01-1.994-.462l-.342 1.616a5.48 5.48 0 002.108.404c2.108.057 3.418-.981 3.418-2.539 0-1.962-2.678-2.077-2.678-2.942zm9.457 5.422L27.16 8.172h-1.652a.858.858 0 00-.798.577l-2.848 6.924h1.994l.398-1.096h2.45l.228 1.096h1.766zm-2.905-5.482l.57 2.827h-1.596l1.026-2.827z"
-                          fill="#fff"
-                        />
-                      </svg>
-                      <p className="sr-only">Visa</p>
-                    </div>
-                    <div className="flex-auto">
-                      <p className="text-gray-900">Ending with 4242</p>
-                      <p>Expires 12 / 21</p>
-                    </div>
-                  </dd>
-                </div> */}
-              </dl>
-
-              {/* <div className="mt-16 border-t border-gray-200 py-6 text-right">
-                <a
-                  href="#"
-                  className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  Continue Shopping
-                  <span aria-hidden="true"> &rarr;</span>
-                </a>
-              </div> */}
+              </Link>
             </div>
+            <h1 className="text-sm font-medium tracking-wide text-slate-600 mt-16">
+              অসংখ্য ধন্যবাদ!
+            </h1>
+            <p className="mt-2 text-3xl font-bold text-green-500 sm:text-4xl">
+              অর্ডার সাকসেসফুল
+            </p>
+            <p className="mt-2 text-base text-slate-400">
+              আপনার অর্ডারের জন্য কৃতজ্ঞতা জানাচ্ছি, কিছুক্ষনের মধ্যে অর্ডারটি প্রসেস করা হবে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব, সাথেই থাকুন।
+            </p>
+
+            <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm">
+              <div>
+                  <span className="inline text-base font-semibold text-slate-600">Invoice # </span>
+                  <span className="inline text-sm font-semibold text-slate-400">{order?.invoice}</span>
+              </div>
+              <div>
+                  <span className="inline text-base font-semibold text-slate-600">Date: </span>
+                  <span className="inline text-sm font-semibold text-slate-400">{order?.date}; {order?.time && " " + order?.time}</span>
+              </div>
+            </dl>
+
+
+            <ul
+              role="list"
+              className="mt-6 border-t border-slate-100 divide-y divide-slate-100 text-sm"
+            >
+              {order?.food.map((product) => (
+                <li key={product.id} className="flex space-x-4 py-4">
+                  <img
+                    src={product.photo}
+                    className="h-24 w-24 flex-none rounded-lg bg-slate-100 object-cover object-center"
+                  />
+                  <div className="flex-auto space-y-1">
+                    <h3 className="font-medium text-slate-600">
+                      <p>{product.title}</p>
+                    </h3>
+                    <div className="text-slate-400 font-light">{product.weight}</div>
+                    <div className="pt-6 text-slate-400 font-light">x {product.quantity}</div>
+                  </div>
+                  <p className="flex-none text-slate-600">
+                    {product.price} tk
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            <dl className="space-y-6 border-t border-slate-100 pt-6 text-sm text-slate-400">
+              <div className="flex justify-between">
+                <dt className="text-xs font-semibold uppercase">Subtotal</dt>
+                <dd className="text-slate-600">{order?.totalPrice} tk</dd>
+              </div>
+
+              <div className="flex justify-between">
+                <dt className="text-xs font-semibold uppercase">Delivery</dt>
+                <dd className="text-slate-600">{order?.deliveryCharge} tk</dd>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-slate-100 pt-6 text-slate-600">
+                <dt className="text-xs font-semibold uppercase">Total</dt>
+                <dd className="font-semibold">
+                  {order?.totalPrice + order?.deliveryCharge} tk
+                </dd>
+              </div>
+            </dl>
+
+            <dl className="mt-16 grid sm:grid-cols-2 grid-cols-1 gap-x-4 text-sm">
+              <div>
+                <dt className="font-semibold text-slate-400">
+                  Address
+                </dt>
+                <dd className="mt-2">
+                  <address className="not-italic">
+                    <span className="block font-medium text-slate-600">{order?.name}</span>
+                    <span className="block font-light text-slate-400">{order?.address}</span>
+                    <span className="block font-light text-slate-400">{order?.phone}</span>
+                  </address>
+                </dd>
+              </div>
+              <div className="mt-8 sm:mt-0">
+                <dt className="font-semibold text-slate-400">
+                  Delivery
+                </dt>
+                <dd className="mt-2">
+                  <span className="block font-medium text-slate-600">ক্যাশ অন ডেলিভারী</span>
+                  <span className="block font-light text-slate-400">প্রোডাক্ট হাতে পেয়ে ডেলিভারী ম্যানকে দাম পরিশোধ করবেন। ইকোইটস এর সাথে থাকার জন্য ধন্যবাদ।</span>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 };
 

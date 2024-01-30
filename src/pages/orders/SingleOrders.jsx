@@ -95,7 +95,7 @@ const SingleOrders = () => {
           <title>Invoice # {`${singleItem?.invoice || singleItem?._id}`}</title>
         </Helmet>
 
-        <div className=" bg-white mx-auto max-w-3xl my-4">
+        <div className="bg-white mx-auto max-w-3xl my-4">
           <div>
             <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
             <nav
@@ -103,7 +103,7 @@ const SingleOrders = () => {
               aria-label="Global"
             >
             <div className="flex">
-            <a  href="/" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
+            <a  href="/orders" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
               <img
                 className="block h-8 w-auto"
                 src="/ecoeats/site-icon/ecoeats-icon.svg"
