@@ -45,6 +45,7 @@ const Orders = () => {
   const onOrderSubmit = async () => {
     setLoading(true);
     if ((name === "") | (address === "") | (phone === "")) {
+      setLoading(false);
       return toast.error("আপনার নাম, ঠিকানা এবং মোবাইল নাম্বার সঠিকভাবে দিন।", {
         position: "top-right",
         autoClose: 4000,

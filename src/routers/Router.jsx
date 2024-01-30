@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import AllOrders from "../pages/orders/AllOrders.jsx";
 import SingleOrders from "../pages/orders/SingleOrders.jsx";
 import SuccessPage from "../pages/orders/SuccessPage.jsx";
+import PrivateRouter from "./PrivateRouter.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/orders",
-    element: <AllOrders></AllOrders>,
+    element: <AllOrders></AllOrders>
   },
+  // {
+  //   path: "/orders",
+  //   element: <PrivateRouter><AllOrders></AllOrders></PrivateRouter>
+  // },
   {
     path: "/success/:id",
     element: <SuccessPage></SuccessPage>
@@ -36,6 +41,7 @@ const router = createBrowserRouter([
   {
     path: "/orders/:id",
     element: <SingleOrders></SingleOrders>,
+    // element: <PrivateRouter><SingleOrders></SingleOrders></PrivateRouter>
   },
 ]);
 
