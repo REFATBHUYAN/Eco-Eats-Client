@@ -35,8 +35,8 @@ const DashboardNav = () => {
           aria-label="Global"
         >
           <div className="flex ">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
             >
               <img
@@ -47,12 +47,12 @@ const DashboardNav = () => {
               <div className="text-2xl font-bold text-green-500">
                 ইকো<span className="text-green-400">ইটস</span>
               </div>
-            </a>
+            </Link>
           </div>
 
           <div className="cursor-pointer items-center">
             <div className="flex gap-2 justify-center items-center">
-              <div className="text-green-500 text-base font-semibold leading-6 text-slate-600">
+              <div className=" text-base font-semibold leading-6 text-slate-600">
                 Admin
               </div>
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle text-slate-600" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" /></svg>

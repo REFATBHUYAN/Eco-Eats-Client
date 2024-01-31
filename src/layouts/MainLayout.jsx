@@ -4,7 +4,6 @@ import Footer from "../pages/shared/Footer";
 import Navbar from "../pages/shared/Navbar";
 import { Providers } from "../Redux/providers";
 
-
 const MainLayout = () => {
   const scrollToTop = () => {
     window.scrollTo({
@@ -42,6 +41,9 @@ const MainLayout = () => {
           <Navbar></Navbar>
         </div>
 
+        {/* <div className="mx-auto w-full">
+          <Outlet></Outlet>
+        </div> */}
         <div className="mx-auto w-full">
           <Providers>
             <Outlet></Outlet>

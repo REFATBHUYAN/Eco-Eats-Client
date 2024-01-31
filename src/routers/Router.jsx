@@ -6,6 +6,9 @@ import AllOrders from "../pages/orders/AllOrders.jsx";
 import SingleOrders from "../pages/orders/SingleOrders.jsx";
 import SuccessPage from "../pages/orders/SuccessPage.jsx";
 import PrivateRouter from "./PrivateRouter.jsx";
+import CreateOrder from "../pages/orders/CreateOrder.jsx";
+import EditOrder from "../pages/orders/EditOrder.jsx";
+import { Providers } from "../Redux/providers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      // {
+      //   path: "/createOrder",
+      //   element: <CreateOrder></CreateOrder>,
+      // },
+
       // {
       //   path: "/orders",
       //   element: <AllOrders></AllOrders>,
@@ -28,15 +36,32 @@ const router = createBrowserRouter([
   },
   {
     path: "/orders",
-    element: <AllOrders></AllOrders>
+    element: <AllOrders></AllOrders>,
   },
+  {
+    path: "/createOrder",
+    element: (
+      <Providers>
+        <CreateOrder></CreateOrder>
+      </Providers>
+    ),
+  },
+  {
+    path: "/editOrder/:id",
+    element: (
+      <Providers>
+        <EditOrder></EditOrder>
+      </Providers>
+    ),
+  },
+
   // {
   //   path: "/orders",
   //   element: <PrivateRouter><AllOrders></AllOrders></PrivateRouter>
   // },
   {
     path: "/success/:id",
-    element: <SuccessPage></SuccessPage>
+    element: <SuccessPage></SuccessPage>,
   },
   {
     path: "/orders/:id",
