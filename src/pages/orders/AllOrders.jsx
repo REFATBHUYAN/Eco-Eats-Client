@@ -179,8 +179,8 @@ const AllOrders = () => {
   const orderDelete = async (_id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/deleteorder/${_id}`,
-        // `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
+        // `http://localhost:5000/deleteorder/${_id}`,
+        `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
         {
           method: "DELETE",
           headers: {
@@ -206,8 +206,8 @@ const AllOrders = () => {
   const handleStatusCancelled = async (_id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/cancelled/${_id}`,
-        // `https://chui-jhal-server.vercel.app/cancelled/${_id}`,
+        // `http://localhost:5000/cancelled/${_id}`,
+        `https://chui-jhal-server.vercel.app/cancelled/${_id}`,
         {
           method: "PATCH",
           headers: {
@@ -529,12 +529,12 @@ const AllOrders = () => {
                     >
                       Mobile
                     </th>
-                    <th
+                    {/* <th
                       scope="col"
                       className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
                     >
                       Amount
-                    </th>
+                    </th> */}
                     <th
                       scope="col"
                       className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wide text-slate-600"
@@ -590,9 +590,9 @@ const AllOrders = () => {
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         {person.phone}
                       </td>
-                      <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
+                      {/* <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         {person.totalPrice + person.deliveryCharge} tk
-                      </td>
+                      </td> */}
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         {person.date};
                         <span>
@@ -656,7 +656,7 @@ const AllOrders = () => {
 
                         
                           <Link
-                            to={`/orders/${person._id}`}
+                            to={`/showSingleOrder/${person._id}`}
                             target="_blank"
                             className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >

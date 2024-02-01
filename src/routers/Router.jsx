@@ -64,7 +64,7 @@ const router = createBrowserRouter([
     element: <SuccessPage></SuccessPage>,
   },
   {
-    path: "/orders/:id",
+    path: "/showSingleOrder/:id",
     element: <SingleOrders></SingleOrders>,
     // element: <PrivateRouter><SingleOrders></SingleOrders></PrivateRouter>
   },

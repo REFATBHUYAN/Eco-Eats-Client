@@ -33,7 +33,7 @@ const EditOrder = () => {
   }, []);
   // console.log(singleItem);
   console.log("redux store", order);
-  console.log("redux store food", order.food);
+  console.log("redux store food", order);
 
   // const originalObject = {
   //   name: "Product",
@@ -59,8 +59,8 @@ const EditOrder = () => {
   const handleUpdateOrder = async (_id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/updateorder/${_id}`,
-        // `https://chui-jhal-server.vercel.app/updateorder/${_id}`,
+        // `http://localhost:5000/updateorder/${_id}`,
+        `https://chui-jhal-server.vercel.app/updateorder/${_id}`,
         {
           method: "PUT",
           headers: {
@@ -84,9 +84,9 @@ const EditOrder = () => {
     }
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
+  // const handlePrint = () => {
+  //   window.print();
+  // };
   return (
     <div className="w-full bg-white">
       <Container>
@@ -122,24 +122,9 @@ const EditOrder = () => {
                       onClick={() => handleUpdateOrder(order?._id)}
                       className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-circle-check"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                        <path d="M9 12l2 2l4 -4" />
-                      </svg>
+                      Update Order
                     </button>
-                    <button
+                    {/* <button
                       onClick={handlePrint}
                       className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
                     >
@@ -160,52 +145,10 @@ const EditOrder = () => {
                         <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
                         <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </nav>
-                {/* <div className="flex justify-between">
-                <Link
-                  to="/orders"
-                  className="normal-case text-xl flex items-center gap-2"
-                >
-                  <img
-                    className="block h-8 w-auto"
-                    src="/ecoeats/site-icon/ecoeats-icon.svg"
-                  />
-                  <span className="text-2xl font-bold text-green-500">
-                    ইকো<span className="text-green-400">ইটস</span>
-                  </span>
-                </Link>
 
-                <button
-                  className={`float-right py-2 px-4 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
-                  Shipped
-                </button>
-                <button
-                  onClick={handlePrint}
-                  className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-printer"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-                    <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
-                  </svg>
-                </button>
-              </div> */}
                 <div className="flex justify-between">
                   <div className="mt-8 flex-1">
                     <dt className="inline text-base font-semibold text-slate-600">
@@ -540,8 +483,11 @@ const EditOrder = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {order?.deliveryCharge + subTotalPrice} tk
+                        {order?.deliveryCharge + subTotalPrice + order?.extraDelCharge - order?.discount - order?.advance } tk
                       </td>
+                      {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
+                        {order?.deliveryCharge + subTotalPrice} tk
+                      </td> */}
                     </tr>
                   </tfoot>
                 </table>
