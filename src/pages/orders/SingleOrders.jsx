@@ -158,6 +158,7 @@ const SingleOrders = () => {
                   </div>
                   <div className="flex flex-1 lg:flex items-center justify-end gap-2">
                     <button
+                      disabled = {singleItem?.status === "Shipped" ? true : false}
                       onClick={() => handleStatusShipped(singleItem?._id)}
                       className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
                     >
