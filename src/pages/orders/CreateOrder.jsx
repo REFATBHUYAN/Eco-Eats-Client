@@ -57,8 +57,8 @@ const CreateOrder = () => {
     } else {
       try {
         const response = await fetch(
-          "http://localhost:5000/send-email",
-          // "https://chui-jhal-server.vercel.app/send-email",
+          // "http://localhost:5000/send-email",
+          "https://chui-jhal-server.vercel.app/send-email",
           {
             method: "POST",
             headers: {

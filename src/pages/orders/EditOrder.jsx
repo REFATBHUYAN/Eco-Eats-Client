@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import Container from "../../components/Container";
 import { Helmet } from "react-helmet-async";
@@ -21,6 +21,7 @@ const EditOrder = () => {
   // const [singleItem, setSingleItem] = useState({});
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
+  const navigate = useNavigate();
 
   // const [selected, setSelected] = useState(moods[5]);
 
@@ -76,6 +77,8 @@ const EditOrder = () => {
           autoClose: 4000,
           theme: "dark",
         });
+        navigate(`/success/${order?._id}`);
+        
       } else {
         console.error("Failed to send email:", await response.text());
       }
@@ -325,7 +328,7 @@ const EditOrder = () => {
                             {item.title}
                           </div>
                           <div className="truncate text-slate-400 font-light flex gap-2 items-center">
-                            {item.weight}
+                            {(item.weight === "১ কেজি" ? "1 kg" : "500 g")}
                             {" +"}
                             <span className="flex items-center gap-1">
                               <input
@@ -345,7 +348,7 @@ const EditOrder = () => {
                                 autoComplete="street-address"
                                 className="block w-16 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                               />{" "}
-                              গ্রাম
+                              g
                             </span>
                           </div>
                         </td>
@@ -393,8 +396,8 @@ const EditOrder = () => {
                             }
                             className="ml-1 w-32 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
                             type="number"
-                            name="extraDelCharge"
-                            defaultValue={order?.extraDelCharge}
+                            name="deliveryCharge"
+                            defaultValue={order?.deliveryCharge}
                             id="extraDelCharge"
                           />{" "}
                           tk
@@ -483,7 +486,7 @@ const EditOrder = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {order?.deliveryCharge + subTotalPrice + order?.extraDelCharge - order?.discount - order?.advance } tk
+                        {order?.deliveryCharge + subTotalPrice - order?.discount - order?.advance } tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {order?.deliveryCharge + subTotalPrice} tk

@@ -18,6 +18,7 @@ import {
 
 import Container from "../../components/Container";
 import { Helmet } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
 
 const moods = [
   {
@@ -71,6 +72,7 @@ function classNames(...classes) {
 const SingleOrders = () => {
   const { id } = useParams();
   const [singleItem, setSingleItem] = useState();
+  const [dataUpdated, setDataUpdated] = useState();
 
   // const [selected, setSelected] = useState(moods[5]);
 
@@ -81,8 +83,9 @@ const SingleOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         setSingleItem(data);
+        setDataUpdated(false);
       });
-  }, []);
+  }, [dataUpdated]);
 
   const handleStatusShipped = async (_id) => {
     try {
@@ -98,7 +101,35 @@ const SingleOrders = () => {
       );
 
       if (response.ok) {
+        setDataUpdated(true);
         toast.success("অর্ডার শিপড হিসেবে মার্ক করা হয়েছে!", {
+          position: "top-right",
+          autoClose: 4000,
+          theme: "dark",
+        });
+      } else {
+        console.error("Failed to updade status:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  };
+  const handleStatusPending = async (_id) => {
+    try {
+      const response = await fetch(
+        // `http://localhost:5000/update/${_id}`,
+        `https://chui-jhal-server.vercel.app/pending/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setDataUpdated(true);
+        toast.warn("অর্ডার পেন্ডিং হিসেবে মার্ক করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -158,9 +189,9 @@ const SingleOrders = () => {
                   </div>
                   <div className="flex flex-1 lg:flex items-center justify-end gap-2">
                     <button
-                      disabled = {singleItem?.status === "Shipped" ? true : false}
+                      // disabled={singleItem?.status === "Shipped" ? true : false}
                       onClick={() => handleStatusShipped(singleItem?._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Shipped" ? "hidden" : " "}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -177,6 +208,28 @@ const SingleOrders = () => {
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                         <path d="M9 12l2 2l4 -4" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => handleStatusPending(singleItem._id)}
+                      className={`py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white ${singleItem?.status === "Shipped" ? " " : "hidden"}`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icon-tabler-alert-triangle"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 9v4" />
+                        <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+                        <path d="M12 16h.01" />
                       </svg>
                     </button>
                     <button
@@ -365,9 +418,9 @@ const SingleOrders = () => {
                               {item.title}
                             </div>
                             <div className="truncate text-slate-400 font-light flex items-center gap-1">
-                              {item.weight}{" "}
+                              {(item.weight === "১ কেজি" ? "1 kg" : "500 g")}{" "}
                               {item?.extraWeight && (
-                                <span className="">{`+ ${item?.extraWeight} গ্রাম`}</span>
+                                <span className="">{`+ ${item?.extraWeight} g`}</span>
                               )}
                             </div>
                           </td>
@@ -430,27 +483,7 @@ const SingleOrders = () => {
                         </td>
                       </tr>
                     )}
-                    {singleItem?.extraDelCharge && (
-                      <tr>
-                        <th
-                          scope="row"
-                          colSpan={4}
-                          className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
-                        >
-                          Extra Delivery Charge
-                        </th>
-                        <th
-                          scope="row"
-                          colSpan={4}
-                          className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
-                        >
-                          Extra Delivery Charge
-                        </th>
-                        <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
-                          {singleItem?.extraDelCharge} tk
-                        </td>
-                      </tr>
-                    )}
+                    
                     {singleItem?.discount && (
                       <tr>
                         <th
@@ -508,8 +541,7 @@ const SingleOrders = () => {
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {singleItem?.deliveryCharge +
-                          subTotalPrice +
-                          singleItem?.extraDelCharge -
+                          subTotalPrice -
                           singleItem?.discount -
                           singleItem?.advance}{" "}
                         tk
@@ -524,6 +556,7 @@ const SingleOrders = () => {
               </div>
             </div>
           </div>
+          <ToastContainer />
         </>
       </Container>
     </div>

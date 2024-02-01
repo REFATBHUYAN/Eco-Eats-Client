@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-
 const SuccessPage = () => {
   const { id } = useParams();
   // console.log(id);
@@ -11,7 +10,7 @@ const SuccessPage = () => {
     const fetchData1 = async () => {
       try {
         const response1 = await fetch(
-        //   `http://localhost:5000/singleorder/${id}`
+          //   `http://localhost:5000/singleorder/${id}`
           `https://chui-jhal-server.vercel.app/singleorder/${id}`
         );
         const result1 = await response1.json();
@@ -28,6 +27,14 @@ const SuccessPage = () => {
   }, []);
 
   console.log(order);
+  const subTotalPrice = order?.food?.reduce((sum, item) => {
+    const productPrice = item?.extraWeight
+      ? (item.price / (item.weight === "১ কেজি" ? 1000 : 500)) *
+          item?.extraWeight +
+        item.price * item.quantity
+      : item.price * item.quantity;
+    return sum + productPrice;
+  }, 0);
 
   return (
     <div className="px-4">
@@ -36,7 +43,7 @@ const SuccessPage = () => {
           <div className="w-full">
             <div className="flex">
               <Link
-                to={'/'}
+                to={"/"}
                 className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
               >
                 <img
@@ -56,20 +63,28 @@ const SuccessPage = () => {
               অর্ডার সাকসেসফুল
             </p>
             <p className="mt-2 text-base text-slate-400">
-              আপনার অর্ডারের জন্য কৃতজ্ঞতা জানাচ্ছি, কিছুক্ষনের মধ্যে অর্ডারটি প্রসেস করা হবে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব, সাথেই থাকুন।
+              আপনার অর্ডারের জন্য কৃতজ্ঞতা জানাচ্ছি, কিছুক্ষনের মধ্যে অর্ডারটি
+              প্রসেস করা হবে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব, সাথেই থাকুন।
             </p>
 
             <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm">
               <div>
-                  <span className="inline text-base font-semibold text-slate-600">Invoice # </span>
-                  <span className="inline text-sm font-semibold text-slate-400">{order?.invoice}</span>
+                <span className="inline text-base font-semibold text-slate-600">
+                  Invoice #{" "}
+                </span>
+                <span className="inline text-sm font-semibold text-slate-400">
+                  {order?.invoice}
+                </span>
               </div>
               <div>
-                  <span className="inline text-base font-semibold text-slate-600">Date: </span>
-                  <span className="inline text-sm font-semibold text-slate-400">{order?.date}; {order?.time && " " + order?.time}</span>
+                <span className="inline text-base font-semibold text-slate-600">
+                  Date:{" "}
+                </span>
+                <span className="inline text-sm font-semibold text-slate-400">
+                  {order?.date}; {order?.time && " " + order?.time}
+                </span>
               </div>
             </dl>
-
 
             <ul
               role="list"
@@ -85,12 +100,18 @@ const SuccessPage = () => {
                     <h3 className="font-medium text-slate-600">
                       <p>{product.title}</p>
                     </h3>
-                    <div className="text-slate-400 font-light">{product.weight}</div>
-                    <div className="pt-6 text-slate-400 font-light">x {product.quantity}</div>
+                    <div className="text-slate-400 font-light">
+                      {" "}
+                      {product.weight === "১ কেজি" ? "1 kg" : "500 g"}{" "}
+                      {product?.extraWeight && (
+                        <span className="">{`+ ${product?.extraWeight} g`}</span>
+                      )}
+                    </div>
+                    <div className="pt-6 text-slate-400 font-light">
+                      x {product.quantity}
+                    </div>
                   </div>
-                  <p className="flex-none text-slate-600">
-                    {product.price} tk
-                  </p>
+                  <p className="flex-none text-slate-600">{product.price} tk</p>
                 </li>
               ))}
             </ul>
@@ -106,34 +127,59 @@ const SuccessPage = () => {
                 <dd className="text-slate-600">{order?.deliveryCharge} tk</dd>
               </div>
 
+              {order?.advance && (
+                <div className="flex justify-between">
+                  <dt className="text-xs font-semibold uppercase">advance</dt>
+                  <dd className="text-slate-600">{order?.advance} tk</dd>
+                </div>
+              )}
+
+              {order?.discount && (
+                <div className="flex justify-between">
+                  <dt className="text-xs font-semibold uppercase">discount</dt>
+                  <dd className="text-slate-600">{order?.discount} tk</dd>
+                </div>
+              )}
+
               <div className="flex items-center justify-between border-t border-slate-100 pt-6 text-slate-600">
                 <dt className="text-xs font-semibold uppercase">Total</dt>
                 <dd className="font-semibold">
-                  {order?.totalPrice + order?.deliveryCharge} tk
+                  {order?.deliveryCharge +
+                    subTotalPrice -
+                    order?.discount -
+                    order?.advance}{" "}
+                  tk
                 </dd>
               </div>
             </dl>
 
             <dl className="mt-16 grid sm:grid-cols-2 grid-cols-1 gap-x-4 text-sm">
               <div>
-                <dt className="font-semibold text-slate-400">
-                  Address
-                </dt>
+                <dt className="font-semibold text-slate-400">Address</dt>
                 <dd className="mt-2">
                   <address className="not-italic">
-                    <span className="block font-medium text-slate-600">{order?.name}</span>
-                    <span className="block font-light text-slate-400">{order?.address}</span>
-                    <span className="block font-light text-slate-400">{order?.phone}</span>
+                    <span className="block font-medium text-slate-600">
+                      {order?.name}
+                    </span>
+                    <span className="block font-light text-slate-400">
+                      {order?.address}
+                    </span>
+                    <span className="block font-light text-slate-400">
+                      {order?.phone}
+                    </span>
                   </address>
                 </dd>
               </div>
               <div className="mt-8 sm:mt-0">
-                <dt className="font-semibold text-slate-400">
-                  Delivery
-                </dt>
+                <dt className="font-semibold text-slate-400">Delivery</dt>
                 <dd className="mt-2">
-                  <span className="block font-medium text-slate-600">ক্যাশ অন ডেলিভারী</span>
-                  <span className="block font-light text-slate-400">প্রোডাক্ট হাতে পেয়ে ডেলিভারী ম্যানকে দাম পরিশোধ করবেন। ইকোইটস এর সাথে থাকার জন্য ধন্যবাদ।</span>
+                  <span className="block font-medium text-slate-600">
+                    ক্যাশ অন ডেলিভারী
+                  </span>
+                  <span className="block font-light text-slate-400">
+                    প্রোডাক্ট হাতে পেয়ে ডেলিভারী ম্যানকে দাম পরিশোধ করবেন।
+                    ইকোইটস এর সাথে থাকার জন্য ধন্যবাদ।
+                  </span>
                 </dd>
               </div>
             </dl>
