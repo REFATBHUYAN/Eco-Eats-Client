@@ -24,7 +24,11 @@ const Footer = () => {
               </span>
             </Link>
             <p className="w-[350px] lg:w-96 leading-6 font-light">
-              ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে। অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ করে চলেছি অবিরাম।
+              ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে।
+              অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো
+              চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে
+              প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ
+              করে চলেছি অবিরাম।
             </p>
           </aside>
           <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
@@ -32,28 +36,34 @@ const Footer = () => {
               <header className="font-bold text-slate-300 ">
                 আমাদের ঠিকানা
               </header>
-              <a href="https://maps.app.goo.gl/iu8fEDnuj1koBqLs5" 
-                target="_blank" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-map-pin"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                  </svg>
-                  সোনাডাংগা, খুলনা ৯১০০
+              <a
+                href="https://maps.app.goo.gl/iu8fEDnuj1koBqLs5"
+                target="_blank"
+                className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-map-pin"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                </svg>
+                সোনাডাংগা, খুলনা ৯১০০
               </a>
-              <a href="mailto:ecoeats.bd@gmail.com"
-                  target="" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
+              <a
+                href="mailto:ecoeats.bd@gmail.com"
+                target=""
+                className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-mail"
@@ -72,8 +82,11 @@ const Footer = () => {
                 </svg>
                 ecoeats.bd@gmail.com
               </a>
-              <a href="tel:+8801753492987"
-                  target="" className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center">
+              <a
+                href="tel:+8801753492987"
+                target=""
+                className="link no-underline hover:text-green-500 active:text-green-600 ease-in duration-75 flex gap-2 items-center"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="icon icon-tabler icon-tabler-headset"
@@ -190,6 +203,29 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
+                  href="tel:+8801753492987"
+                  target=""
+                  className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-phone-call"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                    <path d="M15 7a2 2 0 0 1 2 2" />
+                    <path d="M15 3a6 6 0 0 1 6 6" />
+                  </svg>
+                </a>
+                <a
                   href="mailto:ecoeats.bd@gmail.com"
                   target=""
                   className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white"
@@ -197,8 +233,8 @@ const Footer = () => {
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-mail"
-                    width="24"
-                    height="24"
+                    width="20"
+                    height="20"
                     viewBox="0 0 24 24"
                     stroke-width="2"
                     stroke="currentColor"
@@ -211,26 +247,6 @@ const Footer = () => {
                     <path d="M3 7l9 6l9 -6" />
                   </svg>
                 </a>
-                <a href="tel:+8801753492987" target="" className="h-10 w-10 cursor-pointer flex items-center justify-center rounded-lg bg-slate-700 hover:bg-green-500 active:bg-green-600 ease-in duration-75 hover:text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-headset"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M4 14v-3a8 8 0 1 1 16 0v3" />
-                    <path d="M18 19c0 1.657 -2.686 3 -6 3" />
-                    <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
-                    <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z" />
-                  </svg>
-                </a>
               </div>
             </nav>
           </div>
@@ -241,7 +257,15 @@ const Footer = () => {
             <p>&copy; 2020-{year} EcoEats. All rights reserved.</p>
           </aside>
           <div className="-mt-4 md:mt-8">
-            <h1>Fueled By <a target="_blank" href="https://www.facebook.com/cyberspace.digital">CyberSpace Digital</a></h1>
+            <h1>
+              Fueled By{" "}
+              <a
+                target="_blank"
+                href="https://www.facebook.com/cyberspace.digital"
+              >
+                CyberSpace Digital
+              </a>
+            </h1>
           </div>
         </footer>
       </Container>

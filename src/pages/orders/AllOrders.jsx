@@ -23,8 +23,8 @@ import { addMonths, isSameMonth } from "date-fns";
 
 const filtersOptions = [
   { name: "All Orders", href: "#" },
-  { name: "Pending", href: "#" },
   { name: "Shipped", href: "#" },
+  { name: "Pending", href: "#" },
   { name: "Cancelled", href: "#" },
 ];
 function classNames(...classes) {
@@ -137,7 +137,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.success("অর্ডার শিপড হিসেবে মার্ক করা হয়েছে!", {
+        toast.success("অর্ডারটি শিপ করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -164,7 +164,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.warn("অর্ডার পেন্ডিং হিসেবে মার্ক করা হয়েছে!", {
+        toast.warn("অর্ডারটি পেন্ডিং করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -191,7 +191,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.warn("অর্ডার ডিলিট করা হয়েছে!", {
+        toast.error("অর্ডারটি ডিলিট করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -218,7 +218,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.warn("অর্ডার ক্যান্সেল হিসেবে মার্ক করা হয়েছে!", {
+        toast.error("অর্ডারটি ক্যান্সেল করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -394,7 +394,7 @@ const AllOrders = () => {
                 </svg>
               </div>
               <dt className="ml-14 truncate text-sm font-medium text-slate-400">
-                Sales Today
+                Sales
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
