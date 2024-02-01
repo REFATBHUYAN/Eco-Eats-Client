@@ -71,7 +71,7 @@ const EditOrder = () => {
       );
 
       if (response.ok) {
-        toast.success("অর্ডার আপডেট সম্পন্ন হয়েছে। ধন্যবাদ!", {
+        toast.success("অর্ডারটি আপডেট করা হয়েছে। ধন্যবাদ!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -120,8 +120,9 @@ const EditOrder = () => {
                   <div className="flex flex-1 lg:flex items-center justify-end gap-2">
                     <button
                       onClick={() => handleUpdateOrder(order?._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+                      className={`float-right py-2 px-3 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
                     >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
                       Update Order
                     </button>
                     {/* <button

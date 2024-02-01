@@ -49,7 +49,7 @@ const CreateOrder = () => {
     setLoading(true);
     if ((name === "") | (address === "") | (phone === "")) {
       setLoading(false);
-      return toast.error("আপনার নাম, ঠিকানা এবং মোবাইল নাম্বার সঠিকভাবে দিন।", {
+      return toast.error("নাম, ঠিকানা এবং মোবাইল নাম্বার সঠিকভাবে দিন।", {
         position: "top-right",
         autoClose: 4000,
         theme: "dark",
@@ -76,7 +76,7 @@ const CreateOrder = () => {
           navigate(`/success/${insertedId.insertedId}`);
 
           toast.success(
-            "অর্ডার সম্পন্ন হয়েছে। শীঘ্রই আপনার সাথে যোগাযোগ করা হবে। ধন্যবাদ!",
+            "অর্ডার সফলভাবে গৃহিত হয়েছে। ধন্যবাদ!",
             {
               position: "top-right",
               autoClose: 4000,
