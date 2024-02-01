@@ -191,7 +191,7 @@ const SingleOrders = () => {
                     <button
                       // disabled={singleItem?.status === "Shipped" ? true : false}
                       onClick={() => handleStatusShipped(singleItem?._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Shipped" ? "hidden" : " "}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Pending" ? " " : "hidden"}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +212,7 @@ const SingleOrders = () => {
                     </button>
                     <button
                       onClick={() => handleStatusPending(singleItem._id)}
-                      className={`py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white ${singleItem?.status === "Shipped" ? " " : "hidden"}`}
+                      className={`py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -540,10 +540,10 @@ const SingleOrders = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {singleItem?.deliveryCharge +
-                          subTotalPrice -
-                          singleItem?.discount -
-                          singleItem?.advance}{" "}
+                        {(singleItem?.deliveryCharge +
+                          subTotalPrice) -
+                          (singleItem?.discount ? singleItem?.discount : 0 -
+                          singleItem?.advance ? singleItem?.advance : 0)}
                         tk
                       </td>
                     </tr>

@@ -144,10 +144,10 @@ const SuccessPage = () => {
               <div className="flex items-center justify-between border-t border-slate-100 pt-6 text-slate-600">
                 <dt className="text-xs font-semibold uppercase">Total</dt>
                 <dd className="font-semibold">
-                  {order?.deliveryCharge +
-                    subTotalPrice -
-                    order?.discount -
-                    order?.advance}{" "}
+                {(order?.deliveryCharge +
+                          subTotalPrice) -
+                          (order?.discount ? order?.discount : 0 -
+                            order?.advance ? order?.advance : 0)}
                   tk
                 </dd>
               </div>

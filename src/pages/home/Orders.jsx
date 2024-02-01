@@ -19,6 +19,7 @@ const Orders = () => {
   const [loading, setLoading] = useState(false);
   const orderedTime = moment().format("LT");
   const navigate = useNavigate();
+  const date = moment().format().split("T")[0];
 
   const handledeliveryType = (e) => {
     setdeliveryType(e.target.value);
@@ -29,6 +30,7 @@ const Orders = () => {
 
   const orderedData = {
     name,
+    date,
     address,
     phone,
     deliveryType,
