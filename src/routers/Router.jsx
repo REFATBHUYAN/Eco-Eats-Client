@@ -9,10 +9,12 @@ import PrivateRouter from "./PrivateRouter.jsx";
 import CreateOrder from "../pages/orders/CreateOrder.jsx";
 import EditOrder from "../pages/orders/EditOrder.jsx";
 import { Providers } from "../Redux/providers.jsx";
+import ErrorPage from "../pages/shared/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <MainLayout></MainLayout>,
     children: [
       {
@@ -34,10 +36,10 @@ const router = createBrowserRouter([
       // },
     ],
   },
-  {
-    path: "/orders",
-    element: <AllOrders></AllOrders>,
-  },
+  // {
+  //   path: "/orders",
+  //   element: <AllOrders></AllOrders>,
+  // },
   {
     path: "/createOrder",
     element: (
@@ -55,18 +57,18 @@ const router = createBrowserRouter([
     ),
   },
 
-  // {
-  //   path: "/orders",
-  //   element: <PrivateRouter><AllOrders></AllOrders></PrivateRouter>
-  // },
+  {
+    path: "/orders",
+    element: <PrivateRouter><AllOrders></AllOrders></PrivateRouter>
+  },
   {
     path: "/success/:id",
     element: <SuccessPage></SuccessPage>,
   },
   {
     path: "/showSingleOrder/:id",
-    element: <SingleOrders></SingleOrders>,
-    // element: <PrivateRouter><SingleOrders></SingleOrders></PrivateRouter>
+    // element: <SingleOrders></SingleOrders>,
+    element: <PrivateRouter><SingleOrders></SingleOrders></PrivateRouter>
   },
 ]);
 
