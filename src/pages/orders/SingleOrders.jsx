@@ -155,6 +155,12 @@ const SingleOrders = () => {
     return sum + productPrice;
   }, 0);
 
+  const discountAmount = singleItem?.discount ? singleItem?.discount : 0;
+  const advanceAmount = singleItem?.advance ? singleItem?.advance : 0;
+
+  const grandTotal =
+    singleItem?.deliveryCharge + subTotalPrice - advanceAmount - discountAmount;
+
   return (
     <div className="w-full bg-white">
       <Container>
@@ -187,11 +193,11 @@ const SingleOrders = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="flex flex-1 lg:flex items-center justify-end gap-2">
+                  <div className="flex flex-1 lg:flex items-center justify-end gap-2 printButton">
                     <button
                       // disabled={singleItem?.status === "Shipped" ? true : false}
                       onClick={() => handleStatusShipped(singleItem?._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Pending" ? " " : "hidden"}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${singleItem?.status === "Pending" ? " " : "hidden"}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -212,11 +218,11 @@ const SingleOrders = () => {
                     </button>
                     <button
                       onClick={() => handleStatusPending(singleItem._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 active:bg-amber-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 active:bg-amber-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="icon icon-tabler icon-tabler-alert-triangle"
+                        className="icon icon-tabler icon-tabler-alert-triangle printButton"
                         width="20"
                         height="20"
                         viewBox="0 0 24 24"
@@ -238,7 +244,7 @@ const SingleOrders = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-printer"
+                        class="icon icon-tabler icon-tabler-printer printButton"
                         width="20"
                         height="20"
                         viewBox="0 0 24 24"
@@ -540,10 +546,10 @@ const SingleOrders = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {(singleItem?.deliveryCharge +
+                        {/* {(singleItem?.deliveryCharge +
                           subTotalPrice) -
                           (singleItem?.discount ? singleItem?.discount : 0 -
-                          singleItem?.advance ? singleItem?.advance : 0)}
+                          singleItem?.advance ? singleItem?.advance : 0)} */}{grandTotal}
                         tk
                       </td>
                     </tr>

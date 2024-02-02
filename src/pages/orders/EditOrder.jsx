@@ -57,9 +57,15 @@ const EditOrder = () => {
     return sum + productPrice;
   }, 0);
 
+  const discountAmount = order?.discount ? order?.discount : 0;
+  const advanceAmount = order?.advance ? order?.advance : 0;
+
+  const grandTotal =
+    order?.deliveryCharge + subTotalPrice - advanceAmount - discountAmount;
+
   // const updatedOrder2 = (({ totalPrice:subTotalPrice, ...rest }) => {totalPrice, rest})(newObject);
   newObject.totalPrice = subTotalPrice;
-  
+
   // console.log("updated order object 2", newObject);
 
   const handleUpdateOrder = async (_id) => {
@@ -82,7 +88,7 @@ const EditOrder = () => {
           autoClose: 4000,
           theme: "dark",
         });
-        navigate(`/success/${order?._id}`);
+        navigate(`/showSingleOrder/${order?._id}`);
       } else {
         console.error("Failed to send email:", await response.text());
       }
@@ -220,7 +226,7 @@ const EditOrder = () => {
                   </div>
                   <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-200 sm:pl-4 sm:pt-6">
                     <dt className="font-semibold text-slate-400">To</dt>
-                    <dd className="mt-1">
+                    <dd className="mt-1 flex flex-col gap-2">
                       <span className="font-medium text-slate-600">
                         <input
                           type="text"
@@ -239,7 +245,7 @@ const EditOrder = () => {
                           className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                         />
                       </span>
-                      <br />
+
                       <span className="font-light text-slate-600">
                         <input
                           type="text"
@@ -258,7 +264,7 @@ const EditOrder = () => {
                           className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                         />
                       </span>
-                      <br />
+
                       <span className="font-light text-slate-600">
                         <input
                           type="text"
@@ -308,7 +314,7 @@ const EditOrder = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="px-0 py-3 font-semibold text-xs"
+                        className="w-5 px-0 py-3 font-semibold text-xs"
                       >
                         SL
                       </th>
@@ -343,7 +349,7 @@ const EditOrder = () => {
                     {order?.food?.map((item, i) => (
                       <tr key={item.id} className="border-y border-slate-100">
                         <td className="max-w-0 pr-8 py-5 align-top">{i + 1}</td>
-                        <td className="max-w-0 px-0 py-5 align-top">
+                        <td className="max-w-0 pr-8 py-5 align-top">
                           <div className="truncate font-medium text-slate-600">
                             {item.title}
                           </div>
@@ -393,15 +399,15 @@ const EditOrder = () => {
                     ))}
                   </tbody>
                   <tfoot className="px-0">
-                    <h1 className="mt-4 font-semibold text-slate-600 text-xs">
-                      ADJUSTMENTS
-                    </h1>
                     <tr>
                       <th
                         scope="row"
                         colSpan={2}
                         className="px-0 pb-0 pt-6 text-slate-400 text-xs font-semibold"
                       >
+                        <span className="mt-4 font-semibold text-slate-600 text-xs">
+                          ADJUSTMENTS
+                        </span> <br /> <br />
                         Delivery{" "}
                         <span>
                           <input
@@ -409,7 +415,7 @@ const EditOrder = () => {
                               dispatch(
                                 updateOrderField({
                                   field: e.target.name,
-                                  value: parseInt(e.target.value),
+                                  value: parseFloat(e.target.value),
                                 })
                               )
                             }
@@ -448,7 +454,7 @@ const EditOrder = () => {
                               dispatch(
                                 updateOrderField({
                                   field: e.target.name,
-                                  value: parseInt(e.target.value),
+                                  value: parseFloat(e.target.value),
                                 })
                               )
                             }
@@ -486,7 +492,7 @@ const EditOrder = () => {
                               dispatch(
                                 updateOrderField({
                                   field: e.target.name,
-                                  value: parseInt(e.target.value),
+                                  value: parseFloat(e.target.value),
                                 })
                               )
                             }
@@ -505,13 +511,14 @@ const EditOrder = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {order?.deliveryCharge +
+                        {/* {order?.deliveryCharge +
                           subTotalPrice -
                           (order?.discount
                             ? order?.discount
                             : 0 - order?.advance
                             ? order?.advance
-                            : 0)}{" "}
+                            : 0)} */}{" "}
+                        {grandTotal}
                         tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
