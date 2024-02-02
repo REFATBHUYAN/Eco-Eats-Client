@@ -159,7 +159,7 @@ const AllOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.warn("অর্ডারটি পেন্ডিং করা হয়েছে!", {
+        toast.warn("অর্ডারটি পেন্ডিং মার্কড হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -631,7 +631,7 @@ const AllOrders = () => {
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm font-medium text-slate-400">
                         <Link
-                          to={`/orders/${person._id}`}
+                          to={`/showSingleOrder/${person._id}`}
                           target="_blank"
                           className="hover:text-green-500 active:text-green-600 ease-in duration-75"
                         >
@@ -653,7 +653,7 @@ const AllOrders = () => {
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         <Link
-                          to={`/orders/${person._id}`}
+                          to={`/showSingleOrder/${person._id}`}
                           target="_blank"
                           className="hover:text-green-500 active:text-green-600 ease-in duration-75"
                         >
@@ -1010,7 +1010,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {allData.filter((d) => d.status === "Cancelled").length}
+                  {allOrders.filter((d) => d.status === "Cancelled").length}
                 </p>
               </dd>
             </div>

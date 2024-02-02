@@ -102,7 +102,7 @@ const SingleOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.success("অর্ডার শিপড হিসেবে মার্ক করা হয়েছে!", {
+        toast.success("অর্ডারটি শিপ করা হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -129,7 +129,7 @@ const SingleOrders = () => {
 
       if (response.ok) {
         setDataUpdated(true);
-        toast.warn("অর্ডার পেন্ডিং হিসেবে মার্ক করা হয়েছে!", {
+        toast.warn("অর্ডারটি পেন্ডিং মার্কড হয়েছে!", {
           position: "top-right",
           autoClose: 4000,
           theme: "dark",
@@ -212,7 +212,7 @@ const SingleOrders = () => {
                     </button>
                     <button
                       onClick={() => handleStatusPending(singleItem._id)}
-                      className={`py-1.5 px-1.5 rounded-md bg-amber-400 hover:bg-amber-500 active:bg-amber-600 ease-in duration-75 font-semibold text-white hover:text-white ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 active:bg-amber-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2 ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -469,14 +469,14 @@ const SingleOrders = () => {
                           colSpan={4}
                           className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                         >
-                          advance
+                          Advance
                         </th>
                         <th
                           scope="row"
                           colSpan={4}
                           className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                         >
-                          advance
+                          Advance
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
                           {singleItem?.advance} tk
@@ -491,14 +491,14 @@ const SingleOrders = () => {
                           colSpan={4}
                           className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                         >
-                          discount
+                          Discount
                         </th>
                         <th
                           scope="row"
                           colSpan={4}
                           className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                         >
-                          discount
+                          Discount
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
                           {singleItem?.discount} tk

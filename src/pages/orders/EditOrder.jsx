@@ -347,13 +347,13 @@ const EditOrder = () => {
                           <div className="truncate font-medium text-slate-600">
                             {item.title}
                           </div>
-                          <div className="truncate text-slate-400 font-light flex gap-2 items-center">
+                          <div className="truncate text-slate-400 font-light flex gap-1 items-center">
                             {item.weight === "১ কেজি" ? "1 kg" : "500 g"}
                             {" +"}
                             <span className="flex items-center gap-1">
                               <input
-                                type="number"
-                                name="address"
+                                type="text"
+                                name="extraweight"
                                 defaultValue={item?.extraWeight}
                                 // onChange={(e) => setAddress(e.target.value)}
                                 onChange={(e) =>
@@ -364,9 +364,8 @@ const EditOrder = () => {
                                     })
                                   )
                                 }
-                                id="address"
-                                autoComplete="street-address"
-                                className="block w-16 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                                id="extraWeight"
+                                className="block w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
                               />{" "}
                               g
                             </span>
@@ -394,16 +393,16 @@ const EditOrder = () => {
                     ))}
                   </tbody>
                   <tfoot className="px-0">
-                    <h1 className="mt-4 font-semibold text-slate-600  text-xs uppercase">
+                    <h1 className="mt-4 font-semibold text-slate-600 text-xs">
                       ADJUSTMENTS
                     </h1>
                     <tr>
                       <th
                         scope="row"
-                        colSpan={4}
-                        className="px-0 pb-0 pt-6 text-slate-400  text-xs font-semibold uppercase"
+                        colSpan={2}
+                        className="px-0 pb-0 pt-6 text-slate-400 text-xs font-semibold"
                       >
-                        Delivery Charge{" "}
+                        Delivery{" "}
                         <span>
                           <input
                             onChange={(e) =>
@@ -414,8 +413,8 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            className="ml-1 w-32 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
-                            type="number"
+                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            type="text"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
                             id="extraDelCharge"
@@ -426,7 +425,7 @@ const EditOrder = () => {
 
                       <th
                         scope="row"
-                        colSpan={4}
+                        colSpan={2}
                         className=" px-0 pb-0 pt-6 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
                         Subtotal
@@ -438,13 +437,13 @@ const EditOrder = () => {
                     <tr>
                       <th
                         scope="row"
-                        colSpan={4}
+                        colSpan={2}
                         className="pt-4 font-semibold text-slate-400  text-xs "
                       >
                         Discount{" "}
                         <span>
                           <input
-                            className="ml-1 w-32 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -453,7 +452,7 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            type="number"
+                            type="text"
                             name="discount"
                             defaultValue={order?.discount}
                             id="discount"
@@ -463,7 +462,7 @@ const EditOrder = () => {
                       </th>
                       <th
                         scope="row"
-                        colSpan={4}
+                        colSpan={2}
                         className=" pt-4 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
                         DELIVERY
@@ -475,14 +474,14 @@ const EditOrder = () => {
                     <tr>
                       <th
                         scope="row"
-                        colSpan={4}
+                        colSpan={2}
                         className="pt-4 font-semibold text-slate-400  text-xs"
                       >
                         Advance{" "}
                         <span>
                           <input
-                            className="ml-1 w-32 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
-                            type="number"
+                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            type="text"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -500,7 +499,7 @@ const EditOrder = () => {
                       </th>
                       <th
                         scope="row"
-                        colSpan={4}
+                        colSpan={2}
                         className=" pt-4 text-right font-semibold text-slate-600 table-cell text-xs uppercase"
                       >
                         Total
