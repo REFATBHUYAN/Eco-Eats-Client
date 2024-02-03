@@ -19,8 +19,8 @@ const Footer = () => {
                 className="block h-8 w-auto"
                 src="/ecoeats/site-icon/ecoeats-icon.svg"
               />
-              <span className="text-2xl font-bold text-green-500">
-                ইকো<span className="text-green-400">ইটস</span>
+              <span className="text-2xl font-bold text-[#32BC4E]">
+                ইকো<span className="text-[#7ED959]">ইটস</span>
               </span>
             </Link>
             <p className="w-[350px] lg:w-96 leading-6 font-light">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const PrivateRouter = ({ children }) => {
-  const adminPassword = "admin@123456";
+  const adminPassword = "JcsWYJx)EY.qR2]Ha}@?";
   const adminUsername = "admin@ecoeats.com";
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
@@ -55,23 +55,20 @@ const PrivateRouter = ({ children }) => {
     children
   ) : (
     <div className="">
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 my-auto  items-center h-screen">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-32 lg:px-8 my-auto h-screen">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Link
             to={"/"}
             className="flex items-center justify-center gap-2 cursor-pointer w-auto"
           >
             <img
-              className="block h-8 w-auto"
+              className="block h-12 w-auto"
               src="/ecoeats/site-icon/ecoeats-icon.svg"
-              alt=""
+              alt=""u  
             />
-            <div className="text-2xl font-bold text-green-500">
-              ইকো<span className="text-green-400">ইটস</span>
-            </div>
           </Link>
 
-          <h2 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-slate-600">
+          <h2 className="mt-4 text-center text-xl font-bold leading-9 tracking-tight text-slate-600">
             Sign in to your account
           </h2>
         </div>

@@ -44,8 +44,8 @@ const DashboardNav = () => {
                 src="/ecoeats/site-icon/ecoeats-icon.svg"
                 alt=""
               />
-              <div className="text-2xl font-bold text-green-500">
-                ইকো<span className="text-green-400">ইটস</span>
+              <div className="text-2xl font-bold text-[#32BC4E]">
+                ইকো<span className="text-[#7ED959]">ইটস</span>
               </div>
             </Link>
           </div>

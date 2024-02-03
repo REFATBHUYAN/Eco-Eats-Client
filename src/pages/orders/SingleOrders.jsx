@@ -188,8 +188,8 @@ const SingleOrders = () => {
                         src="/ecoeats/site-icon/ecoeats-icon.svg"
                         alt=""
                       />
-                      <div className="text-2xl font-bold text-green-500">
-                        ইকো<span className="text-green-400">ইটস</span>
+                      <div className="text-2xl font-bold text-[#32BC4E]">
+                        ইকো<span className="text-[#7ED959]">ইটস</span>
                       </div>
                     </a>
                   </div>
@@ -248,7 +248,7 @@ const SingleOrders = () => {
                     <Link
                       to={`/editOrder/${singleItem?._id}`}
                       className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${
-                        singleItem?.status === "Shipped" ||
+                        singleItem?.status === "Pending" ||
                         singleItem?.status === "Cancelled"
                           ? " "
                           : "hidden"
