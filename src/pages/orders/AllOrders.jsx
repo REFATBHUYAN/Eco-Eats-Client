@@ -115,8 +115,8 @@ const AllOrders = () => {
     fetchData2();
   }, [selected, dataUpdated]);
 
-  console.log(filterData)
-  console.log(allData);
+  // console.log(filterData);
+  // console.log(allData);
   const handleStatusShipped = async (_id) => {
     try {
       const response = await fetch(
@@ -833,11 +833,11 @@ const AllOrders = () => {
                               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                             </svg>
                           </button>
-
+                            
                           <dialog id="deletemodal" className="modal">
-                            <div className="modal-box bg-white">
+                            <div className="modal-box bg-white text-left max-w-lg overflow-hidden">
                               <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
+                               
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-slate-100">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
                                 </button>
@@ -869,8 +869,8 @@ const AllOrders = () => {
                                 </span>{" "}
                                 Delete Order?{" "}
                               </div>
-                              <p className="py-4 text-left max-w-2xl text-slate-400 font-normal text-sm">
-                                Are you sure you want to delete this order? All of your data of this order will be permanently removed. This action cannot be undone.
+                              <p className="py-4 text-slate-400 font-normal text-sm">
+                                Are you sure you want to delete this order? All of your data of this order will be <br /> permanently removed. This action cannot be undone.
                               </p>
                               <button
                                 onClick={() => orderDelete(person._id)}
@@ -894,6 +894,7 @@ const AllOrders = () => {
                   </div>
                 </div>
               )}
+              
             </div>
           </div>
         </div>

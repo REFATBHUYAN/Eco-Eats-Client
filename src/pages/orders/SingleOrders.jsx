@@ -245,8 +245,8 @@ const SingleOrders = () => {
                         <path d="M12 16h.01" />
                       </svg>
                     </button>
-                    <button
-                      // to={`/editOrder/${person._id}`}
+                    <Link
+                      to={`/editOrder/${singleItem?._id}`}
                       className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${
                         singleItem?.status === "Shipped" ||
                         singleItem?.status === "Cancelled"
@@ -271,7 +271,7 @@ const SingleOrders = () => {
                         <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
                         <path d="M16 5l3 3" />
                       </svg>
-                    </button>
+                    </Link>
                     <button
                       onClick={handlePrint}
                       className={`float-right py-2 px-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
