@@ -241,8 +241,8 @@ const EditOrder = () => {
                             )
                           }
                           id="name"
-                          autoComplete="street-name"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                          autoComplete="name"
+                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
 
@@ -261,7 +261,7 @@ const EditOrder = () => {
                           }
                           id="address"
                           autoComplete="street-address"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
 
@@ -279,8 +279,8 @@ const EditOrder = () => {
                             )
                           }
                           id="phone"
-                          autoComplete="street-phone"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                          autoComplete="phone"
+                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
                     </dd>
@@ -350,10 +350,10 @@ const EditOrder = () => {
                       <tr key={item.id} className="border-y border-slate-100">
                         <td className="max-w-0 pr-8 py-5 align-top">{i + 1}</td>
                         <td className="max-w-0 pr-8 py-5 align-top">
-                          <div className="truncate font-medium text-slate-600">
+                          <div className="font-medium text-slate-600">
                             {item.title}
                           </div>
-                          <div className="truncate text-slate-400 font-light flex gap-1 items-center">
+                          <div className="text-slate-400 font-light flex gap-1 items-center">
                             {item.weight === "১ কেজি" ? "1 kg" : "500 g"}
                             {" +"}
                             <span className="flex items-center gap-1">
@@ -371,7 +371,7 @@ const EditOrder = () => {
                                   )
                                 }
                                 id="extraWeight"
-                                className="block w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                                className="block w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                               />{" "}
                               g
                             </span>
@@ -403,10 +403,10 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className="px-0 pb-0 pt-6 text-slate-400 text-xs font-semibold"
+                        className="px-0 pb-0 pt-4 text-slate-400 text-sm font-normal"
                       >
-                        <span className="mt-4 font-semibold text-slate-600 text-xs">
-                          ADJUSTMENTS
+                        <span className="mt-4 font-semibold text-slate-600 text-xs uppercase">
+                          Adjustments
                         </span> <br /> <br />
                         Delivery{" "}
                         <span>
@@ -419,7 +419,7 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm inline"
                             type="text"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
@@ -432,11 +432,11 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className=" px-0 pb-0 pt-6 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
+                        className="px-0 pb-1 pt-6 text-right align-bottom font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
                         Subtotal
                       </th>
-                      <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
+                      <td className="pb-1 pl-8 pr-0 pt-6 text-right align-bottom tabular-nums text-slate-600">
                         {subTotalPrice} tk
                       </td>
                     </tr>
@@ -444,12 +444,12 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className="pt-4 font-semibold text-slate-400  text-xs "
+                        className="pt-2 font-normal text-slate-400 text-sm"
                       >
                         Discount{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-normal inline"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -469,11 +469,11 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className=" pt-4 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
+                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
                         DELIVERY
                       </th>
-                      <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
+                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                         {order?.deliveryCharge} tk
                       </td>
                     </tr>
@@ -481,12 +481,12 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className="pt-4 font-semibold text-slate-400  text-xs"
+                        className="pt-2 font-normal text-slate-400 text-sm"
                       >
                         Advance{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-normal inline"
                             type="text"
                             onChange={(e) =>
                               dispatch(
@@ -506,11 +506,11 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className=" pt-4 text-right font-semibold text-slate-600 table-cell text-xs uppercase"
+                        className="pt-2 text-right font-semibold text-slate-600 table-cell text-xs uppercase"
                       >
                         Total
                       </th>
-                      <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
+                      <td className="pb-2 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {/* {order?.deliveryCharge +
                           subTotalPrice -
                           (order?.discount
@@ -518,8 +518,7 @@ const EditOrder = () => {
                             : 0 - order?.advance
                             ? order?.advance
                             : 0)} */}{" "}
-                        {grandTotal}
-                        tk
+                        {grandTotal} tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {order?.deliveryCharge + subTotalPrice} tk

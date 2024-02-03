@@ -197,7 +197,9 @@ const SingleOrders = () => {
                     <button
                       // disabled={singleItem?.status === "Shipped" ? true : false}
                       onClick={() => handleStatusShipped(singleItem?._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${singleItem?.status === "Pending" ? " " : "hidden"}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${
+                        singleItem?.status === "Pending" ? " " : "hidden"
+                      }`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +220,12 @@ const SingleOrders = () => {
                     </button>
                     <button
                       onClick={() => handleStatusPending(singleItem._id)}
-                      className={`float-right py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 active:bg-amber-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${singleItem?.status === "Shipped" || singleItem?.status === "Cancelled" ? " " : "hidden"}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-amber-500 hover:bg-amber-600 active:bg-amber-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${
+                        singleItem?.status === "Shipped" ||
+                        singleItem?.status === "Cancelled"
+                          ? " "
+                          : "hidden"
+                      }`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -239,8 +246,35 @@ const SingleOrders = () => {
                       </svg>
                     </button>
                     <button
+                      // to={`/editOrder/${person._id}`}
+                      className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2 ${
+                        singleItem?.status === "Shipped" ||
+                        singleItem?.status === "Cancelled"
+                          ? " "
+                          : "hidden"
+                      }`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-edit"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                        <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                        <path d="M16 5l3 3" />
+                      </svg>
+                    </button>
+                    <button
                       onClick={handlePrint}
-                      className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
+                      className={`float-right py-2 px-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -424,7 +458,7 @@ const SingleOrders = () => {
                               {item.title}
                             </div>
                             <div className="truncate text-slate-400 font-light flex items-center gap-1">
-                              {(item.weight === "১ কেজি" ? "1 kg" : "500 g")}{" "}
+                              {item.weight === "১ কেজি" ? "1 kg" : "500 g"}{" "}
                               {item?.extraWeight && (
                                 <span className="">{`+ ${item?.extraWeight} g`}</span>
                               )}
@@ -453,18 +487,18 @@ const SingleOrders = () => {
                       <th
                         scope="row"
                         colSpan={4}
-                        className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                        className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                       >
                         Subtotal
                       </th>
                       <th
                         scope="row"
                         colSpan={4}
-                        className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
+                        className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                       >
                         Subtotal
                       </th>
-                      <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
+                      <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                         {subTotalPrice} tk
                       </td>
                     </tr>
@@ -473,40 +507,40 @@ const SingleOrders = () => {
                         <th
                           scope="row"
                           colSpan={4}
-                          className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                          className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                         >
                           Advance
                         </th>
                         <th
                           scope="row"
                           colSpan={4}
-                          className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
+                          className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                         >
                           Advance
                         </th>
-                        <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
+                        <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                           {singleItem?.advance} tk
                         </td>
                       </tr>
                     )}
-                    
+
                     {singleItem?.discount && (
                       <tr>
                         <th
                           scope="row"
                           colSpan={4}
-                          className="px-0 pb-0 pt-6 text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                          className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                         >
                           Discount
                         </th>
                         <th
                           scope="row"
                           colSpan={4}
-                          className="hidden px-0 pb-0 pt-6 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
+                          className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                         >
                           Discount
                         </th>
-                        <td className="pb-0 pl-8 pr-0 pt-6 text-right tabular-nums text-slate-600">
+                        <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                           {singleItem?.discount} tk
                         </td>
                       </tr>
@@ -549,8 +583,8 @@ const SingleOrders = () => {
                         {/* {(singleItem?.deliveryCharge +
                           subTotalPrice) -
                           (singleItem?.discount ? singleItem?.discount : 0 -
-                          singleItem?.advance ? singleItem?.advance : 0)} */}{grandTotal}
-                        tk
+                          singleItem?.advance ? singleItem?.advance : 0)} */}
+                        {grandTotal} tk
                       </td>
                     </tr>
                   </tfoot>

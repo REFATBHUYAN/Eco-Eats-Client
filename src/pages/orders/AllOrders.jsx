@@ -805,7 +805,7 @@ const AllOrders = () => {
                           </button>
                           <button
                             onClick={() =>
-                              document.getElementById("my_modal_3").showModal()
+                              document.getElementById("deletemodal").showModal()
                             }
                             className="py-1.5 px-1.5 rounded-md bg-red-400 hover:bg-red-500 active:bg-red-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
@@ -834,17 +834,17 @@ const AllOrders = () => {
                             </svg>
                           </button>
 
-                          <dialog id="my_modal_3" className="modal">
-                            <div className="modal-box ">
+                          <dialog id="deletemodal" className="modal">
+                            <div className="modal-box bg-white">
                               <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                  ✕
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-slate-100">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
                                 </button>
                               </form>
-                              <div className="font-bold text-lg text-left flex items-center gap-4">
+                              <div className="font-bold text-lg text-left flex items-center gap-2 text-slate-600">
                                 {" "}
-                                <span className="bg-red-200 rounded-full p-1.5 text-black">
+                                <span className="bg-red-100 rounded-full p-1.5 text-red-500">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="icon icon-tabler icon-tabler-alert-triangle "
@@ -867,19 +867,17 @@ const AllOrders = () => {
                                     <path d="M12 16h.01" />
                                   </svg>
                                 </span>{" "}
-                                Delate Order ?{" "}
+                                Delete Order?{" "}
                               </div>
-                              <p className="py-4 text-left max-w-2xl">
-                                Are you sure you want to delete this order? All
-                                of your data of this order <br></br> will be
-                                permanently removed. This action cannot be
-                                undone.
+                              <p className="py-4 text-left max-w-2xl text-slate-400 font-normal text-sm">
+                                Are you sure you want to delete this order? All of your data of this order will be permanently removed. This action cannot be undone.
                               </p>
                               <button
                                 onClick={() => orderDelete(person._id)}
-                                className={`py-1.5 px-1.5 rounded-md bg-red-400 hover:bg-red-500 active:bg-red-600 ease-in duration-75 font-semibold text-white hover:text-white $`}
+                                className={`gap-2 py-2 px-3 rounded-lg bg-red-500 hover:bg-red-600 active:bg-red-700 ease-in duration-75 font-semibold inline-flex text-white hover:text-white align-right $`}
                               >
-                                Delete
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                                Yes I Understand
                               </button>
                             </div>
                           </dialog>

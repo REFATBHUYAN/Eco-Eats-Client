@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const PrivateRouter = ({ children }) => {
   const adminPassword = "admin@123456";
@@ -54,59 +55,80 @@ const PrivateRouter = ({ children }) => {
   return authenticated || isWithinTimeframe() ? (
     children
   ) : (
-    <div className="my-20 md:my-32 mx-4">
-      <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
-        <div className="mb-5">
-          <label
-            for="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Admin email
-          </label>
-          <input
-            type="email"
-            id="email"
-            onChange={(e) => setUsername(e.target.value)}
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light"
-            placeholder="Enter your name"
-            required
-          />
-        </div>
-        <div className="mb-5">
-          <label
-            for="password"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Admin password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light"
-            placeholder="Enter your passwords here"
-            required
-          />
-        </div>
 
-        <button
-          type="submit"
-          className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-        >
-          Login As Admin
-        </button>
-      </form>
 
-      {/* <form onSubmit={handleSubmit}>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form> */}
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <Link
+        to={"/"}
+        className="flex items-center gap-2 cursor-pointer w-auto"
+      >
+        <img
+          className="block h-8 w-auto"
+          src="/ecoeats/site-icon/ecoeats-icon.svg"
+          alt=""
+        />
+        <div className="text-2xl font-bold text-green-500">
+          ইকো<span className="text-green-400">ইটস</span>
+        </div>
+      </Link>
+
+      <h2 className="mt-10 text-left text-xl font-bold leading-9 tracking-tight text-slate-600">
+        Sign in to your account
+      </h2>
     </div>
+
+    <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+      <form onSubmit={handleSubmit} className="space-y-2" action="#" method="POST">
+        <div>
+          <label For="email" className="block text-sm font-medium leading-6 text-slate-600">
+            Email address
+          </label>
+          <div className="mt-2">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div className="mt-2">
+          <div className="flex items-center justify-between">
+            <label For="password" className="block text-sm font-medium leading-6 text-slate-600">
+              Password
+            </label>
+          </div>
+          <div className="mt-2">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            className="gap-2 mt-10 flex w-full justify-center items-center rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 px-3 py-1.5 text-sm font-semibold leading-6 text-white"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login-2" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" /><path d="M3 12h13l-3 -3" /><path d="M13 15l3 -3" /></svg>
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
   );
 };
 
