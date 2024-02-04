@@ -80,7 +80,7 @@ const Gallery = () => {
                 <a
                   key={image.id}
                   href={image.url}
-                  className="gallery-item basis-1/4 mx-auto hidden md:block hover:opacity-90 ease-in duration-75"
+                  className={`gallery-item basis-1/4 mx-auto  hover:opacity-90 ease-in duration-75 ${image.id > 4 ? "hidden md:block" : " "}`}
                 >
                   <img
                     className="w-full h-full rounded-lg aspect-square"
@@ -88,7 +88,7 @@ const Gallery = () => {
                   />
                 </a>
               ))}
-              {images.slice(0, 4).map((image) => (
+              {/* {images.slice(0, 4).map((image) => (
                 <a
                   key={image.id}
                   href={image.url}
@@ -99,7 +99,7 @@ const Gallery = () => {
                     src={image.url}
                   />
                 </a>
-              ))}
+              ))} */}
             </LightGallery>
           </div>
         </div>
