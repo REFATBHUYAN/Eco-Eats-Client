@@ -30,7 +30,7 @@ const PrivateRouter = ({ children }) => {
       setLastLoginTimestamp(currentTimestamp);
     }
     else{
-      toast.warn("Please enter correct email or password!", {
+      toast.error("Please enter correct email or password!", {
         position: "top-right",
         autoClose: 4000,
         theme: "dark",
