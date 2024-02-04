@@ -88,18 +88,7 @@ const Gallery = () => {
                   />
                 </a>
               ))}
-              {/* {images.slice(0, 4).map((image) => (
-                <a
-                  key={image.id}
-                  href={image.url}
-                  className="gallery-item flex-auto mx-auto block md:hidden hover:opacity-75"
-                >
-                  <img
-                    className="w-full h-full rounded-lg aspect-square"
-                    src={image.url}
-                  />
-                </a>
-              ))} */}
+              
             </LightGallery>
           </div>
         </div>
