@@ -52,23 +52,33 @@ const router = createBrowserRouter([
     path: "/editOrder/:id",
     element: (
       <Providers>
-        <EditOrder></EditOrder>
+        <PrivateRouter>
+          <EditOrder></EditOrder>
+        </PrivateRouter>
       </Providers>
     ),
   },
 
   {
     path: "/orders",
-    element: <PrivateRouter><AllOrders></AllOrders></PrivateRouter>
+    element: (
+      <PrivateRouter>
+        <AllOrders></AllOrders>
+      </PrivateRouter>
+    ),
   },
   {
     path: "/success/:id",
     element: <SuccessPage></SuccessPage>,
   },
   {
-    path: "/showSingleOrder/:id",
-    // element: <SingleOrders></SingleOrders>,
-    element: <PrivateRouter><SingleOrders></SingleOrders></PrivateRouter>
+    path: "/invoice/:id",
+    
+    element: (
+      <PrivateRouter>
+        <SingleOrders></SingleOrders>
+      </PrivateRouter>
+    ),
   },
 ]);
 

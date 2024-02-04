@@ -88,7 +88,7 @@ const EditOrder = () => {
           autoClose: 4000,
           theme: "dark",
         });
-        navigate(`/showSingleOrder/${order?._id}`);
+        navigate(`/invoice/${order?._id}`);
       } else {
         console.error("Failed to send email:", await response.text());
       }

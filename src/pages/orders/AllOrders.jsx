@@ -725,7 +725,7 @@ const AllOrders = () => {
                           </button> */}
 
                           <Link
-                            to={`/showSingleOrder/${person._id}`}
+                            to={`/invoice/${person._id}`}
                             target="_blank"
                             className="py-1.5 px-1.5 rounded-md bg-indigo-400 hover:bg-indigo-500 active:bg-indigo-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
