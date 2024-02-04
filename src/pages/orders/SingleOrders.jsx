@@ -499,7 +499,7 @@ const SingleOrders = () => {
                         Subtotal
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {subTotalPrice} tk
+                        {subTotalPrice?.toFixed(2)} tk
                       </td>
                     </tr>
                     {singleItem?.advance && (
@@ -584,7 +584,7 @@ const SingleOrders = () => {
                           subTotalPrice) -
                           (singleItem?.discount ? singleItem?.discount : 0 -
                           singleItem?.advance ? singleItem?.advance : 0)} */}
-                        {grandTotal} tk
+                        {grandTotal?.toFixed(2)} tk
                       </td>
                     </tr>
                   </tfoot>

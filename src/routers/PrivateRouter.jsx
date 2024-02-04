@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const PrivateRouter = ({ children }) => {
   const adminPassword = "JcsWYJx)EY.qR2]Ha}@?";
@@ -27,6 +28,13 @@ const PrivateRouter = ({ children }) => {
       const currentTimestamp = new Date().getTime();
       localStorage.setItem("lastLoginTimestamp", currentTimestamp);
       setLastLoginTimestamp(currentTimestamp);
+    }
+    else{
+      toast.warn("Please enter correct email or password!", {
+        position: "top-right",
+        autoClose: 4000,
+        theme: "dark",
+      });
     }
   };
 
@@ -136,6 +144,7 @@ const PrivateRouter = ({ children }) => {
                 </svg>
                 Sign in
               </button>
+              <ToastContainer></ToastContainer>
             </div>
           </form>
         </div>

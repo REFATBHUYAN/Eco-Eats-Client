@@ -437,7 +437,7 @@ const EditOrder = () => {
                         Subtotal
                       </th>
                       <td className="pb-1 pl-8 pr-0 pt-6 text-right align-bottom tabular-nums text-slate-600">
-                        {subTotalPrice} tk
+                        {subTotalPrice?.toFixed(2)} tk
                       </td>
                     </tr>
                     <tr>
@@ -518,7 +518,7 @@ const EditOrder = () => {
                             : 0 - order?.advance
                             ? order?.advance
                             : 0)} */}{" "}
-                        {grandTotal} tk
+                        {grandTotal?.toFixed(2)} tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {order?.deliveryCharge + subTotalPrice} tk

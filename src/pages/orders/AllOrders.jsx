@@ -411,7 +411,7 @@ const AllOrders = () => {
                 <p className="text-2xl truncate font-semibold text-slate-600">
                   {`${filterData
                     .filter((d) => d.status !== "Cancelled")
-                    .reduce((acc, item) => acc + item.totalPrice, 0)} tk`}
+                    .reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)} tk`}
                 </p>
               </dd>
             </div>
@@ -1042,7 +1042,7 @@ const AllOrders = () => {
                   {`${allOrders.reduce(
                     (acc, item) => acc + item.totalPrice,
                     0
-                  )} tk`}
+                  ).toFixed(2)} tk`}
                 </p>
               </dd>
             </div>
