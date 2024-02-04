@@ -133,7 +133,7 @@ const EditOrder = () => {
                   <div className="flex flex-1 lg:flex items-center justify-end gap-2">
                     <button
                       onClick={() => handleUpdateOrder(order?._id)}
-                      className={`float-right py-2 px-3 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+                      className={`float-right py-2 px-3 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white flex items-center gap-2`}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +242,7 @@ const EditOrder = () => {
                           }
                           id="name"
                           autoComplete="name"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
+                          className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
 
@@ -261,7 +261,7 @@ const EditOrder = () => {
                           }
                           id="address"
                           autoComplete="street-address"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
+                          className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
 
@@ -280,7 +280,7 @@ const EditOrder = () => {
                           }
                           id="phone"
                           autoComplete="phone"
-                          className="block w-full rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
+                          className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                         />
                       </span>
                     </dd>
@@ -324,7 +324,6 @@ const EditOrder = () => {
                       >
                         Ordered Items
                       </th>
-
                       <th
                         scope="col"
                         className="py-3 pl-8 pr-0 text-right font-semibold text-xs table-cell"
@@ -371,7 +370,7 @@ const EditOrder = () => {
                                   )
                                 }
                                 id="extraWeight"
-                                className="block w-12 rounded-lg border-0 py-1 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
+                                className="block w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm sm:leading-6"
                               />{" "}
                               g
                             </span>
