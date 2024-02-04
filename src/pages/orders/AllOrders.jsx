@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Container from "../../components/Container";
-import jsPDF from "jspdf";
 import { ToastContainer, toast } from "react-toastify";
 import moment from "moment";
 import {
