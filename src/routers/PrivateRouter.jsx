@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const PrivateRouter = ({ children }) => {
   const adminPassword = "JcsWYJx)EY.qR2]Ha}@?";
-  const adminUsername = "admin@ecoeats.com";
+  const adminUsername = "admin@ecoeatsbd.com";
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
