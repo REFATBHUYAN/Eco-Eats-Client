@@ -836,8 +836,7 @@ const AllOrders = () => {
                           <dialog id="deletemodal" className="modal">
                             <div className="modal-box bg-white text-left max-w-lg overflow-hidden">
                               <form method="dialog">
-                               
-                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-slate-100">
+                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
                                 </button>
                               </form>
@@ -869,7 +868,7 @@ const AllOrders = () => {
                                 Delete Order?{" "}
                               </div>
                               <p className="py-4 text-slate-400 font-normal text-sm">
-                                Are you sure you want to delete this order? All of your data of this order will be <br /> permanently removed. This action cannot be undone.
+                                Are you sure you want to delete this order? All of your data of this order will <br /> be permanently removed. This action cannot be undone.
                               </p>
                               <button
                                 onClick={() => orderDelete(person._id)}

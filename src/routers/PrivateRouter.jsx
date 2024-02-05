@@ -63,7 +63,7 @@ const PrivateRouter = ({ children }) => {
     children
   ) : (
     <div className="">
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 pb-32 lg:px-8 my-auto h-screen">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 pt-32 lg:px-8 my-auto">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <Link
             to={"/"}
