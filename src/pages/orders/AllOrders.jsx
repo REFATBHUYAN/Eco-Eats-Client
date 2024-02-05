@@ -838,7 +838,7 @@ const AllOrders = () => {
                           </button>
 
                           <dialog id={person._id} className="modal">
-                            <div className="modal-box bg-white text-left max-w-lg overflow-hidden">
+                            <div className="modal-box bg-white text-left max-w-md overflow-hidden">
                               <form method="dialog">
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                                   <svg
@@ -888,12 +888,18 @@ const AllOrders = () => {
                                     <path d="M12 16h.01" />
                                   </svg>
                                 </span>{" "}
-                                Delete Order {person.name}?{" "}
+                                Delete Order?{" "}
                               </div>
-                              <p className="py-4 text-slate-400 font-normal text-sm">
+                              <p className="py-4 hidden md:block text-slate-400 font-normal max-w-sm  text-sm">
                                 Are you sure you want to delete this order? All
-                                of your data of this order will <br /> be
+                                of your data of this <br /> order will be
                                 permanently removed. This action cannot be
+                                undone.
+                              </p>
+                              <p className="py-4 block md:hidden text-slate-400 font-normal max-w-sm  text-sm">
+                                Are you sure you want to delete this order? All
+                                of your <br /> data of this  order will be
+                                permanently removed. <br /> This action cannot be
                                 undone.
                               </p>
                               <button
