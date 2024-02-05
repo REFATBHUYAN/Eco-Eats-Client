@@ -44,7 +44,8 @@ const AllOrders = () => {
   const nextMonth = addMonths(new Date(), 0);
   const [month, setMonth] = useState(nextMonth);
   const [selected, setSelected] = useState(today);
-  const formattedDate = format(selected, "yyyy-MM-dd");
+  const formattedDate = moment(selected).format("YYYY-MM-DD");
+
   const [selectCalender, setSelectCelender] = useState(false);
 
   // scroll code
