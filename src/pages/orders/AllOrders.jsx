@@ -172,31 +172,32 @@ const AllOrders = () => {
   };
 
   const orderDelete = async (_id) => {
-    try {
-      const response = await fetch(
-        // `http://localhost:5000/deleteorder/${_id}`,
-        `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    console.log("Order deleted id", _id);
+    // try {
+    //   const response = await fetch(
+    //     // `http://localhost:5000/deleteorder/${_id}`,
+    //     `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
+    //     {
+    //       method: "DELETE",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
 
-      if (response.ok) {
-        setDataUpdated(true);
-        toast.error("অর্ডারটি ডিলিট করা হয়েছে!", {
-          position: "top-right",
-          autoClose: 4000,
-          theme: "dark",
-        });
-      } else {
-        console.error("Failed to Delete Order:", await response.text());
-      }
-    } catch (error) {
-      console.error("Error on Deleting order:", error);
-    }
+    //   if (response.ok) {
+    //     setDataUpdated(true);
+    //     toast.error("অর্ডারটি ডিলিট করা হয়েছে!", {
+    //       position: "top-right",
+    //       autoClose: 4000,
+    //       theme: "dark",
+    //     });
+    //   } else {
+    //     console.error("Failed to Delete Order:", await response.text());
+    //   }
+    // } catch (error) {
+    //   console.error("Error on Deleting order:", error);
+    // }
   };
   const handleStatusCancelled = async (_id) => {
     try {
@@ -410,7 +411,8 @@ const AllOrders = () => {
                 <p className="text-2xl truncate font-semibold text-slate-600">
                   {`${filterData
                     .filter((d) => d.status !== "Cancelled")
-                    .reduce((acc, item) => acc + item.totalPrice, 0).toFixed(2)} tk`}
+                    .reduce((acc, item) => acc + item.totalPrice, 0)
+                    .toFixed(2)} tk`}
                 </p>
               </dd>
             </div>
@@ -804,8 +806,10 @@ const AllOrders = () => {
                           </button>
                           <button
                             onClick={() =>
-                              document.getElementById("deletemodal").showModal()
+                              document.getElementById(person._id).showModal()
                             }
+                            // onClick={() => <ShowModal id={person?._id}></ShowModal>}
+                            // onClick={() => console.log(person._id)}
                             className="py-1.5 px-1.5 rounded-md bg-red-400 hover:bg-red-500 active:bg-red-600 ease-in duration-75 font-semibold text-white hover:text-white"
                           >
                             <svg
@@ -832,12 +836,31 @@ const AllOrders = () => {
                               <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
                             </svg>
                           </button>
-                            
-                          <dialog id="deletemodal" className="modal">
+
+                          <dialog id={person._id} className="modal">
                             <div className="modal-box bg-white text-left max-w-lg overflow-hidden">
                               <form method="dialog">
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-x"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                  >
+                                    <path
+                                      stroke="none"
+                                      d="M0 0h24v24H0z"
+                                      fill="none"
+                                    />
+                                    <path d="M18 6l-12 12" />
+                                    <path d="M6 6l12 12" />
+                                  </svg>
                                 </button>
                               </form>
                               <div className="font-bold text-lg text-left flex items-center gap-2 text-slate-600">
@@ -865,16 +888,38 @@ const AllOrders = () => {
                                     <path d="M12 16h.01" />
                                   </svg>
                                 </span>{" "}
-                                Delete Order?{" "}
+                                Delete Order {person.name}?{" "}
                               </div>
                               <p className="py-4 text-slate-400 font-normal text-sm">
-                                Are you sure you want to delete this order? All of your data of this order will <br /> be permanently removed. This action cannot be undone.
+                                Are you sure you want to delete this order? All
+                                of your data of this order will <br /> be
+                                permanently removed. This action cannot be
+                                undone.
                               </p>
                               <button
-                                onClick={() => orderDelete(person._id)}
+                                onClick={() => orderDelete(person?._id)}
                                 className={`gap-2 py-2 px-3 rounded-lg bg-red-500 hover:bg-red-600 active:bg-red-700 ease-in duration-75 font-semibold inline-flex text-white hover:text-white align-right $`}
                               >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  class="icon icon-tabler icon-tabler-circle-check"
+                                  width="20"
+                                  height="20"
+                                  viewBox="0 0 24 24"
+                                  stroke-width="2"
+                                  stroke="currentColor"
+                                  fill="none"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                >
+                                  <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                  />
+                                  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                  <path d="M9 12l2 2l4 -4" />
+                                </svg>
                                 Yes I Understand
                               </button>
                             </div>
@@ -885,6 +930,7 @@ const AllOrders = () => {
                   ))}
                 </tbody>
               </table>
+
               {filterData.length === 0 && (
                 <div className="font-light text-slate-400 text-sm italic text-center w-full mx-auto">
                   <div className="px-3 py-4 border-t border-slate-200">
@@ -892,7 +938,6 @@ const AllOrders = () => {
                   </div>
                 </div>
               )}
-              
             </div>
           </div>
         </div>
@@ -1037,10 +1082,9 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {`${allOrders.reduce(
-                    (acc, item) => acc + item.totalPrice,
-                    0
-                  ).toFixed(2)} tk`}
+                  {`${allOrders
+                    .reduce((acc, item) => acc + item.totalPrice, 0)
+                    .toFixed(2)} tk`}
                 </p>
               </dd>
             </div>

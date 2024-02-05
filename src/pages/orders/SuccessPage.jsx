@@ -10,7 +10,7 @@ const SuccessPage = () => {
     const fetchData1 = async () => {
       try {
         const response1 = await fetch(
-          //   `http://localhost:5000/singleorder/${id}`
+            // `http://localhost:5000/singleorder/${id}`
           `https://chui-jhal-server.vercel.app/singleorder/${id}`
         );
         const result1 = await response1.json();
@@ -43,7 +43,7 @@ const SuccessPage = () => {
           <div className="w-full">
             <div className="flex">
               <Link
-                to={"/"}
+                to={'/'}
                 className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
               >
                 <img
