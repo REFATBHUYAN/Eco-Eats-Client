@@ -1,8 +1,5 @@
 import React from "react";
-import { CheckCircleIcon, StarIcon } from "@heroicons/react/20/solid";
-import "video-react/dist/video-react.css"; // import css
-
-import ReactPlayer from "react-player/lazy"
+import ReactPlayer from "react-player/facebook"
 import { Link } from "react-scroll";
 
 const benefits = [

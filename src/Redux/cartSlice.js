@@ -1,5 +1,5 @@
 // cartSlice.js
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 const foodItems = [
   {
     id: 1,

@@ -70,9 +70,11 @@ option:checked {
 .ping-icon {
   animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
 .font-unica {
   font-family: "Unica One", cursive;
 }
+
 .bg-img {
   background-image: url("assets/hero-bg.png");
 }
@@ -87,7 +89,8 @@ option:checked {
 ::-webkit-scrollbar {
   display: block;
   width: 5px;
-  border-radius: 15px;
+  height: 5px;
+  border-radius: 50px;
 }
 
 /* ::-webkit-scrollbar-track {
@@ -95,14 +98,14 @@ option:checked {
 } */
 
 ::-webkit-scrollbar-thumb {
-  background-color: slategrey;
-  border-radius: 5px;
+  background-color: #64748B;
+  border-radius: 50px;
   border-right: none;
   border-left: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(161, 172, 185);
+  background-color: #22C55E;
 }
 
 /* slider */

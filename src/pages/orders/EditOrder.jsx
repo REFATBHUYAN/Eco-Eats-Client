@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Container from "../../components/Container";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";

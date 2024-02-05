@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-// import { Link } from "react-router-dom";
 import { Link } from "react-scroll";
 
 const navigation = [
@@ -111,7 +109,7 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open Main Menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
              
             </button>
             <button
@@ -121,7 +119,7 @@ const Navbar = () => {
             >
               <span className="sr-only">Open Main Menu</span>
               
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
             </button>
           </div>
         </nav>
@@ -146,7 +144,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close Menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
               </button>
             </div>
             <div className="mt-6 flow-root">
