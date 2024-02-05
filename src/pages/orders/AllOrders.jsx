@@ -172,32 +172,31 @@ const AllOrders = () => {
   };
 
   const orderDelete = async (_id) => {
-    console.log("Order deleted id", _id);
-    // try {
-    //   const response = await fetch(
-    //     // `http://localhost:5000/deleteorder/${_id}`,
-    //     `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
-    //     {
-    //       method: "DELETE",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
+    try {
+      const response = await fetch(
+        // `http://localhost:5000/deleteorder/${_id}`,
+        `https://chui-jhal-server.vercel.app/deleteorder/${_id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    //   if (response.ok) {
-    //     setDataUpdated(true);
-    //     toast.error("অর্ডারটি ডিলিট করা হয়েছে!", {
-    //       position: "top-right",
-    //       autoClose: 4000,
-    //       theme: "dark",
-    //     });
-    //   } else {
-    //     console.error("Failed to Delete Order:", await response.text());
-    //   }
-    // } catch (error) {
-    //   console.error("Error on Deleting order:", error);
-    // }
+      if (response.ok) {
+        setDataUpdated(true);
+        toast.error("অর্ডারটি ডিলিট করা হয়েছে!", {
+          position: "top-right",
+          autoClose: 4000,
+          theme: "dark",
+        });
+      } else {
+        console.error("Failed to Delete Order:", await response.text());
+      }
+    } catch (error) {
+      console.error("Error on Deleting order:", error);
+    }
   };
   const handleStatusCancelled = async (_id) => {
     try {
@@ -898,9 +897,9 @@ const AllOrders = () => {
                               </p>
                               <p className="py-4 block md:hidden text-slate-400 font-normal max-w-sm  text-sm">
                                 Are you sure you want to delete this order? All
-                                of your <br /> data of this  order will be
-                                permanently removed. <br /> This action cannot be
-                                undone.
+                                of your <br /> data of this order will be
+                                permanently removed. <br /> This action cannot
+                                be undone.
                               </p>
                               <button
                                 onClick={() => orderDelete(person?._id)}
