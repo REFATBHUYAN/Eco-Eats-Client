@@ -471,12 +471,12 @@ const SingleOrders = () => {
                             {item.quantity}
                           </td>
                           <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
-                            {item?.extraWeight
+                            {(item?.extraWeight
                               ? (item.price /
                                   (item.weight === "১ কেজি" ? 1000 : 500)) *
                                   item?.extraWeight +
                                 item.price * item.quantity
-                              : item.price * item.quantity}{" "}
+                              : item.price * item.quantity).toFixed(2)}{" "}
                             tk
                           </td>
                         </tr>
