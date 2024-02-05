@@ -477,7 +477,7 @@ const AllOrders = () => {
             </div>
             <Link
               to={"/createOrder"}
-              className={`py-2 px-3 rounded-lg bg-green-500 hover:bg-green-600 active:bg-green-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
+              className={`py-2 px-3 rounded-lg bg-slate-500 hover:bg-slate-600 active:bg-slate-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center gap-2`}
             >
               Create
               <svg
