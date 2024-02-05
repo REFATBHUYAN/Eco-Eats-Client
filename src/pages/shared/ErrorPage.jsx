@@ -8,7 +8,7 @@ const ErrorPage = () => {
     <main className="grid min-h-full place-items-center pt-32 bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center items-center">
         <img
-          src="/media/icon/error-rafiki.svg"
+          src="/media/icon/error-cuate.svg"
           className="w-full"
         />
         <p className="text-base font-semibold text-slate-600">Page not found</p>
