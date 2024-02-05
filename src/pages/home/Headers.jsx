@@ -46,7 +46,7 @@ const Headers = () => {
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-3 text-base leading-7 sm:grid-cols-3"
           >
             {benefits.map((benefit) => (
-              <li key={benefit} className="flex gap-x-3 text-xl text-slate-400 font-light">
+              <li key={benefit} className="flex gap-x-3 text-xl font-medium text-slate-400 font-light">
                 <CheckCircleIcon
                   className="h-7 w-5 flex-none  "
                   aria-hidden="true"
