@@ -41,7 +41,7 @@ const DashboardNav = () => {
             >
               <img
                 className="block h-8 w-auto"
-                src="/ecoeats/site-icon/ecoeats-icon.svg"
+                src="/ecoeats/icon/ecoeats-icon.svg"
                 alt=""
               />
               <div className="text-2xl font-bold text-[#32BC4E]">
