@@ -519,7 +519,7 @@ const SingleOrders = () => {
                           Advance
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                          {singleItem?.advance} tk
+                          {singleItem?.advance?.toFixed(2)} tk
                         </td>
                       </tr>
                     )}
@@ -541,7 +541,7 @@ const SingleOrders = () => {
                           Discount
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                          {singleItem?.discount} tk
+                          {singleItem?.discount?.toFixed(2)} tk
                         </td>
                       </tr>
                     )}
@@ -561,7 +561,7 @@ const SingleOrders = () => {
                         Delivery
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {singleItem?.deliveryCharge} tk
+                        {singleItem?.deliveryCharge?.toFixed(2)} tk
                       </td>
                     </tr>
                     <tr>

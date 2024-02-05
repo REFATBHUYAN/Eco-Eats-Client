@@ -470,10 +470,10 @@ const EditOrder = () => {
                         colSpan={2}
                         className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
-                        DELIVERY
+                        Delivery
                       </th>
                       <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {order?.deliveryCharge} tk
+                        {order?.deliveryCharge?.toFixed(2)} tk
                       </td>
                     </tr>
                     <tr>
