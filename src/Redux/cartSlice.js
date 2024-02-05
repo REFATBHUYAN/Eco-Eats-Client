@@ -10,7 +10,7 @@ const foodItems = [
     priceInBd: "৪৬০",
     quantity: 1,
     photo:
-      "/ecoeats/product/product-gach-chui.jpg",
+      "/media/product/product-gach-chui.jpg",
     
   },
   {
@@ -22,7 +22,7 @@ const foodItems = [
     priceInBd: "৯২০",
     quantity: 1,
     photo:
-      "/ecoeats/product/product-gach-chui.jpg",
+      "/media/product/product-gach-chui.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const foodItems = [
     priceInBd: "৬০০",
     quantity: 1,
     photo:
-      "/ecoeats/product/product-eto-chui.jpg",
+      "/media/product/product-eto-chui.jpg",
     
   },
   {
@@ -45,7 +45,7 @@ const foodItems = [
     priceInBd: "১১৫০",
     quantity: 1,
     photo:
-    "/ecoeats/product/product-eto-chui.jpg",
+    "/media/product/product-eto-chui.jpg",
     
   },
   {
@@ -57,7 +57,7 @@ const foodItems = [
     priceInBd: "৫৫০",
     quantity: 1,
     photo:
-      "/ecoeats/product/product-mixed-chui.jpg",
+      "/media/product/product-mixed-chui.jpg",
   },
 ];
 

@@ -17,35 +17,35 @@ import lgFullScreen from "lightgallery/plugins/FullScreen";
 const images = [
   {
     id: 1,
-    url: "/ecoeats/gallery/1.jpg",
+    url: "/media/gallery/1.jpg",
   },
   {
     id: 2,
-    url: "/ecoeats/gallery/2.jpg",
+    url: "/media/gallery/2.jpg",
   },
   {
     id: 3,
-    url: "/ecoeats/gallery/3.jpg",
+    url: "/media/gallery/3.jpg",
   },
   {
     id: 4,
-    url: "/ecoeats/gallery/4.jpg",
+    url: "/media/gallery/4.jpg",
   },
   {
     id: 5,
-    url: "/ecoeats/gallery/5.jpg",
+    url: "/media/gallery/5.jpg",
   },
   {
     id: 6,
-    url: "/ecoeats/gallery/6.jpg",
+    url: "/media/gallery/6.jpg",
   },
   {
     id: 7,
-    url: "/ecoeats/gallery/7.jpg",
+    url: "/media/gallery/7.jpg",
   },
   {
     id: 8,
-    url: "/ecoeats/gallery/8.jpg",
+    url: "/media/gallery/8.jpg",
   },
 ];
 

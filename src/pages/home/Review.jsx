@@ -13,7 +13,7 @@ const reviews = [
     name: "শোয়েব মাহমুদ",
     address: "ঢাকা",
     url: "https://www.facebook.com/shoaib.mahmood.12/posts/pfbid07ZLq2GpXtCvPe7mgsW1D9jqmsFXsnpNiNEFrEGmmJkxHZAiJpbh5TZo5T4g1jwfal",
-    photo:"/ecoeats/review/review-1.jpg"
+    photo:"/media/review/review-1.jpg"
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const reviews = [
     name: "শফিকুল ইসলাম মান্না",
     address: "বরিশাল",
     url: "https://www.facebook.com/safiqul.islammanna/posts/pfbid0FAmdkh6gCB6eJUsuidJdnf9VSECXxapu1JW8chax4UupgVhHy4YEJMv554BczLN9l",
-    photo:"/ecoeats/review/review-2.jpg"
+    photo:"/media/review/review-2.jpg"
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const reviews = [
     name: "মল্লিক গালিব শাহরিয়ার",
     address: "ঢাকা",
     url: "https://www.facebook.com/Mallik.Galib.Shahriar/posts/pfbid02HatJzFtG2Abkhr9ogCKh9eag9kngoQvHtNuL9xKKk7gDPL6DxtDdzTL9PMJnmdK5l",
-    photo:"/ecoeats/review/review-3.jpg"
+    photo:"/media/review/review-3.jpg"
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const reviews = [
     name: "শাহেনুর ইসলাম",
     address: "ঢাকা",
     url: "https://www.facebook.com/tania.islamtina/posts/pfbid02DdmBs4T6JNn6Boh8oVHtfQWHLL6Q3vdYTTNJETKbHGej3w7n44YFZUKXwY3E9W1bl",
-    photo:"/ecoeats/review/review-4.jpg"
+    photo:"/media/review/review-4.jpg"
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const reviews = [
     name: "জসিম রায়হান",
     address: "নারায়নগঞ্জ",
     url: "https://www.facebook.com/jasim.rayhan.3/posts/pfbid0SeQVwxD2c7cgMMGu1jJrYNHUKKdRBJ4gNAqvq33v3sAq4vRi2KNAQ1h4g4upD7wZl",
-    photo:"/ecoeats/review/review-5.jpg"
+    photo:"/media/review/review-5.jpg"
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const reviews = [
     name: "রাশেদুল হাসান শ্রাবন",
     address: "ঢাকা",
     url: "https://www.facebook.com/rashedulhasan.srabon/posts/pfbid02xMXENRWvzBAVYQMFK8D3pKKvUDHMfmdUwTz9bZAKah1gtqnLbTxNPTEs1pswsJ8Tl",
-    photo:"/ecoeats/review/review-6.jpg"
+    photo:"/media/review/review-6.jpg"
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const reviews = [
     name: "সুমন আহমেদ",
     address: "নরসিংদী",
     url: "https://www.facebook.com/somon.ahammad.9634/posts/pfbid02bRS4J8VJTywUojkow4GruQS5bvoYcmdRzAaX7oYMMzQRPTFWX5iRgZAze6eeumLol",
-    photo:"/ecoeats/review/review-7.jpg"
+    photo:"/media/review/review-7.jpg"
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ const reviews = [
     name: "সৈয়দা সানি",
     address: "ঢাকা",
     url: "https://www.facebook.com/syeda.sani/posts/pfbid02QeKB84PLUbjQaaBL2L9debKtXAqeNvpjPtS1PjnxMzoBDpkKXfRvxiyYcWK5AkRpl",
-    photo:"/ecoeats/review/review-8.jpg"
+    photo:"/media/review/review-8.jpg"
   },
   {
     id: 9,
@@ -85,7 +85,7 @@ const reviews = [
     name: "এস এ শশী",
     address: "ঢাকা",
     url: "https://www.facebook.com/bechara.shoshi/posts/pfbid021CYDpeBTMAHwd3T11LCamQtv49dLViJsct2Kv4BccB7oKt29pK4uDnBvK2FjUGYZl",
-    photo:"/ecoeats/review/review-9.jpg"
+    photo:"/media/review/review-9.jpg"
   },
   {
     id: 10,
@@ -94,7 +94,7 @@ const reviews = [
     name: "সাগর হোসেন",
     address: "ঢাকা",
     url: "https://www.facebook.com/howlader.sagor.520/posts/pfbid038Pq63p89DMNQVwGGnrwibhMNGi6tbGouyzwLui54jviPgcgjiwf4yB5aUuntFRaSl",
-    photo:"/ecoeats/review/review-10.jpg"
+    photo:"/media/review/review-10.jpg"
   },
   {
     id: 11,
@@ -103,7 +103,7 @@ const reviews = [
     name: "আলম আহমেদ হৃদয়",
     address: "ঢাকা",
     url: "https://www.facebook.com/TofayelAlamBD/posts/pfbid02u6a6iQEoKofFpEwwrxLMDiVYofy1c64sb71uQyX1zZEEGkfh8MUWVUAqizBukoLXl",
-    photo:"/ecoeats/review/review-11.jpg"
+    photo:"/media/review/review-11.jpg"
   },
   {
     id: 12,
@@ -112,7 +112,7 @@ const reviews = [
     name: "সাজ্জাদ হোসেইন",
     address: "ঢাকা",
     url: "https://www.facebook.com/shazzad.hossain1/posts/pfbid0wP9rufPMoDzTDkCLJGvXz2HBRZMCSDwVZwJBAxnMKxFHHWLh2UY9doH8zrVnHdT3l",
-    photo:"/ecoeats/review/review-12.jpg"
+    photo:"/media/review/review-12.jpg"
   },
   {
     id: 13,
@@ -121,7 +121,7 @@ const reviews = [
     name: "সৈকত ব্যাপাই",
     address: "চট্টগ্রাম",
     url: "https://www.facebook.com/saikot.bapai01/posts/pfbid02E7GSMxhNWL6FfXc6FQQhhWfgX2PKarFLjc8PVX9XDVX34g5aDVNTnhT5ZAMamTQMl",
-    photo:"/ecoeats/review/review-13.jpg"
+    photo:"/media/review/review-13.jpg"
   },
 ];
 

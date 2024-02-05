@@ -1,9 +1,9 @@
 import React from "react";
-// import bg from "/src/assets/ecoeats/banner/cta-banner";
+// import bg from "/src/assets/media/banner/cta-banner";
 
 const Help = () => {
   return (
-      <div id="help" className="my-28 hero min-h-[300px] rounded-lg bg-white bg-[url('/ecoeats/banner/cta-banner.jpg')]">
+      <div id="help" className="my-28 hero min-h-[300px] rounded-lg bg-white bg-[url('/media/banner/cta-banner.jpg')]">
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-[670px] flex flex-col justify-center items-center">
               <h1 className="mb-5 text-3xl font-bold text-slate-600">

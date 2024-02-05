@@ -13,7 +13,7 @@ const WhyUs = () => {
             <div>
               <img
                 className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
-                src="/ecoeats/features/authentic.svg"
+                src="/media/features/authentic.svg"
                 alt=""
               />
             </div>
@@ -29,7 +29,7 @@ const WhyUs = () => {
             <div>
               <img
                 className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
-                src="/ecoeats/features/premium.svg"
+                src="/media/features/premium.svg"
                 alt=""
               />
             </div>
@@ -45,7 +45,7 @@ const WhyUs = () => {
             <div>
               <img
                 className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
-                src="/ecoeats/features/refund.svg"
+                src="/media/features/refund.svg"
                 alt=""
               />
             </div>
@@ -61,7 +61,7 @@ const WhyUs = () => {
             <div>
               <img
                 className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
-                src="/ecoeats/features/delivery.svg"
+                src="/media/features/delivery.svg"
                 alt=""
               />
             </div>
