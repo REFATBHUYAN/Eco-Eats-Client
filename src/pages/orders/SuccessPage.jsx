@@ -184,11 +184,32 @@ const SuccessPage = () => {
               </div>
             </dl>
 
-            <p className="mt-16 text-base text-slate-400 text-center">
-              আপনার অর্ডারের জন্য কৃতজ্ঞতা জানাচ্ছি, কিছুক্ষনের মধ্যে অর্ডারটি
-              প্রসেস করা হবে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব, সাথেই থাকুন।
-            </p>
-
+            <div className="mt-16 items-center">
+              <p className="text-semibold text-slate-600 text-center">
+                আমাদের সম্মানিত গ্রাহকদের রিভিউ এবং আমাদের ডিসকাউন্ট অফার গুলো পেতে এখনই জয়েন করুন:
+              </p>
+              <a href="https://www.facebook.com/groups/ecoeats" className="mt-2 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-users rounded-md"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                  </svg>
+                ইকোইটস ফেসবুক গ্রুপ
+                </a>
+            </div>
           </div>
         </div>
       </div>
