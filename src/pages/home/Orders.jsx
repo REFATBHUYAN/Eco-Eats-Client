@@ -494,10 +494,7 @@ const Orders = () => {
                   )}
                   {!loading && (
                     <button
-                      // onClick={onOrderSubmit2}
                       onClick={onOrderSubmit}
-                      // onClick={submitSuccess}
-                      // onClick={notify}
                       disabled={orderedFood.length === 0 ? true : false}
                       className="rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed bg-green-500 hover:bg-green-600 active:bg-green-700 active:scale-95 ease-in duration-75 px-5 py-3 text-md font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 items-center w-full"
                     >
