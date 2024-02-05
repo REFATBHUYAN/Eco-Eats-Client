@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 const PrivateRouter = ({ children }) => {
+  const adminUsername = "web.ecoeats@gmail.com";
   const adminPassword = "JcsWYJx)EY.qR2]Ha}@?";
-  const adminUsername = "admin@ecoeatsbd.com";
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -47,7 +47,7 @@ const PrivateRouter = ({ children }) => {
     // Define the time frame (in milliseconds, here set to one day)
 
     // const oneDayInMilliseconds = 1 * 60 * 1000;
-    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+    const oneDayInMilliseconds = 24 * 60 * 60 * 30 * 1000;
     const currentTime = new Date().getTime();
 
     // Check if the last login was within the desired time frame
