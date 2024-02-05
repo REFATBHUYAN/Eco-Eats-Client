@@ -71,7 +71,7 @@ const PrivateRouter = ({ children }) => {
           >
             <img
               className="block h-12 w-auto"
-              src="/ecoeats/icon/ecoeats-icon.svg"
+              src="/media/icon/ecoeats-icon.svg"
               alt=""u  
             />
           </Link>

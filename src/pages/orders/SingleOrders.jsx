@@ -185,7 +185,7 @@ const SingleOrders = () => {
                     >
                       <img
                         className="block h-8 w-auto"
-                        src="/ecoeats/icon/ecoeats-icon.svg"
+                        src="/media/icon/ecoeats-icon.svg"
                         alt=""
                       />
                       <div className="text-2xl font-bold text-[#32BC4E]">
@@ -303,7 +303,7 @@ const SingleOrders = () => {
                 >
                   <img
                     className="block h-8 w-auto"
-                    src="/ecoeats/icon/ecoeats-icon.svg"
+                    src="/media/icon/ecoeats-icon.svg"
                   />
                   <span className="text-2xl font-bold text-green-500">
                     ইকো<span className="text-green-400">ইটস</span>
