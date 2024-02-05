@@ -630,7 +630,7 @@ const AllOrders = () => {
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm font-medium text-slate-400">
                         <Link
-                          to={`/showSingleOrder/${person._id}`}
+                          to={`/invoice/${person._id}`}
                           target="_blank"
                           className="hover:text-green-500 active:text-green-600 ease-in duration-75"
                         >
@@ -652,7 +652,7 @@ const AllOrders = () => {
                       </td>
                       <td className="whitespace-nowrap px-3 py-2 text-sm text-slate-400">
                         <Link
-                          to={`/showSingleOrder/${person._id}`}
+                          to={`/invoice/${person._id}`}
                           target="_blank"
                           className="hover:text-green-500 active:text-green-600 ease-in duration-75"
                         >

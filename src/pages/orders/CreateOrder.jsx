@@ -75,7 +75,7 @@ const CreateOrder = () => {
           // Access the insertedId from the response
           const insertedId = responseBody.insertedId;
           // console.log("Inserted ID:", insertedId.insertedId);
-          navigate(`/showSingleOrder/${insertedId.insertedId}`);
+          navigate(`/invoice/${insertedId.insertedId}`);
 
           toast.success(
             "অর্ডার সফলভাবে গৃহিত হয়েছে। ধন্যবাদ!",
