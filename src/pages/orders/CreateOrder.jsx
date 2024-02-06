@@ -216,7 +216,24 @@ const CreateOrder = () => {
                           />
                         </div>
                       </div>
-
+                      <div className="sm:col-span-2">
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium leading-6 text-slate-400"
+                        >
+                          মোবাইল নাম্বার
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            type="tel"
+                            name="phone"
+                            onChange={(e) => setPhone(e.target.value)}
+                            id="phone"
+                            autoComplete="phone"
+                            className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                      </div>
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="address"
@@ -235,7 +252,6 @@ const CreateOrder = () => {
                           />
                         </div>
                       </div>
-
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="city"
@@ -263,25 +279,6 @@ const CreateOrder = () => {
                               Outside Dhaka - ঢাকার বাইরে - ৳ ১০০{" "}
                             </option>
                           </select>
-                        </div>
-                      </div>
-
-                      <div className="sm:col-span-2">
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium leading-6 text-slate-400"
-                        >
-                          মোবাইল নাম্বার
-                        </label>
-                        <div className="mt-1">
-                          <input
-                            type="tel"
-                            name="phone"
-                            onChange={(e) => setPhone(e.target.value)}
-                            id="phone"
-                            autoComplete="phone"
-                            className="block w-full rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 sm:text-sm sm:leading-6"
-                          />
                         </div>
                       </div>
                     </div>

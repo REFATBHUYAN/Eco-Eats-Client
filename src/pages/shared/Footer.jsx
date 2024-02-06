@@ -23,12 +23,8 @@ const Footer = () => {
                 ইকো<span className="text-[#7ED959]">ইটস</span>
               </span>
             </Link>
-            <p className="w-[350px] lg:w-96 leading-6 font-light">
-              ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে।
-              অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো
-              চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে
-              প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ
-              করে চলেছি অবিরাম।
+            <p className="w-fit lg:w-96 leading-6 font-light">
+              ইকোইটস কাজ করছে দক্ষিণাঞ্চলের সর্বাধিক প্রিয় মসলা "চুইঝাল" নিয়ে। অনলাইন জগতে আমরাই প্রথম চুইঝালের প্রকারভেদ বোঝাতে “গাছ চুই” ও “এটো চুই” শব্দটির প্রচলন করি। আপনাদের আস্থা অটুট রেখে ২০২০ সাল থেকে প্রতিনিয়ত সমগ্র দেশে এবং দেশের বাইরেও আমরা চুইঝাল সরবরাহ করে চলেছি অবিরাম।
             </p>
           </aside>
           <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
@@ -251,8 +247,7 @@ const Footer = () => {
             </nav>
           </div>
         </footer>
-        <div className="divider bg-slate-700 h-[1px] my-0"></div>
-        <footer className="footer w-full lg:flex lg:justify-between text-slate-400">
+        <footer className="border-t border-slate-700 footer w-full lg:flex lg:justify-between text-slate-400">
           <aside className="flex gap-1 mt-8">
             <p>&copy; 2020-{year} EcoEats. All rights reserved.</p>
           </aside>

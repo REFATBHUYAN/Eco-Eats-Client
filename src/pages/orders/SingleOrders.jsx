@@ -441,14 +441,14 @@ const SingleOrders = () => {
                         colSpan={4}
                         className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
                       >
-                        COD Charges 1%
+                        COD Charge 1%
                       </th>
                       <th
                         scope="row"
                         colSpan={4}
                         className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
                       >
-                        COD Charges 1%
+                        COD Charge 1%
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
                         {(grandTotal * 0.01).toFixed(2)} tk

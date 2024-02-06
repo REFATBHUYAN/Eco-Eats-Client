@@ -356,9 +356,11 @@ const EditOrder = () => {
                         <span className="mt-4 font-semibold text-slate-600 text-xs uppercase">
                           Adjustments
                         </span> <br /> <br />
-                        Delivery{" "}
+                        Advance{" "}
                         <span>
                           <input
+                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            type="text"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -367,14 +369,13 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            type="text"
-                            name="deliveryCharge"
-                            defaultValue={order?.deliveryCharge}
-                            id="extraDelCharge"
+                            name="advance"
+                            defaultValue={order?.advance}
+                            id="advance"
                           />{" "}
                           tk
                         </span>
+
                       </th>
 
                       <th
@@ -394,10 +395,9 @@ const EditOrder = () => {
                         colSpan={2}
                         className="pt-2 font-normal text-slate-400 text-sm"
                       >
-                        Discount{" "}
+                        Delivery{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -406,13 +406,15 @@ const EditOrder = () => {
                                 })
                               )
                             }
+                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
-                            name="discount"
-                            defaultValue={order?.discount}
-                            id="discount"
+                            name="deliveryCharge"
+                            defaultValue={order?.deliveryCharge}
+                            id="extraDelCharge"
                           />{" "}
                           tk
                         </span>
+
                       </th>
                       <th
                         scope="row"
@@ -470,11 +472,10 @@ const EditOrder = () => {
                         colSpan={2}
                         className="pt-2 font-normal text-slate-400 text-sm"
                       >
-                        Advance{" "}
+                        Discount{" "}
                         <span>
                           <input
                             className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            type="text"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -483,9 +484,10 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            name="advance"
-                            defaultValue={order?.advance}
-                            id="advance"
+                            type="text"
+                            name="discount"
+                            defaultValue={order?.discount}
+                            id="discount"
                           />{" "}
                           tk
                         </span>
@@ -514,8 +516,7 @@ const EditOrder = () => {
                   </tfoot>
                 </table>
                 <div className="font-light text-slate-300 text-xs italic mt-8 text-center">
-                  Thank you for shopping with us. Please contact our helpline or
-                  chat with us for any issues. Have a nice day.
+                  Thank you for shopping with us. Please contact our helpline or chat with us for any issues. Have a nice day.
                 </div>
               </div>
             </div>
