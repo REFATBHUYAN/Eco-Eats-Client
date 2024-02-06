@@ -47,7 +47,7 @@ const AllOrders = () => {
   const formattedDate = moment(selected).format("YYYY-MM-DD");
 
   const [selectCalender, setSelectCelender] = useState(false);
-  console.log(allOrders);
+  // console.log(allOrders);
 
   // scroll code
   const scrollToTop = () => {
