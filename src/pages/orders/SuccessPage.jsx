@@ -186,9 +186,9 @@ const SuccessPage = () => {
 
             <div className="mt-16 items-center">
               <p className="text-semibold text-slate-600 text-center">
-                আমাদের সম্মানিত গ্রাহকদের রিভিউ এবং আমাদের ডিসকাউন্ট অফার গুলো পেতে এখনই জয়েন করুন:
+                সম্মানিত গ্রাহকদের রিভিউ এবং আমাদের এক্সক্লুসিভ ডিসকাউন্ট অফারগুলো পেতে এখনই জয়েন করুন:
               </p>
-              <a href="https://www.facebook.com/groups/ecoeats" className="mt-2 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center">
+              <a href="https://www.facebook.com/groups/ecoeats" className="mt-2 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center mx-auto w-fit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-users rounded-md"
