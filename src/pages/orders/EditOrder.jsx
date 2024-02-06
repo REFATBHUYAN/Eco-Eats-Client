@@ -425,6 +425,44 @@ const EditOrder = () => {
                         {order?.deliveryCharge?.toFixed(2)} tk
                       </td>
                     </tr>
+                    {/* COD 1% CODE */}
+                    <tr>
+                      <th
+                        scope="row"
+                        colSpan={2}
+                        className="pt-2 font-normal text-slate-400 text-sm"
+                      >
+                        COD 1%{" "}
+                        <span>
+                          <input
+                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            onChange={(e) =>
+                              dispatch(
+                                updateOrderField({
+                                  field: e.target.name,
+                                  value: parseFloat(e.target.value),
+                                })
+                              )
+                            }
+                            type="text"
+                            name="codcharges"
+                            defaultValue={order?.codcharges}
+                            id="discount"
+                          />{" "}
+                          tk
+                        </span>
+                      </th>
+                      <th
+                        scope="row"
+                        colSpan={2}
+                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
+                      >
+                        COD CHARGE 1%
+                      </th>
+                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
+                        {(order?.codcharges || 0).toFixed(2)} tk
+                      </td>
+                    </tr>
                     <tr>
                       <th
                         scope="row"
@@ -466,7 +504,7 @@ const EditOrder = () => {
                             : 0 - order?.advance
                             ? order?.advance
                             : 0)} */}{" "}
-                        {grandTotal?.toFixed(2)} tk
+                        {(grandTotal + order?.codcharges || grandTotal).toFixed(2)} tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {order?.deliveryCharge + subTotalPrice} tk

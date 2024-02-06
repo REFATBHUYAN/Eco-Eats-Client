@@ -38,7 +38,7 @@ const AllOrders = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   // const dhakaTime = new Date().toLocaleString( { timeZone: 'Asia/Dhaka' }).split("T")[0];
   const timestamp = new Date().toISOString();
-  const [allOrders, setAllOrders] = useState([]);
+  const [allOrders, setAllOrders] = useState();
   const [filterOption, setFilterOption] = useState("All Orders");
   const today = new Date();
   const nextMonth = addMonths(new Date(), 0);
@@ -47,6 +47,7 @@ const AllOrders = () => {
   const formattedDate = moment(selected).format("YYYY-MM-DD");
 
   const [selectCalender, setSelectCelender] = useState(false);
+  console.log(allOrders);
 
   // scroll code
   const scrollToTop = () => {
@@ -101,7 +102,7 @@ const AllOrders = () => {
     const fetchData2 = async () => {
       try {
         const response2 = await fetch(
-          `https://chui-jhal-server.vercel.app/allorders`
+          `https://chui-jhal-server.vercel.app/allordersstate`
         );
         const result2 = await response2.json();
         setAllOrders(result2);
@@ -975,7 +976,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {allOrders.length}
+                  {allOrders?.totalProducts}
                 </p>
               </dd>
             </div>
@@ -1002,7 +1003,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {allOrders.filter((d) => d.status === "Shipped").length}
+                  {allOrders?.totalShipped}
                 </p>
               </dd>
             </div>
@@ -1030,7 +1031,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {allOrders.filter((d) => d.status === "Pending").length}
+                  {allOrders?.totalPending}
                 </p>
               </dd>
             </div>
@@ -1058,7 +1059,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {allOrders.filter((d) => d.status === "Cancelled").length}
+                  {allOrders?.totalCanceled}
                 </p>
               </dd>
             </div>
@@ -1088,9 +1089,7 @@ const AllOrders = () => {
               </dt>
               <dd className="ml-14 flex items-baseline -mt-1">
                 <p className="text-2xl truncate font-semibold text-slate-600">
-                  {`${allOrders
-                    .reduce((acc, item) => acc + item.totalPrice, 0)
-                    .toFixed(2)} tk`}
+                  {allOrders?.totalOrderPrice?.toFixed(2)} tk
                 </p>
               </dd>
             </div>
