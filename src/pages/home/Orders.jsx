@@ -530,6 +530,9 @@ const Orders = () => {
                       </div>
                     </button>
                   )}
+                  <div className="font-light text-slate-400 text-xs italic mt-8 text-center">
+                    বিশেষ দ্রষ্টব্যঃ কাচা পণ্য হওয়ায় ওজনের তারতম্যের কারণে মূল্যমান কিছুটা কম অথবা বেশি হতে পারে।
+                  </div>
                 </div>
               </div>
             </div>
