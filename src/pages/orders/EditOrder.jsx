@@ -299,8 +299,8 @@ const EditOrder = () => {
                   <tbody>
                     {order?.food?.map((item, i) => (
                       <tr key={item.id} className="border-y border-slate-100">
-                        <td className="max-w-0 pr-2 px-0 py-5 align-top">{i + 1}</td>
-                        <td className="max-w-0 pr-2 px-0 py-5 align-top">
+                        <td className="max-w-0 pr-2 px-0 py-4 align-top">{i + 1}</td>
+                        <td className="max-w-0 pr-2 px-0 py-4 align-top">
                           <div className="font-medium text-slate-600">
                             {item.title}
                           </div>
@@ -328,13 +328,13 @@ const EditOrder = () => {
                             </span>
                           </div>
                         </td>
-                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
+                        <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                           {item.price} tk
                         </td>
-                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
+                        <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                           {item.quantity}
                         </td>
-                        <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
+                        <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {(item?.extraWeight
                             ? (item.price /
                                 (item.weight === "১ কেজি" ? 1000 : 500)) *
@@ -375,9 +375,7 @@ const EditOrder = () => {
                           />{" "}
                           tk
                         </span>
-
                       </th>
-
                       <th
                         scope="row"
                         colSpan={2}
@@ -387,83 +385,6 @@ const EditOrder = () => {
                       </th>
                       <td className="pb-2 pl-8 pr-0 pt-6 text-right align-bottom tabular-nums text-slate-600">
                         {subTotalPrice?.toFixed(2)} tk
-                      </td>
-                    </tr>
-                    <tr>
-                      <th
-                        scope="row"
-                        colSpan={2}
-                        className="pt-2 font-normal text-slate-400 text-sm"
-                      >
-                        Delivery{" "}
-                        <span>
-                          <input
-                            onChange={(e) =>
-                              dispatch(
-                                updateOrderField({
-                                  field: e.target.name,
-                                  value: parseFloat(e.target.value),
-                                })
-                              )
-                            }
-                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            type="text"
-                            name="deliveryCharge"
-                            defaultValue={order?.deliveryCharge}
-                            id="extraDelCharge"
-                          />{" "}
-                          tk
-                        </span>
-
-                      </th>
-                      <th
-                        scope="row"
-                        colSpan={2}
-                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
-                      >
-                        Delivery
-                      </th>
-                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {order?.deliveryCharge?.toFixed(2)} tk
-                      </td>
-                    </tr>
-                    {/* COD 1% CODE */}
-                    <tr>
-                      <th
-                        scope="row"
-                        colSpan={2}
-                        className="pt-2 font-normal text-slate-400 text-sm"
-                      >
-                        COD {" "}
-                        <span>
-                          <input
-                            className="ml-7 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            // onChange={(e) =>
-                            //   dispatch(
-                            //     updateOrderField({
-                            //       field: e.target.name,
-                            //       value: parseFloat(e.target.value),
-                            //     })
-                            //   )
-                            // }
-                            type="text"
-                            name="codcharges"
-                            defaultValue={1}
-                            id="discount"
-                            readOnly
-                          />{" "}
-                          %
-                        </span>
-                      </th>
-                      <th
-                        scope="row"
-                        colSpan={2}
-                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
-                      >
-                        COD CHARGE 1%
-                      </th>
-                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {(grandTotal * .01).toFixed(2)} tk
                       </td>
                     </tr>
                     <tr>
@@ -495,18 +416,86 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
+                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
+                      >
+                        Delivery
+                      </th>
+                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
+                        {order?.deliveryCharge?.toFixed(2)} tk
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        scope="row"
+                        colSpan={2}
+                        className="pt-2 font-normal text-slate-400 text-sm"
+                      >
+                        Delivery{" "}
+                        <span>
+                          <input
+                            onChange={(e) =>
+                              dispatch(
+                                updateOrderField({
+                                  field: e.target.name,
+                                  value: parseFloat(e.target.value),
+                                })
+                              )
+                            }
+                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            type="text"
+                            name="deliveryCharge"
+                            defaultValue={order?.deliveryCharge}
+                            id="extraDelCharge"
+                          />{" "}
+                          tk
+                        </span>
+                      </th>
+                      <th
+                        scope="row"
+                        colSpan={2}
+                        className="pt-2 text-right font-semibold text-slate-400 table-cell text-xs uppercase"
+                      >
+                        COD CHARGE 1%
+                      </th>
+                      <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
+                        {(grandTotal * .01).toFixed(2)} tk
+                      </td>
+                    </tr>
+                    <tr>
+                      <th
+                        scope="row"
+                        colSpan={2}
+                        className="pt-2 font-normal text-slate-400 text-sm"
+                      >
+                        COD {" "}
+                        <span>
+                          <input
+                            className="ml-7 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            // onChange={(e) =>
+                            //   dispatch(
+                            //     updateOrderField({
+                            //       field: e.target.name,
+                            //       value: parseFloat(e.target.value),
+                            //     })
+                            //   )
+                            // }
+                            type="text"
+                            name="codcharges"
+                            defaultValue={1}
+                            id="discount"
+                            readOnly
+                          />{" "}
+                          %
+                        </span>
+                      </th>
+                      <th
+                        scope="row"
+                        colSpan={2}
                         className="pt-2 text-right font-semibold text-slate-600 table-cell text-xs uppercase"
                       >
                         Total
                       </th>
                       <td className="pb-2 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {/* {order?.deliveryCharge +
-                          subTotalPrice -
-                          (order?.discount
-                            ? order?.discount
-                            : 0 - order?.advance
-                            ? order?.advance
-                            : 0)} */}{" "}
                         {(grandTotal + grandTotal * .01).toFixed(2)} tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
@@ -515,7 +504,10 @@ const EditOrder = () => {
                     </tr>
                   </tfoot>
                 </table>
-                <div className="font-light text-slate-300 text-xs italic mt-8 text-center">
+                <div className="border-t border-slate-100 pt-8 font-light text-slate-400 text-xs italic mt-8 text-center">
+                  NB: Total price may be slightly less or more due to the addition of fractional product weight.
+                </div>
+                <div className="font-semibold text-slate-400 text-xs italic mt-4 md:mt-2 text-center">
                   Thank you for shopping with us. Please contact our helpline or chat with us for any issues. Have a nice day.
                 </div>
               </div>

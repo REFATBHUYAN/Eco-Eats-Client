@@ -36,6 +36,10 @@ const SuccessPage = () => {
     return sum + productPrice;
   }, 0);
 
+  const discountAmount = order?.discount ? order?.discount : 0;
+  const advanceAmount = order?.advance ? order?.advance : 0;
+  const grandTotal = order?.deliveryCharge + subTotalPrice - discountAmount - advanceAmount;
+
   return (
     <div className="px-4">
       <div className="mx-auto max-w-3xl my-4">
@@ -67,7 +71,7 @@ const SuccessPage = () => {
               প্রসেস করা হবে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব, সাথেই থাকুন।
             </p>
 
-            <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm">
+            <dl className="mt-8 grid grid-cols-2 gap-x-4 text-sm">
               <div>
                 <span className="inline text-base font-semibold text-slate-600">
                   Invoice #{" "}
@@ -88,7 +92,7 @@ const SuccessPage = () => {
 
             <ul
               role="list"
-              className="mt-6 border-t border-slate-100 divide-y divide-slate-100 text-sm"
+              className="mt-8 border-t border-slate-100 divide-y divide-slate-100 text-sm"
             >
               {order?.food.map((product) => (
                 <li key={product.id} className="flex space-x-4 py-4">
@@ -116,15 +120,10 @@ const SuccessPage = () => {
               ))}
             </ul>
 
-            <dl className="space-y-6 border-t border-slate-100 pt-6 text-sm text-slate-400">
+            <dl className="space-y-4 border-t border-slate-100 pt-4 text-sm text-slate-400">
               <div className="flex justify-between">
                 <dt className="text-xs font-semibold uppercase">Subtotal</dt>
                 <dd className="text-slate-600">{order?.totalPrice} tk</dd>
-              </div>
-
-              <div className="flex justify-between">
-                <dt className="text-xs font-semibold uppercase">Delivery</dt>
-                <dd className="text-slate-600">{order?.deliveryCharge} tk</dd>
               </div>
 
               {order?.advance && (
@@ -141,19 +140,30 @@ const SuccessPage = () => {
                 </div>
               )}
 
-              <div className="flex items-center justify-between border-t border-slate-100 pt-6 text-slate-600">
+              <div className="flex justify-between">
+                <dt className="text-xs font-semibold uppercase">Delivery</dt>
+                <dd className="text-slate-600">{order?.deliveryCharge} tk</dd>
+              </div>
+
+              <div className="flex justify-between">
+                <dt className="text-xs font-semibold uppercase">COD Charge 1%</dt>
+                <dd className="text-slate-600">
+                  {(grandTotal * 0.01).toFixed(2)} tk</dd>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-slate-100 pt-4 text-slate-600">
                 <dt className="text-xs font-semibold uppercase">Total</dt>
                 <dd className="font-semibold">
-                {(order?.deliveryCharge +
-                          subTotalPrice) -
-                          (order?.discount ? order?.discount : 0 -
-                            order?.advance ? order?.advance : 0)}
-                  tk
+                  {(grandTotal + grandTotal * 0.01)?.toFixed(2)} tk
                 </dd>
               </div>
             </dl>
 
-            <dl className="mt-16 grid sm:grid-cols-2 grid-cols-1 gap-x-4 text-sm">
+            <div className="border-b border-slate-100 pb-8 font-light text-slate-400 text-xs italic mt-8 text-center">
+              বিশেষ দ্রষ্টব্যঃ কাচা পণ্য হওয়ায় ওজনের তারতম্যের কারণে মূল্যমান কিছুটা কম অথবা বেশি হতে পারে।
+            </div>
+
+            <dl className="mt-8 grid sm:grid-cols-2 grid-cols-1 gap-x-4 text-sm">
               <div>
                 <dt className="font-semibold text-slate-400">Address</dt>
                 <dd className="mt-2">
@@ -184,8 +194,8 @@ const SuccessPage = () => {
               </div>
             </dl>
 
-            <div className="mt-16 items-center">
-              <p className="font-medium text-slate-600 text-center">
+            <div className="border-t border-slate-100 pt-8 mt-8 items-center">
+              <p className="font-medium text-slate-600 text-center text-sm">
                 সম্মানিত গ্রাহকদের রিভিউ এবং আমাদের এক্সক্লুসিভ ডিসকাউন্ট অফারগুলো পেতে এখনই জয়েন করুন:
               </p>
               <a target="_blank" href="https://www.facebook.com/groups/ecoeats" className="mt-4 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center mx-auto w-fit">

@@ -96,9 +96,7 @@ const SingleOrders = () => {
 
   const discountAmount = singleItem?.discount ? singleItem?.discount : 0;
   const advanceAmount = singleItem?.advance ? singleItem?.advance : 0;
-
-  const grandTotal =
-    singleItem?.deliveryCharge + subTotalPrice - advanceAmount - discountAmount;
+  const grandTotal = singleItem?.deliveryCharge + subTotalPrice - advanceAmount - discountAmount;
 
   return (
     <div className="w-full bg-white">
@@ -338,10 +336,10 @@ const SingleOrders = () => {
                     {singleItem &&
                       singleItem?.food.map((item, i) => (
                         <tr key={item.id} className="border-y border-slate-100">
-                          <td className="max-w-0 pr-2 px-0 py-5 align-top">
+                          <td className="max-w-0 pr-2 px-0 py-4 align-top">
                             {i + 1}
                           </td>
-                          <td className="max-w-0 pr-2 px-0 py-5 align-top">
+                          <td className="max-w-0 pr-2 px-0 py-4 align-top">
                             <div className="font-medium text-slate-600">
                               {item.title}
                             </div>
@@ -352,13 +350,13 @@ const SingleOrders = () => {
                               )}
                             </div>
                           </td>
-                          <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
+                          <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                             {item.price} tk
                           </td>
-                          <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
+                          <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600 table-cell">
                             {item.quantity}
                           </td>
-                          <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
+                          <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                             {(item?.extraWeight
                               ? (item.price /
                                   (item.weight === "১ কেজি" ? 1000 : 500)) *
@@ -434,27 +432,6 @@ const SingleOrders = () => {
                         </td>
                       </tr>
                     )}
-
-                    <tr>
-                      <th
-                        scope="row"
-                        colSpan={4}
-                        className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
-                      >
-                        COD Charge 1%
-                      </th>
-                      <th
-                        scope="row"
-                        colSpan={4}
-                        className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
-                      >
-                        COD Charge 1%
-                      </th>
-                      <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {(grandTotal * 0.01).toFixed(2)} tk
-                      </td>
-                    </tr>
-
                     <tr>
                       <th
                         scope="row"
@@ -478,6 +455,25 @@ const SingleOrders = () => {
                       <th
                         scope="row"
                         colSpan={4}
+                        className="px-0 py-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                      >
+                        COD Charge 1%
+                      </th>
+                      <th
+                        scope="row"
+                        colSpan={4}
+                        className="hidden px-0 py-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
+                      >
+                        COD Charge 1%
+                      </th>
+                      <td className="pl-8 pr-0 py-4 text-right tabular-nums text-slate-600">
+                        {(grandTotal * 0.01).toFixed(2)} tk
+                      </td>
+                    </tr>
+                    <tr className="border-t border-slate-100">
+                      <th
+                        scope="row"
+                        colSpan={4}
                         className="pt-4 font-semibold text-slate-600 sm:hidden text-xs uppercase"
                       >
                         Total
@@ -495,9 +491,11 @@ const SingleOrders = () => {
                     </tr>
                   </tfoot>
                 </table>
-                <div className="font-light text-slate-300 text-xs italic mt-8 text-center">
-                  Thank you for shopping with us. Please contact our helpline or
-                  chat with us for any issues. Have a nice day.
+                <div className="font-light text-slate-400 text-xs italic mt-8 text-center">
+                  NB: Total price may be slightly less or more due to the addition of fractional product weight.
+                </div>
+                <div className="font-semibold text-slate-400 text-xs italic mt-4 md:mt-2 text-center">
+                  Thank you for shopping with us. Please contact our helpline or chat with us for any issues. Have a nice day.
                 </div>
               </div>
             </div>

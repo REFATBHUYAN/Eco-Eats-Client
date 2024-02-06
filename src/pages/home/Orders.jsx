@@ -103,6 +103,13 @@ const Orders = () => {
     setFoodDatas(cart.items);
   };
 
+  const subTotalPrice =
+    {orderedFood.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    )}
+  const grandTotal = orderedFood?.deliveryCharge + subTotalPrice;
+
   return (
     <div id="order" className="my-28">
       <h1 className="text-3xl font-bold text-center text-green-500 mb-12">
@@ -438,27 +445,27 @@ const Orders = () => {
                         : "border-dashed border-t-2 border-slate-200 "
                     }`}
                   >
-                    <h1 className="font-semibold">মোট</h1>
+                    <h1 className="font-light">মোট</h1>
                     <h1 className="font-semibold text-green-500">
-                      {orderedFood.reduce(
-                        (total, item) => total + item.quantity * item.price,
-                        0
-                      )} tk
+                      {subTotalPrice?.toFixed(2)} tk
+                    </h1>
+                  </div>
+                  <div className="flex justify-between items-center pt-6">
+                    <h1 className="font-light">ডেলিভারী চার্জ</h1>
+                    <h1 className="font-semibold text-green-500">
+                      {(deliveryCharge === "৮০" ? 80 : 100)?.toFixed(2)} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center py-6">
-                    <h1 className="font-semibold">ডেলিভারী চার্জ</h1>
+                    <h1 className="font-light">ক্যাশ অন ডেলিভারী চার্জ ১%</h1>
                     <h1 className="font-semibold text-green-500">
-                      {deliveryCharge === "৮০" ? 80 : 100} tk
+                      {(grandTotal * 0.01).toFixed(2)} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center border-dashed border-t-2 border-slate-200 pt-6">
                     <h1 className="font-semibold">সর্বমোট</h1>
                     <h1 className="font-semibold text-green-500">
-                      {orderedFood.reduce(
-                        (total, item) => total + item.quantity * item.price,
-                        0
-                      ) + (deliveryCharge === "৮০" ? 80 : 100)} tk
+                      {(grandTotal + grandTotal * 0.01)?.toFixed(2)} tk
                     </h1>
                   </div>
                   <div className="flex justify-between items-center py-6">
