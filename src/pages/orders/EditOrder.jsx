@@ -367,7 +367,7 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
@@ -432,24 +432,25 @@ const EditOrder = () => {
                         colSpan={2}
                         className="pt-2 font-normal text-slate-400 text-sm"
                       >
-                        COD 1%{" "}
+                        COD {" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            onChange={(e) =>
-                              dispatch(
-                                updateOrderField({
-                                  field: e.target.name,
-                                  value: parseFloat(e.target.value),
-                                })
-                              )
-                            }
+                            className="ml-7 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            // onChange={(e) =>
+                            //   dispatch(
+                            //     updateOrderField({
+                            //       field: e.target.name,
+                            //       value: parseFloat(e.target.value),
+                            //     })
+                            //   )
+                            // }
                             type="text"
                             name="codcharges"
-                            defaultValue={order?.codcharges}
+                            defaultValue={1}
                             id="discount"
+                            readOnly
                           />{" "}
-                          tk
+                          %
                         </span>
                       </th>
                       <th
@@ -460,7 +461,7 @@ const EditOrder = () => {
                         COD CHARGE 1%
                       </th>
                       <td className="pb-2 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                        {(order?.codcharges || 0).toFixed(2)} tk
+                        {(grandTotal * .01).toFixed(2)} tk
                       </td>
                     </tr>
                     <tr>
@@ -504,7 +505,7 @@ const EditOrder = () => {
                             : 0 - order?.advance
                             ? order?.advance
                             : 0)} */}{" "}
-                        {(grandTotal + order?.codcharges || grandTotal).toFixed(2)} tk
+                        {(grandTotal + grandTotal * .01).toFixed(2)} tk
                       </td>
                       {/* <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
                         {order?.deliveryCharge + subTotalPrice} tk

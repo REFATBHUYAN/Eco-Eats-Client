@@ -364,7 +364,8 @@ const SingleOrders = () => {
                                   (item.weight === "১ কেজি" ? 1000 : 500)) *
                                   item?.extraWeight +
                                 item.price * item.quantity
-                              : item.price * item.quantity).toFixed(2)}{" "}
+                              : item.price * item.quantity
+                            ).toFixed(2)}{" "}
                             tk
                           </td>
                         </tr>
@@ -433,27 +434,27 @@ const SingleOrders = () => {
                         </td>
                       </tr>
                     )}
-                    {singleItem?.codcharges && (
-                      <tr>
-                        <th
-                          scope="row"
-                          colSpan={4}
-                          className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
-                        >
-                          COD Charges 1%
-                        </th>
-                        <th
-                          scope="row"
-                          colSpan={4}
-                          className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
-                        >
-                          COD Charges 1%
-                        </th>
-                        <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                          {singleItem?.codcharges?.toFixed(2)} tk
-                        </td>
-                      </tr>
-                    )}
+
+                    <tr>
+                      <th
+                        scope="row"
+                        colSpan={4}
+                        className="px-0 pb-0 pt-4 text-slate-400 sm:hidden text-xs font-semibold uppercase"
+                      >
+                        COD Charges 1%
+                      </th>
+                      <th
+                        scope="row"
+                        colSpan={4}
+                        className="hidden px-0 pb-0 pt-4 text-right font-semibold text-slate-400 sm:table-cell text-xs uppercase"
+                      >
+                        COD Charges 1%
+                      </th>
+                      <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
+                        {(grandTotal * 0.01).toFixed(2)} tk
+                      </td>
+                    </tr>
+
                     <tr>
                       <th
                         scope="row"
@@ -489,11 +490,7 @@ const SingleOrders = () => {
                         Total
                       </th>
                       <td className="pb-0 pl-8 pr-0 pt-4 text-right font-semibold tabular-nums text-slate-600">
-                        {/* {(singleItem?.deliveryCharge +
-                          subTotalPrice) -
-                          (singleItem?.discount ? singleItem?.discount : 0 -
-                          singleItem?.advance ? singleItem?.advance : 0)} */}
-                        {grandTotal?.toFixed(2)} tk
+                        {(grandTotal + grandTotal * 0.01)?.toFixed(2)} tk
                       </td>
                     </tr>
                   </tfoot>
