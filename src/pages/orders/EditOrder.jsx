@@ -380,11 +380,11 @@ const EditOrder = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className="px-0 pb-1 pt-6 text-right align-bottom font-semibold text-slate-400 table-cell text-xs uppercase"
+                        className="px-0 pb-2 pt-6 text-right align-bottom font-semibold text-slate-400 table-cell text-xs uppercase"
                       >
                         Subtotal
                       </th>
-                      <td className="pb-1 pl-8 pr-0 pt-6 text-right align-bottom tabular-nums text-slate-600">
+                      <td className="pb-2 pl-8 pr-0 pt-6 text-right align-bottom tabular-nums text-slate-600">
                         {subTotalPrice?.toFixed(2)} tk
                       </td>
                     </tr>
