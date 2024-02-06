@@ -104,11 +104,15 @@ const Orders = () => {
   };
 
   const subTotalPrice =
-    {orderedFood.reduce(
+    orderedFood.reduce(
       (total, item) => total + item.quantity * item.price,
       0
-    )}
-  const grandTotal = orderedFood?.deliveryCharge + subTotalPrice;
+    )
+  const grandTotal = deliveryCharge === "৮০" ? 80 + subTotalPrice : 100 + subTotalPrice ;
+
+  console.log(grandTotal);
+  console.log(subTotalPrice);
+  
 
   return (
     <div id="order" className="my-28">
