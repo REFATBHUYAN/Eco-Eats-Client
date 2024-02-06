@@ -123,26 +123,26 @@ const SuccessPage = () => {
             <dl className="space-y-4 border-t border-slate-100 pt-4 text-sm text-slate-400">
               <div className="flex justify-between">
                 <dt className="text-xs font-semibold uppercase">Subtotal</dt>
-                <dd className="text-slate-600">{order?.totalPrice} tk</dd>
+                <dd className="text-slate-600">{order?.totalPrice?.toFixed(2)} tk</dd>
               </div>
 
               {order?.advance && (
                 <div className="flex justify-between">
                   <dt className="text-xs font-semibold uppercase">advance</dt>
-                  <dd className="text-slate-600">{order?.advance} tk</dd>
+                  <dd className="text-slate-600">{order?.advance?.toFixed(2)} tk</dd>
                 </div>
               )}
 
               {order?.discount && (
                 <div className="flex justify-between">
                   <dt className="text-xs font-semibold uppercase">discount</dt>
-                  <dd className="text-slate-600">{order?.discount} tk</dd>
+                  <dd className="text-slate-600">{order?.discount?.toFixed(2)} tk</dd>
                 </div>
               )}
 
               <div className="flex justify-between">
                 <dt className="text-xs font-semibold uppercase">Delivery</dt>
-                <dd className="text-slate-600">{order?.deliveryCharge} tk</dd>
+                <dd className="text-slate-600">{order?.deliveryCharge?.toFixed(2)} tk</dd>
               </div>
 
               <div className="flex justify-between">
