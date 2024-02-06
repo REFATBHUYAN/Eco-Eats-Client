@@ -39,7 +39,7 @@ const SuccessPage = () => {
   return (
     <div className="px-4">
       <div className="mx-auto max-w-3xl my-4">
-        <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
+        <div className="py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
           <div className="w-full">
             <div className="flex">
               <Link
@@ -185,10 +185,10 @@ const SuccessPage = () => {
             </dl>
 
             <div className="mt-16 items-center">
-              <p className="text-semibold text-slate-600 text-center">
+              <p className="font-medium text-slate-600 text-center">
                 সম্মানিত গ্রাহকদের রিভিউ এবং আমাদের এক্সক্লুসিভ ডিসকাউন্ট অফারগুলো পেতে এখনই জয়েন করুন:
               </p>
-              <a href="https://www.facebook.com/groups/ecoeats" className="mt-2 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center mx-auto w-fit">
+              <a href="https://www.facebook.com/groups/ecoeats" className="mt-4 rounded-lg cursor-pointer bg-green-500 hover:bg-green-600 active:bg-green-700 duration-75 px-4 py-2 font-semibold text-white text-sm flex gap-2 items-center justify-center mx-auto w-fit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-users rounded-md"

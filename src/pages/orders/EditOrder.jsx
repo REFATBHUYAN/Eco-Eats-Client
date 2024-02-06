@@ -96,9 +96,7 @@ const EditOrder = () => {
     }
   };
 
-  // const handlePrint = () => {
-  //   window.print();
-  // };
+
   return (
     <div className="w-full bg-white">
       <Container>
@@ -109,7 +107,7 @@ const EditOrder = () => {
 
           <div className="bg-white mx-auto max-w-3xl my-4">
             <div>
-              <div className="-mx-4 px-4 py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
+              <div className="py-8 ring-0 ring-slate-100 sm:ring-1 sm:ring-inset sm:mx-0 sm:rounded-lg sm:p-8 lg:col-span-2 lg:row-span-2 lg:row-end-2 xl:p-16">
                 <nav
                   className={`mx-auto flex items-center justify-between gap-x-6 `}
                   aria-label="Global"
@@ -152,28 +150,6 @@ const EditOrder = () => {
                       </svg>
                       Update Order
                     </button>
-                    {/* <button
-                      onClick={handlePrint}
-                      className={`float-right py-2 px-2 rounded-lg bg-blue-500 hover:bg-blue-600 active:bg-blue-700 ease-in duration-75 text-sm font-semibold text-white hover:text-white flex items-center printButton gap-2`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="icon icon-tabler icon-tabler-printer"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-                        <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-                        <path d="M7 13m0 2a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2z" />
-                      </svg>
-                    </button> */}
                   </div>
                 </nav>
 
@@ -200,13 +176,6 @@ const EditOrder = () => {
                   </div>
                 </div>
                 <dl className="grid grid-cols-1 text-sm leading-6 sm:grid-cols-2">
-                  {/* <div className="sm:pr-4">
-                  <dt className="inline text-slate-600">
-                    {" "}
-                    {singleItem?.invoice || singleItem?._id}
-                  </dt>{" "}
-                </div> */}
-
                   <div className="mt-6 border-t border-slate-200 pt-6 sm:pr-4">
                     <dt className="font-semibold text-slate-400">From</dt>
                     <dd className="mt-2">
@@ -284,42 +253,26 @@ const EditOrder = () => {
                       </span>
                     </dd>
                   </div>
-                  {/* <div className="mt-8 sm:mt-6 sm:border-t sm:border-slate-200 sm:pl-4 sm:pt-6">
-                    <dt className="font-semibold text-slate-400">To</dt>
-                    <dd className="mt-2">
-                      <span className="font-medium text-slate-600">
-                        {singleItem?.name}
-                      </span>
-                      <br />
-                      <span className="font-light text-slate-600">
-                        {singleItem?.address}
-                      </span>
-                      <br />
-                      <span className="font-light text-slate-600">
-                        {singleItem?.phone}
-                      </span>
-                    </dd>
-                  </div> */}
                 </dl>
                 <table className="mt-10 w-full whitespace-nowrap text-left text-sm text-slate-600">
-                  <colgroup className="w-full">
+                  <colgroup>
                     <col />
                     <col className="w-full" />
                     <col />
                     <col />
                     <col />
                   </colgroup>
-                  <thead className="text-slate-400 border-b w-full border-slate-200 uppercase tracking-wide">
+                  <thead className="text-slate-400 border-b border-slate-200 uppercase tracking-wide">
                     <tr>
                       <th
                         scope="col"
-                        className="px-0 py-3 pr-2 font-semibold text-xs"
+                        className="py-3 pl-0 pr-2 font-semibold text-xs"
                       >
                         SL
                       </th>
                       <th
                         scope="col"
-                        className="px-0 py-3 pr-2 font-semibold text-xs"
+                        className="py-3 pl-0 pr-2 font-semibold text-xs"
                       >
                         Ordered Items
                       </th>
@@ -346,8 +299,8 @@ const EditOrder = () => {
                   <tbody>
                     {order?.food?.map((item, i) => (
                       <tr key={item.id} className="border-y border-slate-100">
-                        <td className="pr-2 py-5 align-top">{i + 1}</td>
-                        <td className="pr-2 py-5 align-top">
+                        <td className="max-w-0 pr-2 px-0 py-5 align-top">{i + 1}</td>
+                        <td className="max-w-0 pr-2 px-0 py-5 align-top">
                           <div className="font-medium text-slate-600">
                             {item.title}
                           </div>
@@ -390,9 +343,6 @@ const EditOrder = () => {
                             : item.price * item.quantity).toFixed(2)}{" "}
                           tk
                         </td>
-                        {/* <td className="py-5 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
-                            {item?.extraWeight ?( (item.price / item.weight === '১ কেজি' ? 1000 : 500) * item?.extraWeight) + (item.price * item.quantity) : item.price * item.quantity} tk
-                          </td> */}
                       </tr>
                     ))}
                   </tbody>
@@ -417,7 +367,7 @@ const EditOrder = () => {
                                 })
                               )
                             }
-                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
@@ -447,7 +397,7 @@ const EditOrder = () => {
                         Discount{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-normal inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -484,7 +434,7 @@ const EditOrder = () => {
                         Advance{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-2 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-normal inline"
+                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
                             onChange={(e) =>
                               dispatch(
