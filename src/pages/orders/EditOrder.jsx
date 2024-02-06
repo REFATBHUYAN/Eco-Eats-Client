@@ -313,13 +313,13 @@ const EditOrder = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="w-5 px-0 py-3 font-semibold text-xs"
+                        className="px-0 py-3 pr-2 font-semibold text-xs"
                       >
                         SL
                       </th>
                       <th
                         scope="col"
-                        className="px-0 py-3 font-semibold text-xs"
+                        className="px-0 py-3 pr-2 font-semibold text-xs"
                       >
                         Ordered Items
                       </th>
@@ -346,8 +346,8 @@ const EditOrder = () => {
                   <tbody>
                     {order?.food?.map((item, i) => (
                       <tr key={item.id} className="border-y border-slate-100">
-                        <td className="max-w-0 pr-8 py-5 align-top">{i + 1}</td>
-                        <td className="max-w-0 pr-8 py-5 align-top">
+                        <td className="pr-2 py-5 align-top">{i + 1}</td>
+                        <td className="pr-2 py-5 align-top">
                           <div className="font-medium text-slate-600">
                             {item.title}
                           </div>
