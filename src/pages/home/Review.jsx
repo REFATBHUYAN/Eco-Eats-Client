@@ -133,7 +133,7 @@ const SwiperNavButtons = () => {
       {/* chevron-right */}
       <button
         onClick={() => swiper.slidePrev()}
-        className="absolute left-1 top-28 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 "
+        className="absolute left-1 top-32 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ const SwiperNavButtons = () => {
       </button>
       <button
         onClick={() => swiper.slideNext()}
-        className="absolute right-1 top-28 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 ml-2"
+        className="absolute right-1 top-32 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 ml-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
