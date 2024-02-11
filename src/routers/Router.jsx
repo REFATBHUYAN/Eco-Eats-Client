@@ -10,6 +10,8 @@ import CreateOrder from "../pages/orders/CreateOrder.jsx";
 import EditOrder from "../pages/orders/EditOrder.jsx";
 import { Providers } from "../Redux/providers.jsx";
 import ErrorPage from "../pages/shared/ErrorPage.jsx";
+import EditOrder2 from "../pages/orders/EditOrder2.jsx";
+import SingleOrders2 from "../pages/orders/SingleOrders2.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
     element: (
       <Providers>
         <PrivateRouter>
-          <EditOrder></EditOrder>
+          <EditOrder2></EditOrder2>
         </PrivateRouter>
       </Providers>
     ),
@@ -76,7 +78,7 @@ const router = createBrowserRouter([
     
     element: (
       <PrivateRouter>
-        <SingleOrders></SingleOrders>
+        <SingleOrders2></SingleOrders2>
       </PrivateRouter>
     ),
   },

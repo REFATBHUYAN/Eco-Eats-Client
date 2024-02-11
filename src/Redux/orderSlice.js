@@ -22,7 +22,7 @@ const orderSlice = createSlice({
       const item = state?.food.find((item) => item.id === id);
 
       if (item) {
-         item.extraWeight = parseInt(quantity);
+         item.weightInGram = parseInt(quantity);
         
       }
       
