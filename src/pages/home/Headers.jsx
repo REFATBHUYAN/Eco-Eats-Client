@@ -19,6 +19,15 @@ const benefits = [
 
 const Headers = () => {
   return (
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P3QDPFS4');</script>
+    <!-- End Google Tag Manager -->
+
     <div id="about" className="mx-auto max-w-7xl mt-12 md:mt-28">
       <div className="mx-auto flex w-full flex-col gap-16 bg-white/5 pt-6 ring-1 ring-white/10 sm:rounded-3xl lg:flex-row lg:items-center">
         <div className="h-full w-full md:hidden block mx-auto flex-none rounded-lg object-cover lg:max-w-sm player-wrapper">
