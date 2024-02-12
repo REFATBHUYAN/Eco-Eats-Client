@@ -355,7 +355,7 @@ const SingleOrders2 = () => {
                           <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {((item.price /
                                 (item.weight === "১ কেজি" ? 1000 : 500)) *
-                                item?.weightInGram).toFixed(2)}
+                                item?.weightInGram).toFixed(2)}{" "}
                             tk
                           </td>
                         </tr>
