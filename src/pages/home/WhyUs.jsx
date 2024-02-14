@@ -9,7 +9,7 @@ const WhyUs = () => {
           কেন আমরাই সেরা
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400 ">
+          <div className="group flex cursor-pointer flex-col items-center gap-3 text-slate-400">
             <div>
               <img
                 className="h-20 w-20 rounded-lg bg-slate-50 p-6 text-green-500 group-hover:bg-slate-100 group-hover:text-white ease-in duration-75"
@@ -17,7 +17,7 @@ const WhyUs = () => {
                 alt=""
               />
             </div>
-            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 line-clamp-1">
+            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 ease-in duration-75 line-clamp-1">
               অথেন্টিক প্রোডাক্ট
             </h1>
 
@@ -33,7 +33,7 @@ const WhyUs = () => {
                 alt=""
               />
             </div>
-            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 line-clamp-1">
+            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 ease-in duration-75 line-clamp-1">
               প্রিমিয়াম কোয়ালিটি
             </h1>
 
@@ -49,7 +49,7 @@ const WhyUs = () => {
                 alt=""
               />
             </div>
-            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 line-clamp-1">
+            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 ease-in duration-75 line-clamp-1">
               রিফান্ড পলিসি
             </h1>
 
@@ -65,7 +65,7 @@ const WhyUs = () => {
                 alt=""
               />
             </div>
-            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 line-clamp-1">
+            <h1 className="font-semibold text-xl text-slate-600 group-hover:text-green-500 ease-in duration-75 line-clamp-1">
               ক্যাশ অন ডেলিভারী
             </h1>
 
