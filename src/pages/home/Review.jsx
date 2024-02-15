@@ -133,7 +133,7 @@ const SwiperNavButtons = () => {
       {/* chevron-right */}
       <button
         onClick={() => swiper.slidePrev()}
-        className="absolute left-1 top-28 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 "
+        className="absolute left-1 top-32 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ const SwiperNavButtons = () => {
       </button>
       <button
         onClick={() => swiper.slideNext()}
-        className="absolute right-1 top-28 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 ml-2"
+        className="absolute right-1 top-32 z-50 bg-slate-200 hover:bg-green-500 active:bg-green-600 ease-in duration-75 rounded-full p-1 ml-2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -252,13 +252,13 @@ const Review = () => {
                               alt=""
                             />
                             <div className="text-start">
-                              <h1 className="text-slate-600 group-hover:text-green-500 font-semibold line-clamp-1">
+                              <h1 className="text-slate-600 group-hover:text-green-500 font-semibold ease-in duration-75 line-clamp-1">
                                 {review.name}
                               </h1>
                               <p className="text-slate-500">{review.address}</p>
                             </div>
                           </div>
-                          <a href={review.url} target="_blank" className="hover:text-green-500">
+                          <a href={review.url} target="_blank" className="hover:text-green-500 ease-in duration-75">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               class="icon icon-tabler icon-tabler-brand-facebook"

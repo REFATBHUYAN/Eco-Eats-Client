@@ -355,7 +355,7 @@ const SingleOrders2 = () => {
                           <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {((item.price /
                                 (item.weight === "১ কেজি" ? 1000 : 500)) *
-                                item?.weightInGram).toFixed(2)}
+                                item?.weightInGram).toFixed(2)}{" "}
                             tk
                           </td>
                         </tr>
@@ -398,7 +398,7 @@ const SingleOrders2 = () => {
                           Advance
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                          {singleItem?.advance?.toFixed(2)} tk
+                          -{singleItem?.advance?.toFixed(2)} tk
                         </td>
                       </tr>
                     )}
@@ -420,7 +420,7 @@ const SingleOrders2 = () => {
                           Discount
                         </th>
                         <td className="pb-0 pl-8 pr-0 pt-4 text-right tabular-nums text-slate-600">
-                          {singleItem?.discount?.toFixed(2)} tk
+                          -{singleItem?.discount?.toFixed(2)} tk
                         </td>
                       </tr>
                     )}

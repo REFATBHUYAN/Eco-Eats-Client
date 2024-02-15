@@ -299,7 +299,7 @@ const EditOrder2 = () => {
                       <tr key={item.id} className="border-y border-slate-100">
                         <td className="max-w-0 pr-2 px-0 py-4 align-top">{i + 1}</td>
                         <td className="max-w-0 pr-2 px-0 py-4 align-top">
-                          <div className="font-medium text-slate-600">
+                          <div className="font-medium text-slate-600 mb-1">
                             {item.title}
                           </div>
                           <div className="text-slate-400 font-light flex gap-1 items-center">
@@ -335,7 +335,7 @@ const EditOrder2 = () => {
                         <td className="py-4 pl-8 pr-0 text-right align-top tabular-nums text-slate-600">
                           {((item.price /
                                 (item.weight === "১ কেজি" ? 1000 : 500)) *
-                                item?.weightInGram).toFixed(2)}
+                                item?.weightInGram).toFixed(2)}{" "}
                           tk
                         </td>
                       </tr>
@@ -346,7 +346,7 @@ const EditOrder2 = () => {
                       <th
                         scope="row"
                         colSpan={2}
-                        className="px-0 pb-0 pt-4 text-slate-400 text-sm font-normal"
+                        className="px-0 pt-4 text-slate-400 text-sm font-normal"
                       >
                         <span className="mt-4 font-semibold text-slate-600 text-xs uppercase">
                           Adjustments
@@ -354,7 +354,7 @@ const EditOrder2 = () => {
                         Advance{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            className="ml-1 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
                             onChange={(e) =>
                               dispatch(
@@ -391,7 +391,7 @@ const EditOrder2 = () => {
                         Discount{" "}
                         <span>
                           <input
-                            className="ml-1 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            className="ml-1 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -436,7 +436,7 @@ const EditOrder2 = () => {
                                 })
                               )
                             }
-                            className="ml-2 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            className="ml-2 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             type="text"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
@@ -465,7 +465,7 @@ const EditOrder2 = () => {
                         COD {" "}
                         <span>
                           <input
-                            className="ml-7 w-12 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
+                            className="ml-7 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
                             // onChange={(e) =>
                             //   dispatch(
                             //     updateOrderField({
