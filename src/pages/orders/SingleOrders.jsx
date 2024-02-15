@@ -346,7 +346,7 @@ const SingleOrders = () => {
                             <div className="text-slate-400 font-light flex items-center gap-1">
                               {item.weight === "১ কেজি" ? "1 kg" : "500 g"}{" "}
                               {item?.extraWeight && (
-                                <span className="">{item.extraWeight > 0 ? `+ ${item?.extraWeight} g` : `${item?.extraWeight} g`}</span>
+                                <span className="">{item.extraWeight > 0 ? `+ ${item?.extraWeight} g` : `- ${Math.abs(item?.extraWeight)} g`}</span>
                               )}
                             </div>
                           </td>
