@@ -55,7 +55,7 @@ const router = createBrowserRouter([
     element: (
       <Providers>
         <PrivateRouter>
-          <EditOrder></EditOrder>
+          <EditOrder2></EditOrder2>
         </PrivateRouter>
       </Providers>
     ),
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
     
     element: (
       <PrivateRouter>
-        <SingleOrders></SingleOrders>
+        <SingleOrders2></SingleOrders2>
       </PrivateRouter>
     ),
   },
