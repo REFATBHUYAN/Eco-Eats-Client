@@ -6,12 +6,6 @@
   background-color: #ffffff;
 }
 
-/* :root {
-  --swiper-pagination-bullet-active: #22C55E;
-  --swiper-navigation-size: 40px;
-} */
-/* @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Hind+Siliguri&display=swap'); */
-
 @layer base {
   html {
     font-family: "Hind Siliguri", sans-serif;
@@ -21,40 +15,17 @@
   color: #16a34a;
 }
 
+/* remove print button */
 @media print {
   .printButton {
-    color: transparent !important;
+    display: none !important;
   }
   body {
-    counter-reset: page;
-  }
-
-  body::before {
-    content: counter(page);
-    counter-increment: page;
-    display: none;
-  }
-
-  body::after {
-    content: "URL: " attr(data-url) "\A Title: "attr(data-title) "\A Time: "attr(
-        data-time
-      );
-    display: none;
+    -webkit-print-color-adjust: exact;
   }
 }
 
-/* option:hover,
-option:checked {
-  background-color: #16A34A;
-  
-} */
-
-/* option:hover {
-  background-color: #16A34A !important;
-  
-} */
-
-/* Change the color of the active pagination bullet */
+/* change the color of the active pagination bullet */
 .swiper-pagination-bullet-active {
   background-color: #22c55e !important;
 }
@@ -75,10 +46,7 @@ option:checked {
   font-family: "Unica One", cursive;
 }
 
-.bg-img {
-  background-image: url("assets/hero-bg.png");
-}
-
+/* scrollbar customization */
 scroll
 * {
   margin: 0;
@@ -122,8 +90,18 @@ scroll
   background-color: #94A3B8;
 }
 
-/* slider */
+/* hide arrows from input number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* slider */
 .slick-prev {
   font-size: 0;
   line-height: 0;
@@ -170,3 +148,4 @@ scroll
   outline: none;
   background: transparent;
 }
+

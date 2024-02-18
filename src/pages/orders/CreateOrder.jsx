@@ -261,7 +261,7 @@ const CreateOrder = () => {
                         </label>
                         <div className="mt-1">
                           <input
-                            type="tel"
+                            type="number"
                             name="phone"
                             onChange={(e) => setPhone(e.target.value)}
                             id="phone"

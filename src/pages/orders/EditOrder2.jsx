@@ -233,7 +233,7 @@ const EditOrder2 = () => {
 
                       <span className="font-light text-slate-600">
                         <input
-                          type="text"
+                          type="number"
                           name="phone"
                           defaultValue={order?.phone}
                           onChange={(e) =>
@@ -307,7 +307,7 @@ const EditOrder2 = () => {
                             {" +"} */}
                             <span className="flex items-center gap-1">
                               <input
-                                type="text"
+                                type="number"
                                 name="weightInGram"
                                 defaultValue={item?.weightInGram}
                                 // onChange={(e) => setAddress(e.target.value)}
@@ -355,7 +355,7 @@ const EditOrder2 = () => {
                         <span>
                           <input
                             className="ml-1 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            type="text"
+                            type="number"
                             onChange={(e) =>
                               dispatch(
                                 updateOrderField({
@@ -400,7 +400,7 @@ const EditOrder2 = () => {
                                 })
                               )
                             }
-                            type="text"
+                            type="number"
                             name="discount"
                             defaultValue={order?.discount}
                             id="discount"
@@ -437,7 +437,7 @@ const EditOrder2 = () => {
                               )
                             }
                             className="ml-2 w-16 rounded-lg border-0 py-1.5 text-slate-600 ring-1 ring-inset ring-slate-300 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-green-500 text-sm font-light sm:leading-6 inline"
-                            type="text"
+                            type="number"
                             name="deliveryCharge"
                             defaultValue={order?.deliveryCharge}
                             id="extraDelCharge"
@@ -474,7 +474,7 @@ const EditOrder2 = () => {
                             //     })
                             //   )
                             // }
-                            type="text"
+                            type="number"
                             name="codcharges"
                             defaultValue={1}
                             id="discount"
