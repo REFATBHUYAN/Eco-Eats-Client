@@ -46,7 +46,7 @@ const Navbar = () => {
           aria-label="Global"
         >
           <div className="flex">
-            <a  href="/" className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
+            <a  href="/" className="flex items-center gap-2 cursor-pointer">
               <img
                 className="block h-8 w-auto"
                 src="/media/icon/ecoeats-icon.svg"
