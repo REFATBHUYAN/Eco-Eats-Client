@@ -15,7 +15,7 @@ const CreateOrder = () => {
   let orderedFood = foodDatas.filter((food) => food.checked === true);
 
   const [deliveryType, setdeliveryType] = useState("ঢাকার ভেতরে");
-  const [deliveryCharge, setdeliveryCharge] = useState("১০০");
+  const [deliveryCharge, setdeliveryCharge] = useState("৮০");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
@@ -58,7 +58,7 @@ const CreateOrder = () => {
   const handledeliveryType = (e) => {
     setdeliveryType(e.target.value);
     event.target.value === "ঢাকার ভেতরে"
-      ? setdeliveryCharge("১০০")
+      ? setdeliveryCharge("৮০")
       : setdeliveryCharge("১৩০");
   };
 
@@ -74,7 +74,7 @@ const CreateOrder = () => {
       (total, item) => total + item.quantity * item.price,
       0
     ),
-    deliveryCharge: deliveryCharge === "১০০" ? 100 : 130,
+    deliveryCharge: deliveryCharge === "৮০" ? 80 : 130,
   };
   // console.log(orderedData);
 
@@ -139,7 +139,7 @@ const CreateOrder = () => {
     0
   );
   const grandTotal =
-    deliveryCharge === "১০০" ? 100 + subTotalPrice : 130 + subTotalPrice;
+    deliveryCharge === "৮০" ? 80 + subTotalPrice : 130 + subTotalPrice;
 
   return (
     <div className="bg-white">
@@ -308,7 +308,7 @@ const CreateOrder = () => {
                               className="hover:bg-green-500 font-light"
                               value={"ঢাকার ভেতরে"}
                             >
-                              Inside Dhaka - ঢাকার ভেতরে - ৳ ১০০{" "}
+                              Inside Dhaka - ঢাকার ভেতরে - ৳ ৮০{" "}
                             </option>
                             <option
                               className="hover:bg-green-500 font-light"
@@ -494,7 +494,7 @@ const CreateOrder = () => {
                       <div className="flex justify-between items-center pt-6">
                         <h1 className="font-light">ডেলিভারী চার্জ</h1>
                         <h1 className="font-semibold text-green-500">
-                          {(deliveryCharge === "১০০" ? 100 : 130)?.toFixed(2)} tk
+                          {(deliveryCharge === "৮০" ? 80 : 130)?.toFixed(2)} tk
                         </h1>
                       </div>
                       <div className="flex justify-between items-center py-6">

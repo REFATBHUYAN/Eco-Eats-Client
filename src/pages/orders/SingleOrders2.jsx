@@ -267,7 +267,7 @@ const SingleOrders2 = () => {
                       </span>
                       <br />
                       <span className="font-light text-slate-600">
-                        +8801753492987
+                        01753492987
                       </span>
                     </dd>
                   </div>

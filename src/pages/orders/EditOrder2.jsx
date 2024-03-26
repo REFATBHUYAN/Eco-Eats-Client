@@ -186,7 +186,7 @@ const EditOrder2 = () => {
                       </span>
                       <br />
                       <span className="font-light text-slate-600">
-                        +8801753492987
+                        01753492987
                       </span>
                     </dd>
                   </div>
@@ -195,7 +195,7 @@ const EditOrder2 = () => {
                     <dd className="mt-1 flex flex-col gap-2">
                       <span className="font-medium text-slate-600">
                         <input
-                          type="tel"
+                          type="text"
                           name="name"
                           defaultValue={order?.name}
                           onChange={(e) =>

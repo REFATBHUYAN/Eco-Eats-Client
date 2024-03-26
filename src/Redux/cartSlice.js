@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const foodItems = [
   {
     id: 1,
-    checked: true,
+    checked: false,
     title: "গাছ চুইঝাল",
     weight: "৫০০ গ্রাম",
     weightInGram: 500,
@@ -54,7 +54,7 @@ const foodItems = [
   },
   {
     id: 5,
-    checked: false,
+    checked: true,
     title: "মিক্সড চুইঝাল",
     weight: "৫০০ গ্রাম",
     weightInGram: 500,
